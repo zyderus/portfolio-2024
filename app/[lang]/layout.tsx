@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Locale } from '@/i18n.config';
 import Header from '@/components/header';
+import { themeFlashFix } from '@/lib/theme';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,7 +27,10 @@ export default function RootLayout({
   } & PageProps
 >) {
   return (
-    <html lang={params.lang}>
+    <html lang={params.lang} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeFlashFix }}></script>
+      </head>
       <body className={`${inter.className}`}>
         <Header lang={params.lang} />
         <main>{children}</main>

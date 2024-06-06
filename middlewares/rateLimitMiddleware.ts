@@ -1,9 +1,9 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-export const emailMiddleware =
+export const rateLimitMiddleware =
   (middleware: Function) => (request: NextRequest) => {
-    console.log('TWO');
+    // console.log('TWO');
     const { pathname } = request.nextUrl;
 
     if (pathname.startsWith('/roll')) {

@@ -3,6 +3,7 @@ import { getDictionary } from '@/lib/dictionary';
 import LinkIntl from './link-intl';
 import LanguageSwitcher from './language-switcher';
 import ThemeSelector from './theme-switcher';
+import ThemeContainer from './theme-container';
 
 export default async function Header({ lang }: { lang: Locale }) {
   const {
@@ -24,8 +25,11 @@ export default async function Header({ lang }: { lang: Locale }) {
             </LinkIntl>
           </li>
         </ul>
-        <ThemeSelector />
-        <LanguageSwitcher lang={lang} />
+        <div className='flex gap-4'>
+          {/* <ThemeSelector /> */}
+          <LanguageSwitcher lang={lang} />
+          <ThemeContainer />
+        </div>
       </nav>
     </header>
   );

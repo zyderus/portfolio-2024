@@ -1,5 +1,6 @@
-export const LOCAL_STORAGE_THEME_KEY = 'theme';
+export const LOCAL_STORAGE_THEME_KEY = 'THEME';
 export const LONG_CLICK_DELAY = 700;
+export const LOCALE_COOKIE = 'NEXT_LOCALE';
 
 export const customThemes: string[] = [
   'pinky',

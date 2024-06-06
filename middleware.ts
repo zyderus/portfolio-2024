@@ -1,8 +1,8 @@
 import { chain } from './middlewares/chain';
 import { i18nMiddleware } from './middlewares/i18nMiddleware';
-import { emailMiddleware } from './middlewares/emailMiddleware';
+import { rateLimitMiddleware } from './middlewares/rateLimitMiddleware';
 
-const middlewares = [emailMiddleware, i18nMiddleware];
+const middlewares = [rateLimitMiddleware, i18nMiddleware];
 
 export default chain(middlewares);
 

@@ -1,9 +1,11 @@
+import { LOCAL_STORAGE_THEME_KEY } from './constants';
+
 const setDocumentTheme = (themeName: string) => {
-  document.documentElement?.setAttribute('data-theme', themeName);
+  document.documentElement.className = `${themeName}`;
 };
 
 const removeDocumentTheme = () => {
-  document.documentElement?.removeAttribute('data-theme');
+  document.documentElement.removeAttribute('class');
 };
 
 export const setTheme = (themeName: string) => {
@@ -13,30 +15,30 @@ export const setTheme = (themeName: string) => {
   ).matches;
 
   if (isSystemTheme && prefersDarkMode) {
-    localStorage.removeItem('theme');
+    localStorage.removeItem(LOCAL_STORAGE_THEME_KEY);
     setDocumentTheme('dark');
   } else if (isSystemTheme) {
-    localStorage.removeItem('theme');
+    localStorage.removeItem(LOCAL_STORAGE_THEME_KEY);
     removeDocumentTheme();
   } else {
-    localStorage.setItem('theme', themeName);
+    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, themeName);
     setDocumentTheme(themeName);
   }
 };
 
 export const themeFlashFix = `
-  const savedTheme = localStorage.getItem('theme');
+  const savedTheme = localStorage.getItem('${LOCAL_STORAGE_THEME_KEY}');
   if (savedTheme && savedTheme.length > 0) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.documentElement.className = savedTheme;
   } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.documentElement?.setAttribute('data-theme', 'dark');
+    document.documentElement.className = 'dark';
   }
   window
     .matchMedia('(prefers-color-scheme: dark)')
     .addEventListener('change', (event) => {
-      if (!localStorage.theme?.length) {
+      if (!localStorage.${LOCAL_STORAGE_THEME_KEY}?.length) {
         const newColorScheme = event.matches ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', newColorScheme);
+        document.documentElement.className = newColorScheme;
       }
     });
 `;
