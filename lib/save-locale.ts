@@ -1,6 +1,6 @@
 'use server';
 import { cookies } from 'next/headers';
-import { LOCALE_COOKIE } from '@/i18n.config';
+import { LOCALE_COOKIE } from '@/lib/constants';
 
 export async function saveLocale(locale: string = '') {
   if (locale === 'auto') cookies().delete(LOCALE_COOKIE);

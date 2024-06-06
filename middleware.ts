@@ -8,6 +8,6 @@ export default chain(middlewares);
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|.*svg|.*png|.*jpg|.*jpeg|.*gif|.*webp|/image|favicon.ico).*)',
+    '/((?!_next/static|.*svg|.*png|.*jpg|.*jpeg|.*gif|.*webp|/image|favicon.ico).*)',
   ],
 };

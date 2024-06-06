@@ -30,6 +30,7 @@
 }
 
 .pinky {
+  color-scheme: light;
   --color-primary: 19, 39, 67;
   --background-primary: 255, 181, 181;
   --background-secondary: 255, 203, 203;
@@ -53,6 +54,7 @@
 }
 
 .skyny {
+  color-scheme: light;
   --color-primary: 15, 42, 75;
   --background-primary: 233, 242, 251;
   --background-secondary: 214, 219, 220;

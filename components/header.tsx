@@ -2,7 +2,6 @@ import { Locale } from '@/i18n.config';
 import { getDictionary } from '@/lib/dictionary';
 import LinkIntl from './link-intl';
 import LanguageSwitcher from './language-switcher';
-import ThemeSelector from './theme-switcher';
 import ThemeContainer from './theme-container';
 
 export default async function Header({ lang }: { lang: Locale }) {
@@ -22,6 +21,11 @@ export default async function Header({ lang }: { lang: Locale }) {
           <li>
             <LinkIntl href='/about' lang={lang}>
               {navigation.about}
+            </LinkIntl>
+          </li>
+          <li>
+            <LinkIntl href='/contact' lang={lang}>
+              {navigation.contact}
             </LinkIntl>
           </li>
         </ul>
