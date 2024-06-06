@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark light;
+  --color-primary: 10, 10, 10;
+  --background-primary: 214, 219, 220;
+  --background-secondary: 252, 255, 255;
+  --accent: 66, 103, 178;
+
+  /* --border: 212, 212, 212;
+  --card: 255, 255, 255;
+
+  --copy-primary: 23, 23, 23;
+  --copy-secondary: 115, 115, 115;
+
+  --cta: 139, 92, 246;
+  --cta-active: 124, 58, 237;
+  --cta-text: 255, 255, 255; */
+
+  color: rgba(var(--color-primary));
+  background: rgba(var(--background-primary));
+}
+
+.light {
+  color-scheme: light;
+  --color-primary: 10, 10, 10;
+  --background-primary: 214, 219, 220;
+  --background-secondary: 252, 255, 255;
+  --accent: 66, 103, 178;
+
+  /* --border: 212, 212, 212;
+  --card: 255, 255, 255;
+
+  --copy-primary: 23, 23, 23;
+  --copy-secondary: 115, 115, 115;
+
+  --cta: 139, 92, 246;
+  --cta-active: 124, 58, 237;
+  --cta-text: 255, 255, 255; */
+}
+
+.dark {
+  color-scheme: dark;
+  --color-primary: 221, 221, 221;
+  --background-primary: 37, 37, 37;
+  --background-secondary: 98, 98, 98;
+  --accent: 255, 127, 80;
+
+  /* --border: 38, 38, 38;
+  --card: 23, 23, 23;
+
+  --copy-primary: 250, 250, 250;
+  --copy-secondary: 115, 115, 115;
+
+  --cta: 99, 102, 241;
+  --cta-active: 79, 70, 229;
+  --cta-text: 255, 255, 255; */
+}
+
+.pinky {
+  --color-primary: 19, 39, 67;
+  --background-primary: 255, 181, 181;
+  --background-secondary: 255, 203, 203;
+  --accent: 64, 112, 136;
+}
+
+.grayzle {
+  color-scheme: dark;
+  --color-primary: 255, 255, 255;
+  --background-primary: 110, 110, 110;
+  --background-secondary: 139, 139, 139;
+  --accent: 186, 255, 57;
+}
+
+.synth {
+  color-scheme: dark;
+  --color-primary: 248, 208, 130;
+  --background-primary: 100, 13, 107;
+  --background-secondary: 181, 27, 117;
+  --accent: 230, 92, 25;
+}
+
+.skyny {
+  --color-primary: 15, 42, 75;
+  --background-primary: 233, 242, 251;
+  --background-secondary: 214, 219, 220;
+  --accent: 0, 171, 228;
+}
+
+.cozify {
+  color-scheme: dark;
+  --color-primary: 241, 241, 241;
+  --background-primary: 84, 77, 69;
+  --background-secondary: 234, 219, 200;
+  --accent: 183, 210, 96;
+}
+
+.goldbluem {
+  color-scheme: dark;
+  --color-primary: 29, 160, 149;
+  --background-primary: 7, 22, 36;
+  --background-secondary: 198, 209, 220;
+  --accent: 115, 105, 92;
+}
+
+.violetize {
+  color-scheme: light;
+  --color-primary: 0, 60, 0;
+  --background-primary: 177, 156, 217;
+  --background-secondary: 212, 187, 255;
+  --accent: 127, 255, 0;
+}
+
+.snob {
+  color-scheme: dark;
+  --color-primary: 244, 228, 205;
+  --background-primary: 0, 18, 51;
+  --background-secondary: 26, 45, 77;
+  --accent: 252, 90, 91;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
