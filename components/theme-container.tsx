@@ -1,11 +1,11 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import ProgressbarWrapper from './progressbar-wrapper';
 import ThemeButton from './theme-button';
 import DropdownMenu from './dropdown-menu';
 import useLongClick from '../hooks/useLongClick';
 import useTheme from '../hooks/useTheme';
-import { LONG_CLICK_DELAY } from '../lib/constants';
+import { LOCAL_STORAGE_THEME_KEY, LONG_CLICK_DELAY } from '../lib/constants';
 
 export default function ThemeContainer() {
   const [mounted, setMounted] = useState(false);
@@ -49,6 +49,17 @@ export default function ThemeContainer() {
       document.removeEventListener('mousedown', handleDocumentClick);
     };
   }, []);
+
+  /*  TODO: find solution and write a bug report to vercel */
+  // Fix theme class breaking on i18n middleware redirect && app behind [lang] route
+  useLayoutEffect(() => {
+    const savedTheme = localStorage?.getItem(LOCAL_STORAGE_THEME_KEY);
+
+    if (savedTheme) {
+      document.documentElement.className = `${savedTheme}`;
+    }
+  }, []);
+
   return (
     <div className='relative' style={{ position: 'relative' }}>
       <ProgressbarWrapper duration={LONG_CLICK_DELAY}>

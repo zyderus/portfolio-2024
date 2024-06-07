@@ -26,13 +26,13 @@ export default function CountdownButton({
     ? `${dictionary.sending}...`
     : countdown > 0
     ? `${dictionary.resend} ${countdown}`
-    : `${dictionary.send}`;
+    : dictionary.send;
 
   return (
     <button
-      className={`hover:shadow-form rounded-md ${
-        buttonDisabled ? 'bg-gray-400' : 'bg-purple-500'
-      } py-3 px-8 text-base font-semibold text-white outline-none`}
+      className={`hover:shadow-form rounded-md py-3 px-8 text-base font-semibold text-bg-primary outline-none ${
+        buttonDisabled ? 'bg-gray-400' : 'bg-accent'
+      }`}
       disabled={buttonDisabled}
     >
       {buttonLabel}

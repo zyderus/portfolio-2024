@@ -1,9 +1,15 @@
 'use client';
 import { useRouter, usePathname } from 'next/navigation';
-import { saveLocale } from '@/lib/save-locale';
+import { saveLocale, getLocaleCookie } from '@/lib/save-locale';
 import { Locale, i18n } from '@/i18n.config';
+import { useEffect, useState } from 'react';
 
-export default function LanguageSwitcher({ lang }: { lang: Locale }) {
+interface LanguageSwitcherProps {
+  lang: Locale;
+}
+
+export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
+  const [locale, setLocale] = useState<Locale | 'auto'>(lang);
   const { locales, defaultLocale } = i18n;
   const router = useRouter();
   let pathname = usePathname();
@@ -21,29 +27,36 @@ export default function LanguageSwitcher({ lang }: { lang: Locale }) {
       url = '/' + rest.join('/');
     }
 
-    if (locale === 'auto' || locale === defaultLocale) {
-      return url;
-    }
-
-    return `/${locale}${url}`;
+    return locale === 'auto' || locale === defaultLocale
+      ? url
+      : `/${locale}${url}`;
   };
 
-  const handleLanguageChange = async (locale: string) => {
-    await saveLocale(locale);
-    const url = buildPathname(locale);
+  const handleLanguageChange = async (newLocale: string) => {
+    await saveLocale(newLocale);
+    const url = buildPathname(newLocale);
     router.push(url);
 
-    if (locale === 'auto') {
+    if (newLocale === 'auto') {
+      setLocale('auto');
       router.refresh();
     }
   };
+
+  useEffect(() => {
+    const fetchLocale = async () => {
+      const localeCookie = await getLocaleCookie();
+      if (!localeCookie) setLocale('auto');
+    };
+    fetchLocale();
+  }, []);
 
   return (
     <div>
       <select
         className='cursor-pointer'
         onChange={(e) => handleLanguageChange(e.target.value)}
-        defaultValue={lang}
+        value={locale === 'auto' ? 'auto' : lang}
       >
         <option value='auto'>Auto</option>
         {locales.map((loc) => (

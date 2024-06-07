@@ -30,7 +30,6 @@ export default async function Header({ lang }: { lang: Locale }) {
           </li>
         </ul>
         <div className='flex gap-4'>
-          {/* <ThemeSelector /> */}
           <LanguageSwitcher lang={lang} />
           <ThemeContainer />
         </div>
