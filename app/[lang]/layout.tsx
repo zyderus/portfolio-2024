@@ -1,9 +1,10 @@
+import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
 import { Locale } from '@/i18n.config';
-import Header from '@/components/header';
 import { themeFlashFix } from '@/lib/theme';
+import Header from '@/components/header';
+import ApplyCssClasses from '@/components/apply-css-classes';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeFlashFix }}></script>
       </head>
       <body className={`${inter.className}`}>
+        <ApplyCssClasses />
         <Header lang={params.lang} />
         <main>{children}</main>
       </body>

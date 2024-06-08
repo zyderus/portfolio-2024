@@ -2,7 +2,12 @@
 import { useState, useEffect } from 'react';
 import { LOCAL_STORAGE_THEME_KEY } from '@/lib/constants';
 import { setTheme } from '@/lib/theme';
-import { FaCircleHalfStroke, FaMoon, FaGear } from 'react-icons/fa6';
+import {
+  FaCircleHalfStroke,
+  FaMoon,
+  FaGear,
+  FaRegCircleQuestion,
+} from 'react-icons/fa6';
 import { MdWbSunny } from 'react-icons/md';
 
 export enum ThemeName {
@@ -69,7 +74,7 @@ export default function useTheme() {
   const icon = customTheme ? <FaGear /> : themes[currentThemeIndex]?.icon;
 
   return {
-    icon,
+    icon: icon || <FaRegCircleQuestion style={{ fontSize: '1.20rem' }} />,
     cycleTheme,
     setNewCustomTheme,
   };
