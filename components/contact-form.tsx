@@ -6,8 +6,7 @@ import type { EmailTemplateProps } from '@/templates/email-template';
 import CountdownButton from '@/components/countdown-button';
 import { RATE_LIMIT_INTERVAL } from '@/lib/constants';
 import { toast } from 'react-toastify';
-
-export type JSONtype = { [key: string]: any };
+import { JSONtype } from '@/lib/types';
 
 interface ContactFormProps {
   dictionary: JSONtype;
