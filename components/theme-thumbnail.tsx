@@ -1,5 +1,7 @@
+import type { ThemeName } from '@/lib/constants';
+
 interface ThemeThumbnailProps {
-  themeName: string;
+  themeName: ThemeName;
 }
 
 export default function ThemeThumbnail({ themeName }: ThemeThumbnailProps) {

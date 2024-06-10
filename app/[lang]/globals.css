@@ -6,7 +6,7 @@
   color-scheme: dark light;
   --color-primary: 10, 10, 10;
   --background-primary: 255, 255, 255;
-  --background-secondary: 252, 255, 255;
+  --background-secondary: 232, 235, 235;
   --accent: 66, 103, 178;
 
   color: rgba(var(--color-primary));
@@ -27,7 +27,7 @@
   color-scheme: light;
   --color-primary: 10, 10, 10;
   --background-primary: 255, 255, 255;
-  --background-secondary: 252, 255, 255;
+  --background-secondary: 232, 235, 235;
   --accent: 66, 103, 178;
 }
 

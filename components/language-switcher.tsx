@@ -14,7 +14,7 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
   const router = useRouter();
   let pathname = usePathname();
 
-  const buildPathname = (locale: string) => {
+  const buildPathname = (locale: Locale | 'auto') => {
     if (!pathname) return '/';
     let url = pathname;
 
@@ -32,7 +32,7 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
       : `/${locale}${url}`;
   };
 
-  const handleLanguageChange = async (newLocale: string) => {
+  const handleLanguageChange = async (newLocale: Locale | 'auto') => {
     await saveLocale(newLocale);
     const url = buildPathname(newLocale);
     router.push(url);
@@ -55,7 +55,7 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
     <div>
       <select
         className='cursor-pointer'
-        onChange={(e) => handleLanguageChange(e.target.value)}
+        onChange={(e) => handleLanguageChange(e.target.value as Locale)}
         value={locale === 'auto' ? 'auto' : lang}
       >
         <option value='auto'>Auto</option>
@@ -65,6 +65,8 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
           </option>
         ))}
       </select>
+
+      {/* TODO: Remove when done testing */}
       {/* <ul className='flex gap-x-3'>
         <li>
           <button

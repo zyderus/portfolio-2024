@@ -1,9 +1,9 @@
-import { i18n } from '@/i18n.config';
+import { Locale, i18n } from '@/i18n.config';
 import Link from 'next/link';
 
 type LinkIntlProps = {
   href: string;
-  lang: string;
+  lang: Locale;
   children: React.ReactNode;
   [key: string]: any;
 };

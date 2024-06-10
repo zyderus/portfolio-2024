@@ -1,11 +1,12 @@
 import ThemeThumbnail from '@/components/theme-thumbnail';
-import { customThemes } from '@/hooks/useTheme';
+import { customThemes } from '@/lib/constants';
+import { CustomTheme } from '@/lib/constants';
 
 interface DropdownMenuProps {
   isDropdownOpen: boolean;
   dropdownRef: React.RefObject<HTMLDivElement>;
   className?: string;
-  handleDropdownTheme: (theme: string) => void;
+  handleDropdownTheme: (theme: CustomTheme) => void;
 }
 
 export default function DropdownMenu({

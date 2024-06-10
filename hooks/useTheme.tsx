@@ -1,14 +1,15 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { LOCAL_STORAGE_THEME_KEY } from '@/lib/constants';
+import { LOCAL_STORAGE_THEME_KEY, customThemes } from '@/lib/constants';
 import { setTheme } from '@/lib/theme';
+import type { CustomTheme } from '@/lib/constants';
+import { MdWbSunny } from 'react-icons/md';
 import {
   FaCircleHalfStroke,
   FaMoon,
   FaGear,
   FaRegCircleQuestion,
 } from 'react-icons/fa6';
-import { MdWbSunny } from 'react-icons/md';
 
 export enum ThemeName {
   AUTO = 'auto',
@@ -16,12 +17,12 @@ export enum ThemeName {
   DARK = 'dark',
 }
 
-export interface Theme {
-  name: string;
+export interface ThemeItem {
+  name: ThemeName;
   icon: JSX.Element;
 }
 
-export const themes: Theme[] = [
+export const themes: ThemeItem[] = [
   { name: ThemeName.AUTO, icon: <FaCircleHalfStroke /> },
   {
     name: ThemeName.LIGHT,
@@ -30,20 +31,9 @@ export const themes: Theme[] = [
   { name: ThemeName.DARK, icon: <FaMoon /> },
 ];
 
-export const customThemes: string[] = [
-  'pinky',
-  'grayzle',
-  'synth',
-  'skyny',
-  'cozify',
-  'goldbluem',
-  'violetize',
-  'snob',
-];
-
 export default function useTheme() {
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
-  const [customTheme, setCustomTheme] = useState('');
+  const [customTheme, setCustomTheme] = useState<string>('');
 
   const cycleTheme = () => {
     setCustomTheme('');
@@ -52,7 +42,7 @@ export default function useTheme() {
     setTheme(themes[nextIndex].name);
   };
 
-  const setNewCustomTheme = (themeName: string) => {
+  const setNewCustomTheme = (themeName: CustomTheme) => {
     if (customThemes.includes(themeName)) {
       setCustomTheme(themeName);
       setTheme(themeName);
@@ -63,7 +53,9 @@ export default function useTheme() {
     const storedTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) || 'auto';
     const storedThemeIndex =
       themes.findIndex((t) => t.name === storedTheme) || 0;
-    const isStoredCustomTheme = customThemes.includes(storedTheme)
+    const isStoredCustomTheme = customThemes.includes(
+      storedTheme as CustomTheme
+    )
       ? storedTheme
       : '';
 

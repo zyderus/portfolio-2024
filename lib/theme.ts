@@ -1,6 +1,6 @@
-import { LOCAL_STORAGE_THEME_KEY } from './constants';
+import { LOCAL_STORAGE_THEME_KEY, type ThemeName } from './constants';
 
-const setDocumentTheme = (themeName: string) => {
+const setDocumentTheme = (themeName: ThemeName) => {
   document.documentElement.className = `${themeName}`;
 };
 
@@ -8,7 +8,7 @@ const removeDocumentTheme = () => {
   document.documentElement.removeAttribute('class');
 };
 
-export const setTheme = (themeName: string) => {
+export const setTheme = (themeName: ThemeName) => {
   const isSystemTheme = themeName === 'auto';
   const prefersDarkMode = window.matchMedia(
     '(prefers-color-scheme: dark)'

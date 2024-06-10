@@ -1,13 +1,13 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { LONG_CLICK_DELAY } from '@/lib/constants';
+import { CustomTheme, LONG_CLICK_DELAY } from '@/lib/constants';
 import useLongClick from '@/hooks/useLongClick';
 import useTheme from '@/hooks/useTheme';
 import ProgressbarWrapper from '@/components/progressbar-wrapper';
-import ThemeButton from '@/components/theme-button';
 import DropdownMenu from '@/components/dropdown-menu';
+import ThemeButton from '@/components/theme-button';
 
-export default function ThemeContainer() {
+export default function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -26,7 +26,7 @@ export default function ThemeContainer() {
     setIsDropdownOpen(true);
   };
 
-  const handleDropdownTheme = (newTheme: string) => {
+  const handleDropdownTheme = (newTheme: CustomTheme) => {
     setNewCustomTheme(newTheme);
   };
 

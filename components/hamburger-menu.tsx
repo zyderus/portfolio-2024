@@ -8,7 +8,10 @@ export default function HamburgerMenu({
   toggleMenu,
 }: HamburgerMenuProps) {
   return (
-    <div onClick={toggleMenu} className='p-1 cursor-pointer z-50 group'>
+    <div
+      onClick={toggleMenu}
+      className='block md:hidden p-1 cursor-pointer z-50 group'
+    >
       <button className='relative w-9 h-9 flex items-center justify-center focus:outline-none'>
         <span
           className={`block absolute h-0.5 bg-color-primary transform transition duration-100 ease-in-out ${

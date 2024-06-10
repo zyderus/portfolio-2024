@@ -31,7 +31,7 @@ export const navLinks = [
   },
 ];
 
-export const customThemes: string[] = [
+export const customThemes = [
   'pinky',
   'grayzle',
   'synth',
@@ -40,4 +40,7 @@ export const customThemes: string[] = [
   'goldbluem',
   'violetize',
   'snob',
-];
+] as const;
+
+export type CustomTheme = (typeof customThemes)[number];
+export type ThemeName = CustomTheme | 'auto' | 'light' | 'dark';
