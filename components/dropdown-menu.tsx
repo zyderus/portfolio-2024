@@ -2,23 +2,19 @@ import ThemeThumbnail from '@/components/theme-thumbnail';
 import { customThemes } from '@/hooks/useTheme';
 
 interface DropdownMenuProps {
-  dropdownOpen: boolean;
+  isDropdownOpen: boolean;
   dropdownRef: React.RefObject<HTMLDivElement>;
   className?: string;
-  setNewCustomTheme: (theme: string) => void;
+  handleDropdownTheme: (theme: string) => void;
 }
 
 export default function DropdownMenu({
-  dropdownOpen,
+  isDropdownOpen,
   dropdownRef,
   className = '',
-  setNewCustomTheme,
+  handleDropdownTheme,
 }: DropdownMenuProps) {
-  const handleClick = (theme: string) => {
-    setNewCustomTheme(theme);
-  };
-
-  if (!dropdownOpen) return null;
+  if (!isDropdownOpen) return null;
 
   return (
     <div
@@ -30,7 +26,7 @@ export default function DropdownMenu({
         <div
           key={theme}
           className='block px-4 py-2 cursor-pointer hover:bg-accent/30'
-          onClick={() => handleClick(theme)}
+          onClick={() => handleDropdownTheme(theme)}
           role='menuitem'
         >
           <ThemeThumbnail themeName={theme} />

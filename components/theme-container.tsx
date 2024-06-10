@@ -9,21 +9,25 @@ import DropdownMenu from '@/components/dropdown-menu';
 
 export default function ThemeContainer() {
   const [mounted, setMounted] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const { icon, cycleTheme, setNewCustomTheme } = useTheme();
 
   const handleClick = () => {
-    if (dropdownOpen) {
-      setDropdownOpen(false);
+    if (isDropdownOpen) {
+      setIsDropdownOpen(false);
     } else {
       cycleTheme();
     }
   };
 
   const handleLongClick = () => {
-    setDropdownOpen(true);
+    setIsDropdownOpen(true);
+  };
+
+  const handleDropdownTheme = (newTheme: string) => {
+    setNewCustomTheme(newTheme);
   };
 
   const { vibration, handlers } = useLongClick({
@@ -37,7 +41,7 @@ export default function ThemeContainer() {
       dropdownRef.current &&
       !dropdownRef.current.contains(event.target as Node)
     ) {
-      setDropdownOpen(false);
+      setIsDropdownOpen(false);
     }
   };
 
@@ -54,7 +58,7 @@ export default function ThemeContainer() {
     <div className='relative' style={{ position: 'relative' }}>
       <ProgressbarWrapper duration={LONG_CLICK_DELAY}>
         <ThemeButton
-          dropdownOpen={dropdownOpen}
+          isDropdownOpen={isDropdownOpen}
           icon={icon}
           vibration={vibration}
           mounted={mounted}
@@ -63,9 +67,9 @@ export default function ThemeContainer() {
       </ProgressbarWrapper>
 
       <DropdownMenu
-        dropdownOpen={dropdownOpen}
+        isDropdownOpen={isDropdownOpen}
         dropdownRef={dropdownRef}
-        setNewCustomTheme={setNewCustomTheme}
+        handleDropdownTheme={handleDropdownTheme}
       />
     </div>
   );

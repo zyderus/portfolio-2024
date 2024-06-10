@@ -3,7 +3,7 @@ import { FaXmark } from 'react-icons/fa6';
 import { ImSpinner9 } from 'react-icons/im';
 
 interface ThemeButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  dropdownOpen: boolean;
+  isDropdownOpen: boolean;
   icon: ReactNode;
   vibration: boolean;
   mounted: boolean;
@@ -11,7 +11,7 @@ interface ThemeButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export default function ThemeButton({
-  dropdownOpen,
+  isDropdownOpen,
   icon,
   vibration,
   mounted,
@@ -23,7 +23,7 @@ export default function ThemeButton({
       className={`${className}`}
       {...rest}
       aria-haspopup='true'
-      aria-expanded={dropdownOpen}
+      aria-expanded={isDropdownOpen}
     >
       <div
         className={`relative w-6 h-6 flex justify-center items-center z-10 ${
@@ -32,7 +32,7 @@ export default function ThemeButton({
       >
         {!mounted ? (
           <ImSpinner9 className='spinner' />
-        ) : dropdownOpen ? (
+        ) : isDropdownOpen ? (
           <FaXmark />
         ) : (
           icon
