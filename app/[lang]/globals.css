@@ -5,7 +5,7 @@
 :root {
   color-scheme: dark light;
   --color-primary: 10, 10, 10;
-  --background-primary: 214, 219, 220;
+  --background-primary: 255, 255, 255;
   --background-secondary: 252, 255, 255;
   --accent: 66, 103, 178;
 
@@ -26,7 +26,7 @@
 .light {
   color-scheme: light;
   --color-primary: 10, 10, 10;
-  --background-primary: 214, 219, 220;
+  --background-primary: 255, 255, 255;
   --background-secondary: 252, 255, 255;
   --accent: 66, 103, 178;
 }

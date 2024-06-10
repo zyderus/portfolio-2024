@@ -1,5 +1,5 @@
-import ThemeThumbnail from './theme-thumbnail';
-import { customThemes } from '../hooks/useTheme';
+import ThemeThumbnail from '@/components/theme-thumbnail';
+import { customThemes } from '@/hooks/useTheme';
 
 interface DropdownMenuProps {
   dropdownOpen: boolean;

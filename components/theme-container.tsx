@@ -1,11 +1,11 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import ProgressbarWrapper from './progressbar-wrapper';
-import ThemeButton from './theme-button';
-import DropdownMenu from './dropdown-menu';
-import useLongClick from '../hooks/useLongClick';
-import useTheme from '../hooks/useTheme';
-import { LONG_CLICK_DELAY } from '../lib/constants';
+import { LONG_CLICK_DELAY } from '@/lib/constants';
+import useLongClick from '@/hooks/useLongClick';
+import useTheme from '@/hooks/useTheme';
+import ProgressbarWrapper from '@/components/progressbar-wrapper';
+import ThemeButton from '@/components/theme-button';
+import DropdownMenu from '@/components/dropdown-menu';
 
 export default function ThemeContainer() {
   const [mounted, setMounted] = useState(false);

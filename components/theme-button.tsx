@@ -1,6 +1,6 @@
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { FaXmark } from 'react-icons/fa6';
 import { ImSpinner9 } from 'react-icons/im';
-import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 interface ThemeButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   dropdownOpen: boolean;

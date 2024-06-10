@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { JSONtype } from './contact-form';
+import { JsonType } from '@/lib/types';
 
 interface CountdownButtonProps {
   loading: boolean;
   countdown: number;
   setCountdown: React.Dispatch<React.SetStateAction<number>>;
-  dictionary: JSONtype;
+  dictionary: JsonType;
 }
 
 export default function CountdownButton({

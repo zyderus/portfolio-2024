@@ -4,4 +4,4 @@ export interface LangProps {
   lang: Locale;
 }
 
-export type JSONtype = { [key: string]: any };
+export type JsonType = { [key: string]: any };

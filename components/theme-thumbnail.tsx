@@ -1,4 +1,8 @@
-export default function ThemeThumbnail({ themeName }: { themeName: string }) {
+interface ThemeThumbnailProps {
+  themeName: string;
+}
+
+export default function ThemeThumbnail({ themeName }: ThemeThumbnailProps) {
   return (
     <div
       className={`${themeName} py-4 px-5 bg-bg-primary border border-color-primary w-40 h-24 rounded-lg shadow-xl`}

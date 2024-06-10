@@ -1,15 +1,15 @@
 'use client';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { formatDate } from '@/lib/format-date';
-import type { EmailTemplateProps } from '@/templates/email-template';
-import CountdownButton from '@/components/countdown-button';
-import { RATE_LIMIT_INTERVAL } from '@/lib/constants';
 import { toast } from 'react-toastify';
-import { JSONtype } from '@/lib/types';
+import type { EmailTemplateProps } from '@/templates/email-template';
+import type { JsonType } from '@/lib/types';
+import { RATE_LIMIT_INTERVAL } from '@/lib/constants';
+import { formatDate } from '@/lib/format-date';
+import CountdownButton from '@/components/countdown-button';
 
 interface ContactFormProps {
-  dictionary: JSONtype;
+  dictionary: JsonType;
 }
 
 export default function ContactForm({ dictionary }: ContactFormProps) {
@@ -72,6 +72,7 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
           placeholder='example@domain.com'
           className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-blue-500 focus:shadow-md'
           {...register('email')}
+          // TODO: Update required when testing complete
           // {...register('email', { required: true })}
         />
       </div>
