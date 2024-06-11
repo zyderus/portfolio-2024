@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { LOCAL_STORAGE_THEME_KEY, customThemes } from '@/lib/constants';
 import { setTheme } from '@/lib/theme';
-import type { CustomTheme } from '@/lib/constants';
+import type { CustomTheme } from '@/lib/types';
 import { MdWbSunny } from 'react-icons/md';
 import {
   FaCircleHalfStroke,

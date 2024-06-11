@@ -1,6 +1,6 @@
 import ThemeThumbnail from '@/components/theme-thumbnail';
 import { customThemes } from '@/lib/constants';
-import { CustomTheme } from '@/lib/constants';
+import type { CustomTheme } from '@/lib/types';
 
 interface DropdownMenuProps {
   isDropdownOpen: boolean;

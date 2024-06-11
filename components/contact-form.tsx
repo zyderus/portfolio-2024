@@ -2,9 +2,9 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { RATE_LIMIT_INTERVAL } from '@/lib/constants';
 import type { EmailTemplateProps } from '@/templates/email-template';
 import type { JsonType } from '@/lib/types';
-import { RATE_LIMIT_INTERVAL } from '@/lib/constants';
 import { formatDate } from '@/lib/format-date';
 import CountdownButton from '@/components/countdown-button';
 

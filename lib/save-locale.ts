@@ -1,7 +1,7 @@
 'use server';
 import { cookies } from 'next/headers';
 import { LOCALE_COOKIE } from '@/lib/constants';
-import { Locale } from '@/i18n.config';
+import type { Locale } from '@/i18n.config';
 
 type SaveLocaleType = Locale | 'auto' | '';
 

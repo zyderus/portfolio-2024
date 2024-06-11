@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { JsonType } from '@/lib/types';
+import type { JsonType } from '@/lib/types';
 
 interface CountdownButtonProps {
   loading: boolean;

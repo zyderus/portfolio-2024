@@ -1,4 +1,4 @@
-import { Locale, i18n } from '@/i18n.config';
+import { type Locale, i18n } from '@/i18n.config';
 import Link from 'next/link';
 
 type LinkIntlProps = {

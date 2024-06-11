@@ -41,6 +41,3 @@ export const customThemes = [
   'violetize',
   'snob',
 ] as const;
-
-export type CustomTheme = (typeof customThemes)[number];
-export type ThemeName = CustomTheme | 'auto' | 'light' | 'dark';

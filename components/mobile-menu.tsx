@@ -50,7 +50,7 @@ export default function MobileMenu({ lang, dictionary }: MobileMenuProps) {
         </div>
       </div>
       <div
-        className={`fixed top-0 left-0 h-full w-full transition ease-in-out duration-120 -z-10 ${
+        className={`fixed pointer-events-none top-0 left-0 h-full w-full transition ease-in-out duration-120 -z-10 ${
           isOpen ? 'backdrop-blur-sm bg-black/10' : ''
         }`}
         aria-label='Blur overlay'

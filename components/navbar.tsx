@@ -15,8 +15,12 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
   return (
     <nav className='fixed w-full py-4'>
       <div className='px-16 flex justify-between items-center'>
-        <div className='text-3xl text-color-primary'>RZ</div>
-        <ul className='border border-black hidden md:flex space-x-8'>
+        <div className='text-3xl text-color-primary'>
+          <LinkIntl href='/' lang={lang}>
+            RZ
+          </LinkIntl>
+        </div>
+        <ul className='hidden md:flex space-x-8'>
           {navLinks.map(({ key, url }) => (
             <li key={key}>
               <LinkIntl href={url} lang={lang}>
@@ -25,7 +29,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
             </li>
           ))}
         </ul>
-        <div className='border border-black hidden md:flex space-x-4'>
+        <div className='hidden md:flex space-x-4'>
           <LanguageSwitcher lang={lang} />
           <ThemeSwitcher />
         </div>

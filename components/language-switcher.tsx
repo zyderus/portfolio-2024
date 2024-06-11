@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { Locale, i18n } from '@/i18n.config';
+import { type Locale, i18n } from '@/i18n.config';
 import { saveLocale, getLocaleCookie } from '@/lib/save-locale';
 
 interface LanguageSwitcherProps {

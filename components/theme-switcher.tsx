@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { CustomTheme, LONG_CLICK_DELAY } from '@/lib/constants';
+import { LONG_CLICK_DELAY } from '@/lib/constants';
+import type { CustomTheme } from '@/lib/types';
 import useLongClick from '@/hooks/useLongClick';
 import useTheme from '@/hooks/useTheme';
 import ProgressbarWrapper from '@/components/progressbar-wrapper';

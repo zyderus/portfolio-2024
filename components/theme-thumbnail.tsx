@@ -1,4 +1,4 @@
-import type { ThemeName } from '@/lib/constants';
+import type { ThemeName } from '@/lib/types';
 
 interface ThemeThumbnailProps {
   themeName: ThemeName;
