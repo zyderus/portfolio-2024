@@ -8,7 +8,7 @@ export default async function Header({ lang }: LangProps) {
   } = await getDictionary(lang);
 
   return (
-    <header className='h-[70px] shadow-md'>
+    <header>
       <Navbar lang={lang} dictionary={navigation} />
     </header>
   );

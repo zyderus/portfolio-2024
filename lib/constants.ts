@@ -41,3 +41,24 @@ export const customThemes = [
   'violetize',
   'snob',
 ] as const;
+
+export const myData = {
+  name: 'Rustam',
+  githubUrl: 'https://github.com/zyderus',
+  linkedInUrl: 'https://www.linkedin.com/in/rustamziyadov',
+  portfolioUrl: 'http://www.rystam.com',
+  resumeUrl: 'https://www.rystam.com/assets/resume/resume_en.pdf',
+  telegramNick: '@rystamz',
+  skills: [
+    'Javascript',
+    'Typescript',
+    'Node',
+    'React',
+    'Next',
+    'PostgreSQL',
+    'MongoDB',
+    'GraphQL',
+    'Storybook',
+    'Cucumber',
+  ],
+};

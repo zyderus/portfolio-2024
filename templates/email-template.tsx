@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   Body,
   Container,
@@ -12,28 +13,7 @@ import {
   Text,
   Tailwind,
 } from '@react-email/components';
-import * as React from 'react';
-
-const data = {
-  myName: 'Rustam',
-  githubUrl: 'https://github.com/zyderus',
-  linkedInUrl: 'https://www.linkedin.com/in/rustamziyadov',
-  portfolioUrl: 'http://www.rystam.com',
-  resumeUrl: 'https://www.rystam.com/assets/resume/resume_en.pdf',
-  telegramNick: '@rystamz',
-  skills: [
-    'Javascript',
-    'Typescript',
-    'Node',
-    'React',
-    'Next',
-    'PostgreSQL',
-    'MongoDB',
-    'GraphQL',
-    'Storybook',
-    'Cucumber',
-  ],
-};
+import { myData } from '@/lib/constants';
 
 // template does NOT understand Flexbox nor Grid
 // set once you know your url
@@ -68,7 +48,7 @@ export const EmailTemplate = ({
               </Column>
               <Column align='right'>
                 <Link
-                  href={data.linkedInUrl}
+                  href={myData.linkedInUrl}
                   className='ml-1 border-solid border border-[#e8e5e3] rounded-full text-center inline-block p-2.5 text-[#a09b96]'
                 >
                   {/* 
@@ -86,7 +66,7 @@ export const EmailTemplate = ({
                   </div>
                 </Link>
                 <Link
-                  href={data.githubUrl}
+                  href={myData.githubUrl}
                   className='ml-1 border-solid border border-[#e8e5e3] rounded-full text-center inline-block leading-9 p-2.5 text-[#a09b96]'
                 >
                   <div className='text-center'>
@@ -100,7 +80,7 @@ export const EmailTemplate = ({
                   </div>
                 </Link>
                 <Link
-                  href={data.portfolioUrl}
+                  href={myData.portfolioUrl}
                   className='ml-1 border-solid border border-[#e8e5e3] rounded-full text-center inline-block p-2.5 leading-9 text-[#a09b96]'
                 >
                   <div className='text-center'>
@@ -131,7 +111,7 @@ export const EmailTemplate = ({
                 <br />
                 Email:{' '}
                 <Link
-                  href={`mailto:${email}?subject=Re:%20Your%20inquiry%20via%20${data.portfolioUrl.slice(
+                  href={`mailto:${email}?subject=Re:%20Your%20inquiry%20via%20${myData.portfolioUrl.slice(
                     7
                   )}&body=Hi%20${name},`}
                 >
@@ -144,7 +124,7 @@ export const EmailTemplate = ({
               In the meantime, here&apos;s a quick recap of the tools I use ✨
             </Text>
             <ul className='text-blue-500 columns-2 max-w-xs mx-auto font-mono'>
-              {data.skills.map((skill, idx) => (
+              {myData.skills.map((skill, idx) => (
                 <li key={idx}>{skill}</li>
               ))}
             </ul>
@@ -153,9 +133,9 @@ export const EmailTemplate = ({
             </Text>
             <Row>
               <Column align='center'>
-                <Link href={data.portfolioUrl}>portfolio</Link>
+                <Link href={myData.portfolioUrl}>portfolio</Link>
                 <br />
-                <Link href={data.portfolioUrl}>
+                <Link href={myData.portfolioUrl}>
                   <Img
                     src={`${baseUrl}/thumbnail-portfolio.webp`}
                     width='100'
@@ -166,8 +146,8 @@ export const EmailTemplate = ({
                 </Link>
               </Column>
               <Column align='center'>
-                <Link href={data.resumeUrl}>resume</Link>
-                <Link href={data.resumeUrl}>
+                <Link href={myData.resumeUrl}>resume</Link>
+                <Link href={myData.resumeUrl}>
                   <Img
                     src={`${baseUrl}/thumbnail-resume.webp`}
                     width='100'
@@ -179,27 +159,27 @@ export const EmailTemplate = ({
               </Column>
             </Row>
             <Text>Have a good day ☀️,</Text>
-            <Text>{data.myName}</Text>
+            <Text>{myData.name}</Text>
           </Section>
         </Container>
         <Text className='text-center text-[#a09b96] leading-8'>
-          <Link href={data.linkedInUrl} className='text-[#a09b96]'>
+          <Link href={myData.linkedInUrl} className='text-[#a09b96]'>
             LinkedIn
           </Link>{' '}
           <span className='text-[14px] font-mono'>|</span>{' '}
-          <Link href={data.githubUrl} className='text-[#a09b96]'>
+          <Link href={myData.githubUrl} className='text-[#a09b96]'>
             Github
           </Link>{' '}
           <span className='text-[14px] font-mono'>|</span>{' '}
-          <Link href={data.portfolioUrl} className='text-[#a09b96]'>
+          <Link href={myData.portfolioUrl} className='text-[#a09b96]'>
             Portfolio
           </Link>{' '}
           <span className='text-[14px] font-mono'>|</span>{' '}
-          <Link href={data.resumeUrl} className='text-[#a09b96]'>
+          <Link href={myData.resumeUrl} className='text-[#a09b96]'>
             Resume
           </Link>
           <br />
-          &copy; {new Date().getFullYear()} {data.portfolioUrl.slice(7)}
+          &copy; {new Date().getFullYear()} {myData.portfolioUrl.slice(7)}
         </Text>
       </Body>
     </Tailwind>
@@ -207,8 +187,8 @@ export const EmailTemplate = ({
 );
 
 EmailTemplate.PreviewProps = {
-  name: 'Bocaria',
-  email: 'bocachica@coding.com',
+  name: 'Liz',
+  email: 'liz@coding.com',
   message:
     'Hey Rustam, we have an exciting opportunity for your consideration. We are about to start a new project which right up your alley. You skills could really help the setup and progress. Do you think this is something you could look into? Thanks',
   date: '7 May 2024 04:05',

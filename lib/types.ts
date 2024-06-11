@@ -8,4 +8,10 @@ export interface LangProps {
 export type JsonType = { [key: string]: any };
 
 export type CustomTheme = (typeof customThemes)[number];
+
 export type ThemeName = CustomTheme | 'auto' | 'light' | 'dark';
+
+export type SectionProps = {
+  lang: Locale;
+  dictionary: JsonType;
+};

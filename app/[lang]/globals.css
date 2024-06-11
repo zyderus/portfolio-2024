@@ -103,6 +103,11 @@
   --accent: 252, 90, 91;
 }
 
+section {
+  border: 1px solid green;
+  min-height: 700px;
+}
+
 @layer utilities {
   /* For Firefox */
   /* .scrollbar-thin {

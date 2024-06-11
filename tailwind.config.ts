@@ -16,6 +16,7 @@ const config: Config = {
         'bg-primary': 'rgba(var(--background-primary))',
         'bg-secondary': 'rgba(var(--background-secondary))',
         accent: 'rgba(var(--accent))',
+        linkedin: 'rgba(7, 98, 200)',
       },
       boxShadow: {
         dropdown:
