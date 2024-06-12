@@ -7,17 +7,17 @@ export const navLinks = [
   {
     key: 'about',
     title: 'About',
-    url: '/about',
+    url: '/#about',
   },
   {
     key: 'experience',
     title: 'Experience',
-    url: '#',
+    url: '/#feature-projects',
   },
   {
     key: 'projects',
     title: 'Projects',
-    url: '#',
+    url: '/#',
   },
   {
     key: 'contact',
@@ -27,7 +27,7 @@ export const navLinks = [
   {
     key: 'resume',
     title: 'Resume',
-    url: '#',
+    url: '/#',
   },
 ];
 

@@ -8,7 +8,7 @@ export default async function Header({ lang }: LangProps) {
   } = await getDictionary(lang);
 
   return (
-    <header>
+    <header className='z-40'>
       <Navbar lang={lang} dictionary={navigation} />
     </header>
   );

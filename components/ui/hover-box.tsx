@@ -16,7 +16,7 @@ export default function HoverBox({ children }: HoverBoxProps) {
           height: 'calc(100% - 2px)',
         }}
       ></div>
-      <div className='bg-bg-secondary rounded-xl p-2 transition-transform duration-240 ease-in-out hover:translate-x-1 hover:-translate-y-1'>
+      <div className='bg-bg-secondary rounded-xl p-2 transition-transform duration-200 ease-in-out hover:translate-x-1 hover:-translate-y-1 active:translate-x-0 active:-translate-y-0'>
         {children}
       </div>
     </div>

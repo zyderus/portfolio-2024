@@ -20,7 +20,7 @@ export default function Hero({ lang, dictionary }: SectionProps) {
             user-friendly applications.
           </p>
           <LinkIntl href='/contact' lang={lang}>
-            <button className='relative flex justify-center items-center bg-accent hover:bg-bg-secondary text-xl px-12 py-5 rounded-xl transition duration-120'>
+            <button className='relative flex justify-center items-center bg-accent hover:bg-bg-secondary text-xl px-12 py-5 rounded-xl transition duration-100'>
               Message me
             </button>
           </LinkIntl>

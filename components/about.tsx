@@ -3,7 +3,7 @@ import type { SectionProps } from '@/lib/types';
 
 export default function About({ lang, dictionary }: SectionProps) {
   return (
-    <section id='home' className='py-24 px-16'>
+    <section id='about' className='py-24 px-16'>
       <div>
         <h1 className='text-3xl font-bold'>About</h1>
         <p>
