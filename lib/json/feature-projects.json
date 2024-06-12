@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "title": "Tron Movies",
+    "date": "2020-08-01",
+    "tech": ["Node", "Express", "MongoDB", "Bootstrap", "i18n"],
+    "description": {
+      "en": "A movie information portal with intuitive UI and easily accesible relevant information",
+      "ru": "Информационный портал о фильмах с легкодоступной актуальной информацией",
+      "es": "Un portal de información de películas con interfaz de usuario intuitiva e información relevante de fácil acceso"
+    },
+    "img": "/assets/images/tron.webp",
+    "src": "https://watch-movies-app.herokuapp.com/",
+    "src_github": "https://github.com/zyderus/movie-app",
+    "type": "web",
+    "feature": true,
+    "status": "complete"
+  },
+  {
+    "id": 2,
+    "title": "Meco Chat",
+    "date": "2021-05-01",
+    "tech": ["Typescript", "Next", "NextAuth", "Express", "Websockets"],
+    "description": {
+      "en": "A messaging app with Google authentication which you can use to send messages and see who is online.",
+      "ru": "Приложение для обмена сообщениями с Google аутентификацией, в котором вы можете отправлять, получать сообщения и видеть, кто в сети.",
+      "es": "Una aplicación de mensajería con autenticación de Google que puede usar para enviar mensajes y ver quién está en línea."
+    },
+    "img": "/assets/images/meco.png",
+    "src": "https://meco-chat.vercel.app",
+    "src_github": "https://github.com/zyderus/meco-chat",
+    "type": "web",
+    "feature": true,
+    "status": "complete"
+  },
+  {
+    "id": 3,
+    "title": "Parts Store",
+    "date": "2021-09-01",
+    "tech": ["Typescript", "Express", "Mongoose", "MongoDB", "Stripe"],
+    "description": {
+      "en": "A simple online store template. Stripe API added as a working example. You will not be charged if you attempt a purchase.",
+      "ru": "Простой шаблон интернет-магазина. Stripe API добавлен как рабочий пример. С вас не будет взиматься плата, если вы попытаетесь совершить покупку.",
+      "es": "Una plantilla de tienda en línea simple con diseño. Stripe API agregada como un ejemplo de trabajo. No se le cobrará si intenta realizar una compra."
+    },
+    "img": "https://github.com/zyderus/nextjs-shopping-cart/raw/main/public/images/shopping-cart.png?raw=true",
+    "src": "https://nextjs-shopping-cart-theta.vercel.app",
+    "src_github": "https://github.com/zyderus/nextjs-shopping-cart",
+    "type": "web",
+    "feature": false,
+    "status": "complete"
+  },
+  {
+    "id": 4,
+    "title": "Portfolio",
+    "date": "2021-05-01",
+    "tech": ["Typescript", "Next"],
+    "description": {
+      "en": "My web portfolio built with Next js",
+      "ru": "Мой веб-портфолио, построенный с помощью Next js",
+      "es": "Mi portafolio web creado con Next js"
+    },
+    "img": "/assets/images/Portfolio.png",
+    "src": "",
+    "src_github": "https://github.com/zyderus/portfolio",
+    "type": "web",
+    "feature": false,
+    "status": "complete"
+  }
+]

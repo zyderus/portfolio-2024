@@ -6,7 +6,7 @@ export const RATE_LIMIT_INTERVAL = 120; // seconds
 export const navLinks = [
   {
     key: 'about',
-    title: 'About',
+    title: 'My Story',
     url: '/#about',
   },
   {
@@ -17,7 +17,7 @@ export const navLinks = [
   {
     key: 'projects',
     title: 'Projects',
-    url: '/#',
+    url: '/projects',
   },
   {
     key: 'contact',

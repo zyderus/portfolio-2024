@@ -5,8 +5,12 @@ import { getLocale } from '@/lib/get-locale';
 
 export const i18nMiddleware =
   (middleware: Function) => (request: NextRequest) => {
-    const { locales, defaultLocale } = i18n;
     const { pathname } = request.nextUrl;
+
+    // Ignore API paths
+    if (pathname.startsWith('/api')) return;
+
+    const { locales, defaultLocale } = i18n;
 
     const pathnameHasLocale = locales.some(
       (locale) =>

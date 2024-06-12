@@ -5,7 +5,7 @@ export default function About({ lang, dictionary }: SectionProps) {
   return (
     <section id='about' className='py-24 px-16'>
       <div>
-        <h1 className='text-3xl font-bold'>About</h1>
+        <h1 className='text-3xl font-bold'>My Story</h1>
         <p>
           Hi! I am Rustam and I enjoy creating attractive, human-friendly apps
           that brighten up the day. My interest in application development
