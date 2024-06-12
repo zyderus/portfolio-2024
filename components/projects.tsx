@@ -1,12 +1,16 @@
-import { fetchProjects } from '@/lib/requests';
+import { fetchGithubRepos } from '@/lib/requests';
 
 export default async function Projects() {
-  const projects = await fetchProjects();
+  const projects = await fetchGithubRepos();
 
   return (
     <ul>
-      {Array.from({ length: 8 }, (v, i) => i + 1).map((n) => (
-        <li key={n}>{n}</li>
+      {projects.map((repo) => (
+        <li key={repo.id}>
+          <a href={repo.html_url} target='_blank' rel='noopener noreferrer'>
+            {repo.name}
+          </a>
+        </li>
       ))}
     </ul>
   );

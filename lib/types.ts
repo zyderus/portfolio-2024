@@ -32,5 +32,14 @@ export type FeatureProject = {
   status?: 'complete' | 'in-progress';
 };
 
-// TODO: fix type when shape is known
-export type Project = any;
+export type Repo = {
+  id: number;
+  name: string;
+  html_url: string;
+  created_at: Date;
+  homepage: string;
+  language: string;
+  disabled: boolean;
+  languages_url: string[];
+  [key: string]: any;
+};
