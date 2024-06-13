@@ -1,11 +1,14 @@
 import { getDictionary } from '@/lib/dictionary';
 import { PageProps } from '../layout';
 import Projects from '@/components/projects';
+import { fetchGithubRepos } from '@/lib/requests';
 
 export default async function ProjectPage({ params: { lang } }: PageProps) {
   const {
     intl: { page },
   } = await getDictionary(lang);
+
+  const data = await fetchGithubRepos();
 
   return (
     <section className='py-24'>
@@ -21,7 +24,7 @@ export default async function ProjectPage({ params: { lang } }: PageProps) {
           quia!
         </p>
 
-        <Projects />
+        <Projects initialData={data} />
       </div>
     </section>
   );

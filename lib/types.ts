@@ -11,12 +11,12 @@ export interface LangProps {
   lang: Locale;
 }
 
-export type SectionProps = {
+export interface SectionProps {
   lang: Locale;
   dictionary: JsonType;
-};
+}
 
-export type FeatureProject = {
+export interface FeatureProject {
   id: number;
   title: string;
   date: string;
@@ -30,9 +30,9 @@ export type FeatureProject = {
   type?: 'web' | 'mobile' | 'api' | 'pc' | 'iot' | 'ai';
   feature?: boolean;
   status?: 'complete' | 'in-progress';
-};
+}
 
-export type Repo = {
+export interface Repo {
   id: number;
   name: string;
   html_url: string;
@@ -42,4 +42,11 @@ export type Repo = {
   disabled: boolean;
   languages_url: string[];
   [key: string]: any;
-};
+}
+
+export interface Pagination {
+  first?: string;
+  prev?: string;
+  next?: string;
+  last?: string;
+}

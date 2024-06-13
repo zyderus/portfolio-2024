@@ -1,8 +1,12 @@
-import type { FeatureProject, Repo } from './types';
+'use server';
+import { parseLinkHeader } from './parse-headers';
+import type { FeatureProject, Pagination, Repo } from './types';
 
 const apiDomain = process.env.NEXT_PUBLIC_DOMAIN || null;
 
-export async function fetchFeatureProjects(): Promise<FeatureProject[] | []> {
+export async function fetchFeatureProjects(): Promise<
+  FeatureProject[] | undefined
+> {
   try {
     if (!apiDomain) {
       return [];
@@ -20,14 +24,13 @@ export async function fetchFeatureProjects(): Promise<FeatureProject[] | []> {
     return response.json();
   } catch (error) {
     console.log(error);
-    return [];
   }
 }
 
 export const fetchGithubRepos = async (
   page = 1,
   perPage = 10
-): Promise<Repo[] | []> => {
+): Promise<{ repos: Repo[]; pagination: Pagination } | {}> => {
   const { GITHUB_USERNAME, GITHUB_TOKEN } = process.env;
   const url = `https://api.github.com/users/${GITHUB_USERNAME}/repos?page=${page}&per_page=${perPage}`;
 
@@ -46,12 +49,16 @@ export const fetchGithubRepos = async (
       );
     }
 
-    return response.json();
+    const repos = await response.json();
+    const linkHeader = response.headers.get('Link');
+    const pagination = parseLinkHeader(linkHeader);
+
+    return { repos, pagination };
   } catch (error: any) {
     console.error(
       'Error fetching repositories:',
       error.message ?? error.toString()
     );
-    return [];
+    return {};
   }
 };
