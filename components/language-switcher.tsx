@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { type Locale, i18n } from '@/i18n.config';
 import { saveLocale, getLocaleCookie } from '@/lib/save-locale';
 
@@ -13,6 +13,7 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
   const { locales, defaultLocale } = i18n;
   const router = useRouter();
   let pathname = usePathname();
+  const searchParams = useSearchParams().toString();
 
   const buildPathname = (locale: Locale | 'auto') => {
     if (!pathname) return '/';
@@ -28,8 +29,8 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
     }
 
     return locale === 'auto' || locale === defaultLocale
-      ? url
-      : `/${locale}${url}`;
+      ? `${url}?${searchParams}`
+      : `/${locale}${url}?${searchParams}`;
   };
 
   const handleLanguageChange = async (newLocale: Locale | 'auto') => {

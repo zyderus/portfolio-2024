@@ -3,10 +3,12 @@ import { PageProps } from '../layout';
 import Projects from '@/components/projects';
 import { fetchGithubRepos } from '@/lib/requests';
 
-export default async function ProjectPage({ params: { lang } }: PageProps) {
+export default async function ProjectPage({ params, searchParams }: any) {
   const {
     intl: { page },
-  } = await getDictionary(lang);
+  } = await getDictionary(params.lang);
+
+  console.log(params, searchParams);
 
   const data = await fetchGithubRepos();
 
@@ -24,7 +26,7 @@ export default async function ProjectPage({ params: { lang } }: PageProps) {
           quia!
         </p>
 
-        <Projects initialData={data} />
+        {/* <Projects initialData={data} /> */}
       </div>
     </section>
   );

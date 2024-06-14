@@ -5,7 +5,7 @@ import { getLocale } from '@/lib/get-locale';
 
 export const i18nMiddleware =
   (middleware: Function) => (request: NextRequest) => {
-    const { pathname } = request.nextUrl;
+    const { pathname, search } = request.nextUrl;
 
     // Ignore API paths
     if (pathname.startsWith('/api')) return;
@@ -19,11 +19,11 @@ export const i18nMiddleware =
 
     if (!pathnameHasLocale) {
       const locale = getLocale(request);
-      const url = new URL(`/${locale}${pathname}`, request.url);
+      const url = new URL(`/${locale}${pathname}${search}`, request.url);
 
       return locale === defaultLocale
-        ? NextResponse.rewrite(url)
-        : NextResponse.redirect(url);
+        ? NextResponse.rewrite(url.toString())
+        : NextResponse.redirect(url.toString());
     }
 
     return middleware(request);
