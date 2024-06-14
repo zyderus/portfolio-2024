@@ -20,7 +20,7 @@ export default function DropdownMenu({
   return (
     <div
       ref={dropdownRef}
-      className={`absolute max-h-[80vh] overflow-hidden right-0 mt-2 w-48 bg-bg-primary border border-color-primary/10 rounded-lg py-1 z-20 shadow-dropdown hover:overflow-y-auto scrollbar-thin ${className}`}
+      className={`absolute max-h-[80vh] overflow-hidden right-0 mt-2 w-48 bg-bg-primary border border-color-primary/10 rounded-lg py-1 z-20 shadow-dropdown hover:overflow-y-auto scrollbar-thin overscroll-contain ${className}`}
       role='menu'
     >
       {customThemes.map((theme) => (

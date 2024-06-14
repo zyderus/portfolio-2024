@@ -1,6 +1,6 @@
 'use server';
 import { parseLinkHeader } from './parse-headers';
-import type { FeatureProject, Pagination, Repo } from './types';
+import type { FeatureProject, PaginationLinks, Repo } from './types';
 
 const apiDomain = process.env.NEXT_PUBLIC_DOMAIN || null;
 
@@ -30,7 +30,7 @@ export async function fetchFeatureProjects(): Promise<
 export const fetchGithubRepos = async (
   page = 1,
   perPage = 10
-): Promise<{ repos: Repo[]; pagination: Pagination } | {}> => {
+): Promise<{ repos: Repo[]; pagination: PaginationLinks } | {}> => {
   const { GITHUB_USERNAME, GITHUB_TOKEN } = process.env;
   const url = `https://api.github.com/users/${GITHUB_USERNAME}/repos?page=${page}&per_page=${perPage}`;
 

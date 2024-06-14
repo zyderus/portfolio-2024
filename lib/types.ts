@@ -44,9 +44,10 @@ export interface Repo {
   [key: string]: any;
 }
 
-export interface Pagination {
+export interface PaginationLinks {
   first?: string;
   prev?: string;
   next?: string;
   last?: string;
+  lastPage?: string;
 }

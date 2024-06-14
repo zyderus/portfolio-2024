@@ -1,16 +1,10 @@
+import RepoList from '@/components/repo-list';
 import { getDictionary } from '@/lib/dictionary';
-import { PageProps } from '../layout';
-import Projects from '@/components/projects';
-import { fetchGithubRepos } from '@/lib/requests';
 
 export default async function ProjectPage({ params, searchParams }: any) {
   const {
     intl: { page },
   } = await getDictionary(params.lang);
-
-  console.log(params, searchParams);
-
-  const data = await fetchGithubRepos();
 
   return (
     <section className='py-24'>
@@ -26,7 +20,7 @@ export default async function ProjectPage({ params, searchParams }: any) {
           quia!
         </p>
 
-        {/* <Projects initialData={data} /> */}
+        <RepoList searchParams={searchParams} />
       </div>
     </section>
   );

@@ -23,6 +23,14 @@ export function parseLinkHeader(header: string | null): PaginationLinks {
       const url = urlMatch[1];
       const rel = relMatch[1];
       links[rel] = url;
+
+      // If this is the "last" link, extract the page number as a string
+      if (rel === 'last') {
+        const pageMatch = url.match(/page=(\d+)/);
+        if (pageMatch) {
+          links['lastPage'] = pageMatch[1];
+        }
+      }
     }
   });
 
