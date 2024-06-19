@@ -4,9 +4,7 @@ import type { FeatureProject, PaginationLinks, Repo } from './types';
 
 const apiDomain = process.env.NEXT_PUBLIC_DOMAIN || null;
 
-export async function fetchFeatureProjects(): Promise<
-  FeatureProject[] | undefined
-> {
+export async function fetchFeatureProjects(): Promise<FeatureProject[] | []> {
   try {
     if (!apiDomain) {
       return [];
@@ -24,6 +22,7 @@ export async function fetchFeatureProjects(): Promise<
     return response.json();
   } catch (error) {
     console.log(error);
+    return [];
   }
 }
 
@@ -32,7 +31,7 @@ export const fetchGithubRepos = async (
   perPage = 10
 ): Promise<{ repos: Repo[]; pagination: PaginationLinks } | {}> => {
   const { GITHUB_USERNAME, GITHUB_TOKEN } = process.env;
-  const url = `https://api.github.com/users/${GITHUB_USERNAME}/repos?page=${page}&per_page=${perPage}`;
+  const url = `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=created&page=${page}&per_page=${perPage}`;
 
   try {
     const headers: HeadersInit = {};

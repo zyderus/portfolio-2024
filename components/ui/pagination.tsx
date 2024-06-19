@@ -17,7 +17,7 @@ export default function Pagination({ links }: PaginationProps) {
   return (
     <div className='flex items-center justify-center space-x-4'>
       <button
-        className={`flex items-center gap-1 px-4 text-xs leading-10 border-b border-transparent transition-colors ${
+        className={`flex items-center gap-1 px-4 text-xs leading-6 border-b border-transparent transition-colors ${
           !links.prev
             ? 'text-color-primary/30'
             : 'hover:border-accent active:border-accent/50'

@@ -35,12 +35,15 @@ export interface FeatureProject {
 export interface Repo {
   id: number;
   name: string;
+  full_name: string;
   html_url: string;
-  created_at: Date;
+  created_at: string;
   homepage: string;
   language: string;
   disabled: boolean;
-  languages_url: string[];
+  languages_url: string;
+  description: string;
+  topics: string[];
   [key: string]: any;
 }
 

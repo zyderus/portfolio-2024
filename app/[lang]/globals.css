@@ -104,8 +104,9 @@
 }
 
 section {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   min-height: 700px;
+  max-width: 1200px;
 }
 
 @layer utilities {
@@ -118,7 +119,6 @@ section {
   .scrollbar-thin::-webkit-scrollbar {
     width: 5px;
   }
-
   .scrollbar-thin::-webkit-scrollbar-thumb {
     background-color: rgba(var(--color-primary), 0.3);
     border-radius: 10px;
@@ -128,10 +128,28 @@ section {
     background-color: rgba(var(--accent), 0.7);
     cursor: pointer;
   }
-
   .scrollbar-thin::-webkit-scrollbar-track {
     background: rgba(var(--background-secondary));
     border-radius: 10px;
+  }
+
+  /* Alternate styles for projects list */
+  .striped li:nth-child(even) {
+    @apply bg-bg-secondary/10 border-transparent;
+
+    .feature {
+      @apply flex-row-reverse;
+
+      & > div:first-child {
+        @apply mr-0 -ml-24;
+        text-align: right;
+
+        div {
+          justify-content: end;
+          margin-left: auto;
+        }
+      }
+    }
   }
 }
 

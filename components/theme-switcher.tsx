@@ -5,7 +5,7 @@ import type { CustomTheme } from '@/lib/types';
 import useLongClick from '@/hooks/useLongClick';
 import useTheme from '@/hooks/useTheme';
 import ProgressbarWrapper from '@/components/progressbar-wrapper';
-import DropdownMenu from '@/components/dropdown-menu';
+import ThemeDropdown from '@/components/theme-dropdown';
 import ThemeButton from '@/components/theme-button';
 
 export default function ThemeSwitcher() {
@@ -67,7 +67,7 @@ export default function ThemeSwitcher() {
         />
       </ProgressbarWrapper>
 
-      <DropdownMenu
+      <ThemeDropdown
         isDropdownOpen={isDropdownOpen}
         dropdownRef={dropdownRef}
         handleDropdownTheme={handleDropdownTheme}
