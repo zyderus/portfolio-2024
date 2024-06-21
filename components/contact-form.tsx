@@ -6,7 +6,7 @@ import { RATE_LIMIT_INTERVAL } from '@/lib/constants';
 import type { EmailTemplateProps } from '@/templates/email-template';
 import type { JsonType } from '@/lib/types';
 import { formatDate } from '@/lib/format-date';
-import CountdownButton from '@/components/countdown-button';
+import CountdownButton from '@/components/ui/countdown-button';
 
 interface ContactFormProps {
   dictionary: JsonType;

@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
-import LinkIntl from './link-intl';
+import LinkIntl from './ui/link-intl';
 import type { SectionProps } from '@/lib/types';
 import HoverBox from './ui/hover-box';
 

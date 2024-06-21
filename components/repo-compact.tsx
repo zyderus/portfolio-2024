@@ -4,7 +4,7 @@ import { IoRocketSharp } from 'react-icons/io5';
 import HoverBox from './ui/hover-box';
 import { formatRepoTitle } from '@/lib/format-string';
 
-export default function RepoCompact({ repo }: RepoProps) {
+export default function RepoCompact({ repo }: { repo: RepoProps }) {
   return (
     <div className='flex items-center gap-x-2 w-full'>
       <div className='flex-1'>

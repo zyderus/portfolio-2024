@@ -1,4 +1,4 @@
-import ThemeThumbnail from '@/components/theme-thumbnail';
+import ThemeThumbnail from '@/components/ui/theme-thumbnail';
 import { customThemes } from '@/lib/constants';
 import type { CustomTheme } from '@/lib/types';
 

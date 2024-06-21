@@ -4,9 +4,9 @@ import { LONG_CLICK_DELAY } from '@/lib/constants';
 import type { CustomTheme } from '@/lib/types';
 import useLongClick from '@/hooks/useLongClick';
 import useTheme from '@/hooks/useTheme';
-import ProgressbarWrapper from '@/components/progressbar-wrapper';
-import ThemeDropdown from '@/components/theme-dropdown';
-import ThemeButton from '@/components/theme-button';
+import ProgressbarWrapper from '@/components/ui/progressbar-wrapper';
+import ThemeDropdown from '@/components/ui/theme-dropdown';
+import ThemeButton from '@/components/ui/theme-button';
 
 export default function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);

@@ -3,10 +3,10 @@ import { useCallback, useEffect, useState } from 'react';
 import { navLinks } from '@/lib/constants';
 import type { Locale } from '@/i18n.config';
 import type { JsonType } from '@/lib/types';
-import LinkIntl from '@/components/link-intl';
-import HamburgerMenu from '@/components/hamburger-menu';
-import ThemeSwitcher from '@/components/theme-switcher';
-import LanguageSwitcher from '@/components/language-switcher';
+import LinkIntl from '@/components/ui/link-intl';
+import HamburgerMenu from '@/components/ui/hamburger-menu';
+import ThemeSwitcher from '@/components/ui/theme-switcher';
+import LanguageSwitcher from '@/components/ui/language-switcher';
 import { debounce } from '@/lib/debounce';
 
 interface MobileMenuProps {

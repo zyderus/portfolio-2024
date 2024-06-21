@@ -1,10 +1,10 @@
 import { navLinks } from '@/lib/constants';
 import type { Locale } from '@/i18n.config';
 import type { JsonType } from '@/lib/types';
-import LinkIntl from '@/components/link-intl';
-import ThemeSwitcher from '@/components/theme-switcher';
-import LanguageSwitcher from '@/components/language-switcher';
-import MobileMenu from '@/components/mobile-menu';
+import LinkIntl from '@/components/ui/link-intl';
+import ThemeSwitcher from '@/components/ui/theme-switcher';
+import LanguageSwitcher from '@/components/ui/language-switcher';
+import MobileMenu from '@/components/ui/mobile-menu';
 
 interface NavbarProps {
   lang: Locale;

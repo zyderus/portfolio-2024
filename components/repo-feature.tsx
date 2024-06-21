@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import type { Repo as RepoProps } from '@/lib/types';
+import type { Repo } from '@/lib/types';
 // import { movieAppMock as repo } from '@/lib/mocks';
 import { FaGithub } from 'react-icons/fa6';
 import { IoRocketSharp } from 'react-icons/io5';
 import HoverBox from './ui/hover-box';
 import { formatRepoTitle } from '@/lib/format-string';
 
-export default function RepoFeature({ repo }: RepoProps) {
+export default function RepoFeature({ repo }: { repo: Repo }) {
   const { width: imageWidth, height: imageHeight } = {
     width: 830 * 0.75,
     height: 553 * 0.75,

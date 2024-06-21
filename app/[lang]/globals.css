@@ -134,21 +134,29 @@ section {
   }
 
   /* Alternate styles for projects list */
-  .striped li:nth-child(even) {
-    @apply bg-bg-secondary/10 border-transparent;
+  .striped {
+    li:first-child {
+      @apply md:rounded-t-xl;
+    }
 
-    .feature {
+    li:last-child {
+      @apply md:rounded-b-xl;
+    }
+
+    li:nth-child(even) {
+      @apply bg-bg-secondary/10 border-transparent;
+    }
+
+    li:nth-child(even) .feature {
       @apply flex-row-reverse;
+    }
 
-      & > div:first-child {
-        @apply mr-0 -ml-24;
-        text-align: right;
+    li:nth-child(even) .feature > div:first-child {
+      @apply mr-0 -ml-24 text-right;
+    }
 
-        div {
-          justify-content: end;
-          margin-left: auto;
-        }
-      }
+    li:nth-child(even) .feature > div:first-child div {
+      @apply justify-end ml-auto;
     }
   }
 }
