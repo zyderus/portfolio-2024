@@ -2,6 +2,7 @@
 import { parseLinkHeader } from './parse-headers';
 import type { FeatureProject, PaginationLinks, Repo } from './types';
 
+const { GITHUB_USERNAME, GITHUB_TOKEN } = process.env;
 const apiDomain = process.env.NEXT_PUBLIC_DOMAIN || null;
 
 export async function fetchFeatureProjects(): Promise<FeatureProject[] | []> {
@@ -25,6 +26,41 @@ export async function fetchFeatureProjects(): Promise<FeatureProject[] | []> {
     return [];
   }
 }
+
+export const fetchGithubReposByTopic = async (
+  topic = 'feature'
+): Promise<Repo[]> => {
+  const url = `https://api.github.com/search/repositories?q=user:${GITHUB_USERNAME}+topic:${topic}`;
+
+  try {
+    const headers: HeadersInit = {};
+    if (GITHUB_TOKEN) {
+      headers.Authorization = `token ${GITHUB_TOKEN}`;
+    }
+
+    // TODO: Enable caching after development
+    const response = await fetch(url, { headers, cache: 'no-store' });
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch repositories. Status: ${response.status}`
+      );
+    }
+
+    const data = await response.json();
+    const reposSortedByCreatedDate = data.items.sort(
+      (a: Repo, b: Repo) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    );
+    return reposSortedByCreatedDate;
+  } catch (error: any) {
+    console.error(
+      'Error fetching repositories:',
+      error.message ?? error.toString()
+    );
+    return [];
+  }
+};
 
 export const fetchGithubRepos = async (
   page = 1,

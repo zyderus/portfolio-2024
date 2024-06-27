@@ -52,7 +52,10 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className='space-y-8 max-w-[640px] mx-auto'
+    >
       <div className='mb-5'>
         <input
           type='text'

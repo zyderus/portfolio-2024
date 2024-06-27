@@ -1,10 +1,10 @@
-import { navLinks } from '@/lib/constants';
 import type { Locale } from '@/i18n.config';
 import type { JsonType } from '@/lib/types';
 import LinkIntl from '@/components/ui/link-intl';
 import ThemeSwitcher from '@/components/ui/theme-switcher';
 import LanguageSwitcher from '@/components/ui/language-switcher';
 import MobileMenu from '@/components/ui/mobile-menu';
+import NavbarMenu from './navbar-menu';
 
 interface NavbarProps {
   lang: Locale;
@@ -20,15 +20,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
             RZ
           </LinkIntl>
         </div>
-        <ul className='hidden md:flex space-x-8'>
-          {navLinks.map(({ key, url }) => (
-            <li key={key}>
-              <LinkIntl href={url} lang={lang}>
-                {dictionary[key]}
-              </LinkIntl>
-            </li>
-          ))}
-        </ul>
+        <NavbarMenu lang={lang} dictionary={dictionary} />
         <div className='hidden md:flex space-x-4'>
           <LanguageSwitcher lang={lang} />
           <ThemeSwitcher />

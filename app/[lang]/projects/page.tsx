@@ -1,10 +1,11 @@
+import { Suspense } from 'react';
 import Repos from '@/components/repos';
 import ReposSkeleton from '@/components/repos-skeleton';
 import PaginationSet from '@/components/ui/pagination-set';
 import { getDictionary } from '@/lib/dictionary';
 import { fetchGithubRepos } from '@/lib/requests';
 import type { PaginationLinks, Repo } from '@/lib/types';
-import { Suspense } from 'react';
+import SectionHeader from '@/components/ui/section-header';
 
 export default async function ProjectPage({ params, searchParams }: any) {
   const {
@@ -20,7 +21,7 @@ export default async function ProjectPage({ params, searchParams }: any) {
   return (
     // key={random} allows to stop caching to allow for skeletons on api fetch
     <section className='py-24 mx-auto' key={Math.random()}>
-      <h1 className='text-3xl font-bold'>Projects</h1>
+      <SectionHeader title='Projects' />
       <p>
         Welcome to my Projects page! Here you&apos;ll find a curated selection
         of the web applications and systems I&apos;ve designed and developed.
@@ -31,12 +32,12 @@ export default async function ProjectPage({ params, searchParams }: any) {
         projects to see the depth and breadth of my work.
       </p>
 
-      <h1 className='text-2xl font-bold mb-16'>Featured Projects</h1>
       <PaginationSet paginationData={data.pagination} />
 
       <Suspense fallback={<ReposSkeleton amount={Number(per_page)} />}>
         <Repos repos={data.repos} />
       </Suspense>
+
       <PaginationSet paginationData={data.pagination} />
     </section>
   );

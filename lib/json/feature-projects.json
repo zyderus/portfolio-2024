@@ -1,8 +1,10 @@
 [
   {
     "id": 1,
-    "title": "Tron Movies",
-    "date": "2020-08-01",
+    "name": "Tron Movies",
+    "full_name": "",
+    "html_url": "",
+    "created_at": "2020-08-01",
     "tech": ["Node", "Express", "MongoDB", "Bootstrap", "i18n"],
     "description": {
       "en": "A movie information portal with intuitive UI and easily accesible relevant information",
@@ -18,8 +20,10 @@
   },
   {
     "id": 2,
-    "title": "Meco Chat",
-    "date": "2021-05-01",
+    "name": "Meco Chat",
+    "full_name": "",
+    "html_url": "",
+    "created_at": "2021-05-01",
     "tech": ["Typescript", "Next", "NextAuth", "Express", "Websockets"],
     "description": {
       "en": "A messaging app with Google authentication which you can use to send messages and see who is online.",
@@ -35,8 +39,10 @@
   },
   {
     "id": 3,
-    "title": "Parts Store",
-    "date": "2021-09-01",
+    "name": "Parts Store",
+    "full_name": "",
+    "html_url": "",
+    "created_at": "2021-09-01",
     "tech": ["Typescript", "Express", "Mongoose", "MongoDB", "Stripe"],
     "description": {
       "en": "A simple online store template. Stripe API added as a working example. You will not be charged if you attempt a purchase.",
@@ -52,8 +58,10 @@
   },
   {
     "id": 4,
-    "title": "Portfolio",
-    "date": "2021-05-01",
+    "name": "Portfolio",
+    "full_name": "",
+    "html_url": "",
+    "created_at": "2021-05-01",
     "tech": ["Typescript", "Next"],
     "description": {
       "en": "My web portfolio built with Next js",
