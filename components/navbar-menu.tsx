@@ -1,10 +1,12 @@
 'use client';
-import { navLinks } from '@/lib/constants';
+import { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import LinkIntl from './ui/link-intl';
 import type { Locale } from '@/i18n.config';
 import type { JsonType } from '@/lib/types';
-import { useParams, usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import useActiveSection from '@/hooks/useActiveSection';
+import useLineStyle from '@/hooks/useLineStyle';
+import { navLinks } from '@/lib/constants';
 
 interface NavbarMenuProps {
   lang: Locale;
@@ -12,50 +14,56 @@ interface NavbarMenuProps {
 }
 
 export default function NavbarMenu({ lang, dictionary }: NavbarMenuProps) {
-  const [activeSection, setActiveSection] = useState('');
+  const linkRefs = useRef<(HTMLLIElement | null)[]>([]);
+  const [activeLinkIndex, setActiveLinkIndex] = useState(0);
   const pathname = usePathname();
-  const params = useParams();
+  const activeHashIndex = useActiveSection({
+    rootMargin: '0px 0px -20% 0px',
+    threshold: 1,
+  });
 
-  // TODO: Add intersection observer to change url with section hash => set active class to appropriate navbar link
+  const handleClick = useCallback((index: number) => {
+    setActiveLinkIndex(index);
+  }, []);
 
-  // useEffect(() => {
-  //   const handleHashChange = () => {
-  //     setActiveSection(window.location.hash);
-  //   };
+  useLayoutEffect(() => {
+    if (pathname === '/') {
+      setActiveLinkIndex(activeHashIndex || 0);
+    } else {
+      const initialIndex = navLinks.findIndex(
+        (section) => section.url === pathname
+      );
+      setActiveLinkIndex(initialIndex !== -1 ? initialIndex : 0);
+    }
+  }, [activeHashIndex, pathname]);
 
-  //   window.addEventListener('hashchange', handleHashChange);
-  //   handleHashChange();
-
-  //   return () => {
-  //     window.removeEventListener('hashchange', handleHashChange);
-  //   };
-  // }, []);
-
-  useEffect(() => {
-    setActiveSection(`/${window.location.hash}`);
-  }, [params]);
+  const lineStyle = useLineStyle(activeLinkIndex, linkRefs.current);
 
   return (
-    <ul className='hidden md:flex space-x-8'>
-      {navLinks.map(({ key, url }) => {
-        console.log('bla:::', activeSection, key, url, activeSection === url);
-
+    <ul className='relative hidden md:flex space-x-8'>
+      {navLinks.map(({ id, url }, index) => {
         return (
-          <li key={key}>
+          <li key={id} ref={(el: any) => (linkRefs.current[index] = el)}>
             <LinkIntl
               href={url}
               lang={lang}
-              className={`link ${
-                pathname === url || activeSection === url
-                  ? 'active bg-red-300'
-                  : ''
+              className={`transition-colors duration-300 ease-in-out hover:text-color-primary ${
+                activeLinkIndex === index
+                  ? 'text-color-primary'
+                  : 'text-gray-500'
               }`}
+              onClick={() => handleClick(index)}
+              replace={url.startsWith('/#')}
             >
-              {dictionary[key]}
+              {dictionary[id]}
             </LinkIntl>
           </li>
         );
       })}
+      <div
+        className='absolute left-40 border-b border-accent -bottom-1 transition-all duration-300 ease-in-out'
+        style={lineStyle}
+      ></div>
     </ul>
   );
 }

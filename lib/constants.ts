@@ -5,30 +5,35 @@ export const RATE_LIMIT_INTERVAL = 120; // seconds
 
 export const navLinks = [
   {
-    key: 'about',
-    title: 'My Story',
+    id: 'home',
+    label: 'Start',
+    url: '/',
+  },
+  {
+    id: 'about',
+    label: 'My Story',
     url: '/#about',
   },
   {
-    key: 'experience',
-    title: 'Experience',
-    url: '/#feature-projects',
+    id: 'experience',
+    label: 'Experience',
+    url: '/#experience',
   },
   {
-    key: 'projects',
-    title: 'Projects',
+    id: 'projects',
+    label: 'Projects',
     url: '/projects',
   },
   {
-    key: 'contact',
-    title: 'Contact',
+    id: 'contact',
+    label: 'Contact',
     url: '/contact',
   },
-  {
-    key: 'resume',
-    title: 'Resume',
-    url: '/#',
-  },
+  // {
+  //   id: 'resume',
+  //   label: 'Resume',
+  //   url: '/#',
+  // },
 ];
 
 export const customThemes = [

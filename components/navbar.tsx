@@ -13,7 +13,7 @@ interface NavbarProps {
 
 export default function Navbar({ lang, dictionary }: NavbarProps) {
   return (
-    <nav className='fixed w-full py-4 shadow-md'>
+    <nav className='fixed w-full py-4 shadow-md bg-bg-primary/90'>
       <div className='px-16 flex justify-between items-center'>
         <div className='text-3xl text-color-primary'>
           <LinkIntl href='/' lang={lang}>
@@ -21,11 +21,11 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
           </LinkIntl>
         </div>
         <NavbarMenu lang={lang} dictionary={dictionary} />
-        <div className='hidden md:flex space-x-4'>
+        <div className='hidden md:flex md:items-center space-x-1'>
           <LanguageSwitcher lang={lang} />
           <ThemeSwitcher />
         </div>
-        <MobileMenu lang={lang} dictionary={dictionary} />
+        {/* <MobileMenu lang={lang} dictionary={dictionary} /> */}
       </div>
     </nav>
   );

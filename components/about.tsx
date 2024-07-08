@@ -4,8 +4,8 @@ import SectionHeader from './ui/section-header';
 
 export default function About({ lang, dictionary }: SectionProps) {
   return (
-    <section id='about' className='py-24 px-16'>
-      <SectionHeader title='My Story' />
+    <section id='about' className='min-h-screen py-24 px-16'>
+      <SectionHeader id='about' title='My Story' />
       <p>
         Hi! I am Rustam and I enjoy creating attractive, human-friendly apps
         that brighten up the day. My interest in application development started

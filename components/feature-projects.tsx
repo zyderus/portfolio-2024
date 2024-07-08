@@ -11,9 +11,9 @@ export default async function FeatureProjects({
   const featureRepos = await fetchGithubReposByTopic();
 
   return (
-    <section id='feature-projects' className='py-24 px-16'>
+    <section id='experience' className='min-h-screen py-24 px-16'>
       <div>
-        <SectionHeader title='Feature Projects' />
+        <SectionHeader id='experience' title='Feature Projects' />
         <ul className='striped mx-auto'>
           {featureRepos.map((repo) => (
             <li

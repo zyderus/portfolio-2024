@@ -57,14 +57,14 @@ export default function MobileMenu({ lang, dictionary }: MobileMenuProps) {
         }`}
       >
         <ul className='flex flex-col items-center space-y-8 mt-16'>
-          {navLinks.map(({ key, url }) => (
+          {navLinks.map(({ id, url }) => (
             <li
-              key={key}
+              key={id}
               className='flex justify-center w-full uppercase text-xl pointer-events-none hover:bg-accent'
             >
               <LinkIntl href={url} lang={lang}>
                 <div className='w-48 py-4 px-2 text-nowrap pointer-events-auto'>
-                  {dictionary[key]}
+                  {dictionary[id]}
                 </div>
               </LinkIntl>
             </li>

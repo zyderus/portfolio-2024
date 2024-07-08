@@ -31,13 +31,13 @@ export default function ProgressbarWrapper({
 
   return (
     <div
-      className='h-6 w-6 relative flex justify-center items-center rounded-full bg-bg-primary cursor-pointer'
+      className='h-9 w-9 relative flex justify-center items-center rounded-full bg-bg-primary cursor-pointer'
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
       <div
-        className='w-7 h-7 absolute rounded-full -z-10'
+        className='w-10 h-10 absolute rounded-full -z-10'
         style={{
           background: `conic-gradient(rgb(var(--accent)) ${progress}%, transparent 0)`,
         }}

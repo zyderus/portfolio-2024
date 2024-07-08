@@ -5,12 +5,14 @@ import HoverBox from './ui/hover-box';
 
 export default function Hero({ lang, dictionary }: SectionProps) {
   return (
-    <section id='home' className='py-24 px-16 h-[87vh]'>
+    <section id='home' className='min-h-screen py-24 px-16'>
       <div className='flex flex-col space-y-8 max-w-[800px] mx-auto mt-[10vh]'>
         <p className='text-2xl'>
           <span className='text-5xl'>👋</span> Hello, I&apos;m
         </p>
-        <h1 className='text-7xl font-bold'>Rustam Ziyodov</h1>
+        <h1 id='home' className='text-7xl font-bold'>
+          Rustam Ziyodov
+        </h1>
         <h2 className='text-4xl font-semibold'>
           and I build things with code.
         </h2>

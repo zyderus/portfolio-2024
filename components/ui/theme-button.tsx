@@ -7,7 +7,6 @@ interface ThemeButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: ReactNode;
   vibration: boolean;
   mounted: boolean;
-  className?: string;
 }
 
 export default function ThemeButton({
@@ -15,18 +14,20 @@ export default function ThemeButton({
   icon,
   vibration,
   mounted,
-  className = '',
+  // className = '',
   ...rest
 }: ThemeButtonProps) {
   return (
     <button
-      className={`${className}`}
+      className={`relative h-full w-full rounded-full hover:bg-bg-secondary transition-colors duration-300 ${
+        isDropdownOpen ? 'bg-bg-secondary' : ''
+      }`}
       {...rest}
       aria-haspopup='true'
       aria-expanded={isDropdownOpen}
     >
       <div
-        className={`relative w-6 h-6 flex justify-center items-center z-10 ${
+        className={`flex justify-center items-center z-10 ${
           vibration ? 'vibrate' : ''
         }`}
       >

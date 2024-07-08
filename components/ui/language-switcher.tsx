@@ -1,14 +1,18 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import useOutsideClick from '@/hooks/useOutsideClick';
 import { type Locale, i18n } from '@/i18n.config';
 import { saveLocale, getLocaleCookie } from '@/lib/save-locale';
+import { language } from '@/i18n.config';
+import { FaGlobe } from 'react-icons/fa6';
 
 interface LanguageSwitcherProps {
   lang: Locale;
 }
 
 export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [locale, setLocale] = useState<Locale | 'auto'>(lang);
   const { locales, defaultLocale } = i18n;
   const router = useRouter();
@@ -44,6 +48,10 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
     }
   };
 
+  const dropdownRef = useOutsideClick<HTMLDivElement>(() => {
+    setIsDropdownOpen(false);
+  });
+
   useEffect(() => {
     const fetchLocale = async () => {
       const localeCookie = await getLocaleCookie();
@@ -53,41 +61,47 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
   }, []);
 
   return (
-    <div>
-      <select
-        className='cursor-pointer'
-        onChange={(e) => handleLanguageChange(e.target.value as Locale)}
-        value={locale === 'auto' ? 'auto' : lang}
+    <div ref={dropdownRef} className='relative flex justify-end'>
+      <button
+        className={`w-9 h-9 flex justify-center items-center hover:bg-bg-secondary focus:outline-none rounded-full transition-colors duration-300 ${
+          isDropdownOpen ? 'bg-bg-secondary' : ''
+        }`}
+        onClick={() => setIsDropdownOpen((prev) => !prev)}
       >
-        <option value='auto'>Auto</option>
-        {locales.map((loc) => (
-          <option key={loc} value={loc}>
-            {loc}
-          </option>
-        ))}
-      </select>
-
-      {/* TODO: Remove when done testing */}
-      {/* <ul className='flex gap-x-3'>
-        <li>
-          <button
-            className='rounded-md border bg-black px-3 py-2 text-white'
+        <span className='sr-only'>Open dropdown</span>
+        {locale === 'auto' ? (
+          <FaGlobe />
+        ) : (
+          <span className='font-bold tracking-wider text-sm'>
+            {locale.toUpperCase()}
+          </span>
+        )}
+      </button>
+      {isDropdownOpen && (
+        <ul className='absolute top-12 z-10 text-base list-none rounded-lg shadow bg-bg-secondary py-2'>
+          <li
+            className='flex items-center pl-4 pr-6 py-2 hover:bg-bg-primary cursor-pointer'
             onClick={() => handleLanguageChange('auto')}
           >
-            Auto
-          </button>
-        </li>
-        {locales.map((loc) => (
-          <li key={loc}>
-            <button
-              className='rounded-md border bg-black px-3 py-2 text-white'
+            <span className='w-6 flex justify-center'>
+              <FaGlobe />
+            </span>
+            <span className='ml-4 text-sm'>Auto</span>
+          </li>
+          {locales.map((loc) => (
+            <li
+              key={loc}
+              className='flex items-center pl-4 pr-6 py-2 hover:bg-bg-primary cursor-pointer'
               onClick={() => handleLanguageChange(loc)}
             >
-              {loc}
-            </button>
-          </li>
-        ))}
-      </ul> */}
+              <span className='w-6 flex justify-center font-bold tracking-wide'>
+                {loc.toUpperCase()}
+              </span>
+              <span className='ml-4 text-sm'>{language[loc]}</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
