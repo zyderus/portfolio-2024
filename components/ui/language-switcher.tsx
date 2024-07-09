@@ -46,6 +46,8 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
       setLocale('auto');
       router.refresh();
     }
+
+    setIsDropdownOpen(false);
   };
 
   const dropdownRef = useOutsideClick<HTMLDivElement>(() => {

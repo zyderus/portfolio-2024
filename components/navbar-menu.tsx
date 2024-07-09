@@ -1,5 +1,11 @@
 'use client';
-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { usePathname } from 'next/navigation';
 import LinkIntl from './ui/link-intl';
 import type { Locale } from '@/i18n.config';
@@ -27,15 +33,15 @@ export default function NavbarMenu({ lang, dictionary }: NavbarMenuProps) {
   }, []);
 
   useLayoutEffect(() => {
-    if (pathname === '/') {
+    if (pathname === '/' || pathname === `/${lang}`) {
       setActiveLinkIndex(activeHashIndex || 0);
     } else {
       const initialIndex = navLinks.findIndex(
-        (section) => section.url === pathname
+        (link) => link.url === pathname || `/${lang}${link.url}` === pathname
       );
       setActiveLinkIndex(initialIndex !== -1 ? initialIndex : 0);
     }
-  }, [activeHashIndex, pathname]);
+  }, [activeHashIndex, lang, pathname]);
 
   const lineStyle = useLineStyle(activeLinkIndex, linkRefs.current);
 
