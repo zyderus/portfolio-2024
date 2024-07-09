@@ -1,11 +1,5 @@
 'use client';
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import LinkIntl from './ui/link-intl';
 import type { Locale } from '@/i18n.config';
@@ -32,8 +26,10 @@ export default function NavbarMenu({ lang, dictionary }: NavbarMenuProps) {
     setActiveLinkIndex(index);
   }, []);
 
-  useLayoutEffect(() => {
-    if (pathname === '/' || pathname === `/${lang}`) {
+  useEffect(() => {
+    const isHomePath = pathname === '/' || pathname === `/${lang}`;
+
+    if (isHomePath) {
       setActiveLinkIndex(activeHashIndex || 0);
     } else {
       const initialIndex = navLinks.findIndex(
@@ -46,20 +42,20 @@ export default function NavbarMenu({ lang, dictionary }: NavbarMenuProps) {
   const lineStyle = useLineStyle(activeLinkIndex, linkRefs.current);
 
   return (
-    <ul className='relative hidden md:flex space-x-8'>
+    <ul className='relative hidden md:flex'>
       {navLinks.map(({ id, url }, index) => {
         return (
           <li key={id} ref={(el: any) => (linkRefs.current[index] = el)}>
             <LinkIntl
               href={url}
               lang={lang}
-              className={`transition-colors duration-300 ease-in-out hover:text-color-primary ${
+              className={`px-3 transition-colors duration-300 ease-in-out hover:text-color-primary ${
                 activeLinkIndex === index
                   ? 'text-color-primary'
                   : 'text-gray-500'
               }`}
               onClick={() => handleClick(index)}
-              replace={url.startsWith('/#')}
+              replace={url.startsWith('/#') || url.startsWith(`/${lang}#`)}
             >
               {dictionary[id]}
             </LinkIntl>
@@ -67,7 +63,7 @@ export default function NavbarMenu({ lang, dictionary }: NavbarMenuProps) {
         );
       })}
       <div
-        className='absolute left-40 border-b border-accent -bottom-1 transition-all duration-300 ease-in-out'
+        className='absolute left-1 -bottom-1 border-b border-accent transition-all duration-300 ease-in-out'
         style={lineStyle}
       ></div>
     </ul>

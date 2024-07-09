@@ -11,8 +11,8 @@ export default function useLineStyle(
     const activeLink = linkRefs[activeLinkIndex];
     if (activeLink) {
       setLineStyle({
-        left: activeLink.offsetLeft - 31 - 5,
-        width: activeLink.offsetWidth + 10,
+        left: activeLink.offsetLeft + 4,
+        width: activeLink.offsetWidth - 8,
       });
     }
   }, [activeLinkIndex, linkRefs]);
