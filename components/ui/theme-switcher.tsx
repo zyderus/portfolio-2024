@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { LONG_CLICK_DELAY } from '@/lib/constants';
+import { LONG_CLICK_DELAY } from '@/lib/constants/constants';
 import type { CustomTheme } from '@/lib/types';
 import useLongClick from '@/hooks/useLongClick';
 import useTheme from '@/hooks/useTheme';

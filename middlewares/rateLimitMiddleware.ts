@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { RATE_LIMIT_INTERVAL } from '@/lib/constants';
+import { RATE_LIMIT_INTERVAL } from '@/lib/constants/constants';
 
 const REQUEST_LIMIT = 1;
 const REQUEST_INTERVAL_MS = RATE_LIMIT_INTERVAL * 1000;

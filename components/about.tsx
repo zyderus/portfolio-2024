@@ -1,4 +1,4 @@
-import { myData } from '@/lib/constants';
+import { myData } from '@/lib/constants/constants';
 import type { SectionProps } from '@/lib/types';
 import SectionHeader from './ui/section-header';
 

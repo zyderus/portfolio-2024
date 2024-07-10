@@ -1,5 +1,5 @@
 import ThemeThumbnail from '@/components/ui/theme-thumbnail';
-import { customThemes } from '@/lib/constants';
+import { customThemes } from '@/lib/constants/constants';
 import type { CustomTheme } from '@/lib/types';
 
 interface DropdownMenuProps {

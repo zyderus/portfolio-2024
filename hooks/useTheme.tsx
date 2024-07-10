@@ -1,6 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, customThemes } from '@/lib/constants';
+import {
+  LOCAL_STORAGE_THEME_KEY,
+  customThemes,
+} from '@/lib/constants/constants';
 import { setTheme } from '@/lib/theme';
 import type { CustomTheme } from '@/lib/types';
 import { MdWbSunny } from 'react-icons/md';

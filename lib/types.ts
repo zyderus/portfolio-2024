@@ -1,5 +1,5 @@
 import type { Locale } from '@/i18n.config';
-import { customThemes } from './constants';
+import { customThemes } from './constants/constants';
 
 export type JsonType = { [key: string]: any };
 

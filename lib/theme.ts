@@ -1,4 +1,4 @@
-import { LOCAL_STORAGE_THEME_KEY } from './constants';
+import { LOCAL_STORAGE_THEME_KEY } from './constants/constants';
 import { ThemeName } from './types';
 
 const setDocumentTheme = (themeName: ThemeName) => {

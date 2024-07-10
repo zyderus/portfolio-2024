@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
-import { navLinks } from '@/lib/constants';
+import { navLinks } from '@/lib/constants/constants';
 
 export default function useActiveSection(options: IntersectionObserverInit) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);

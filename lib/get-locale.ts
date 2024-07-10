@@ -1,5 +1,5 @@
 import { i18n, type Locale } from '@/i18n.config';
-import { LOCALE_COOKIE } from '@/lib/constants';
+import { LOCALE_COOKIE } from '@/lib/constants/constants';
 import type { NextRequest } from 'next/server';
 
 export function getLocale(request: NextRequest) {

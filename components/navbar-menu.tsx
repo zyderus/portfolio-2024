@@ -6,7 +6,7 @@ import type { Locale } from '@/i18n.config';
 import type { JsonType } from '@/lib/types';
 import useActiveSection from '@/hooks/useActiveSection';
 import useLineStyle from '@/hooks/useLineStyle';
-import { navLinks } from '@/lib/constants';
+import { navLinks } from '@/lib/constants/constants';
 
 interface NavbarMenuProps {
   lang: Locale;
