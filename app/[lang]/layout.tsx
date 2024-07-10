@@ -40,7 +40,7 @@ export default function RootLayout({
         <ApplyCssClasses />
         <Header lang={params.lang} />
         <main className='max-w-[1200px] w-full mx-auto'>{children}</main>
-        <Footer />
+        <Footer lang={params.lang} />
       </body>
     </html>
   );
