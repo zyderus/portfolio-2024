@@ -3,7 +3,7 @@ import { interests } from '@/lib/constants/interests';
 
 export default function Interests() {
   return (
-    <ul className='flex flex-wrap justify-center items-center text-bg-primary list-none mb-6'>
+    <ul className='flex flex-wrap justify-center items-center text-bg-primary list-none'>
       {interests.map(({ id, icon: Icon, size, desc }) => (
         <li key={id}>
           <Tooltip text={desc}>

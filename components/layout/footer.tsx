@@ -11,20 +11,20 @@ export default async function Footer({ lang }: LangProps) {
   } = await getDictionary(lang);
 
   return (
-    <div className='bg-bg-secondary w-full min-h-40 p-8 text-center text-sm text-color-primary/60 space-y-2'>
+    <div className='bg-bg-secondary w-full min-h-40 pt-10 pb-20 text-center text-sm text-color-primary/50 space-y-8'>
       <Interests />
-      <ul className='flex flex-wrap justify-center list-none mx-auto text-color-primary/70'>
+      <ul className='flex flex-wrap justify-center list-none mx-auto space-x-4 text-color-primary/75'>
         {navLinks.slice(1, navLinks.length - 1).map(({ id, url }) => (
           <li
             key={id}
-            className='px-1 hover:text-color-primary transition-colors duration-100'
+            className='hover:text-accent transition-colors duration-100'
           >
             <LinkIntl href={url} lang={lang}>
               {navigation[id]}
             </LinkIntl>
           </li>
         ))}
-        <li className='px-1 hover:text-color-primary transition-colors duration-100'>
+        <li className='hover:text-accent transition-colors duration-100'>
           <a
             href='https://linkedin.com/in/yourprofile'
             target='_blank'
@@ -33,7 +33,7 @@ export default async function Footer({ lang }: LangProps) {
             LinkedIn
           </a>
         </li>
-        <li className='px-1 hover:text-color-primary transition-colors duration-100'>
+        <li className='hover:text-accent transition-colors duration-100'>
           <a
             href='https://github.com/zyderus'
             target='_blank'
@@ -42,17 +42,18 @@ export default async function Footer({ lang }: LangProps) {
             Github
           </a>
         </li>
-        <li className='px-1 hover:text-color-primary transition-colors duration-100'>
+        <li className='hover:text-accent transition-colors duration-100'>
           <Link href='#'>Resume</Link>
         </li>
-        <li className='px-1 hover:text-color-primary transition-colors duration-100'>
+        <li className='hover:text-accent transition-colors duration-100'>
           <LinkIntl href={navLinks.at(-1)?.url || '#'} lang={lang}>
             {navigation[navLinks.at(-1)?.id || 0]}
           </LinkIntl>
         </li>
       </ul>
-      <p className=''>by Rustam Ziyodov</p>
-      <p className=''>&copy; 2024</p>
+      <p className='text-xs'>
+        &copy; 2024 Rustam Ziyodov. All rights reserved.
+      </p>
     </div>
   );
 }

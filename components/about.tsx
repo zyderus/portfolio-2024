@@ -5,7 +5,7 @@ import { skills } from '@/lib/constants/skills';
 
 export default function About({ lang, dictionary }: SectionProps) {
   return (
-    <section id='about' className='min-h-screen py-24 px-16'>
+    <section id='about' className='min-h-screen py-24 px-16 leading-7'>
       <SectionHeader id='about' title='My Story' />
       <p>
         Hi! I am Rustam and I enjoy creating attractive, human-friendly apps

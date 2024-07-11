@@ -13,11 +13,11 @@ export default function TechCard({ skill }: { skill: Skill }) {
             width={75}
             height={75}
             alt='Picture of the author'
-            className={`absolute -top-5 rounded-xl transition-transform group-hover:-translate-y-5`}
+            className={`absolute -top-5 rounded-xl filter grayscale group-hover:grayscale-0 transition duration-200 ease-in-out group-hover:-translate-y-5`}
           />
         </div>
 
-        <div className='flex rounded-b-xl justify-center items-center w-full pt-4 pb-1 bg-bg-secondary/70 text-sm transition-colors group-hover:bg-accent'>
+        <div className='flex rounded-b-xl justify-center items-center w-full pt-4 pb-1 bg-bg-secondary/70 text-sm transition-colors duration-200 group-hover:bg-accent'>
           <h1>{label}</h1>
         </div>
       </div>
