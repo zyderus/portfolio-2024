@@ -1,6 +1,7 @@
-import { myData } from '@/lib/constants/constants';
 import type { SectionProps } from '@/lib/types';
 import SectionHeader from './ui/section-header';
+import TechCard from './tech-card';
+import { skills } from '@/lib/constants/skills';
 
 export default function About({ lang, dictionary }: SectionProps) {
   return (
@@ -17,13 +18,15 @@ export default function About({ lang, dictionary }: SectionProps) {
         and out of nowhere, I have an encounter with Arduino with its idea of
         C++. My head made a few blips and clicks and the rest is history.
       </p>
-      <p>
+      <p className='mt-4'>
         Today, I use the following set of tools to create beautiful, convenient
         and conversion-oriented applications:
       </p>
-      <ul>
-        {myData.skills.map((skill) => (
-          <li key={skill}>{skill}</li>
+      <ul className='mx-auto mt-12 flex flex-wrap justify-center max-w-[48rem]'>
+        {skills.map((skill) => (
+          <li key={skill.label}>
+            <TechCard skill={skill} />
+          </li>
         ))}
       </ul>
     </section>

@@ -38,18 +38,18 @@ export const interests: Interest[] = [
     id: 'skiing',
     icon: GiSkier,
     size: 2,
-    desc: 'Skiing: The fastest way to turn money into bruises. I love it.',
+    desc: 'Skiing: The fastest way to turn money into bruises. Love it!',
   },
   {
     id: 'science',
     icon: GiDna2,
     size: 1,
-    desc: "Science: It made me understand why sticking fingers into a wall socket isn't the brightest idea.",
+    desc: "Science: Enlightened me on why inserting one's digits into an electrical outlet isn't exactly the pinnacle of intellectual pursuits.",
   },
   {
     id: 'tinkering',
     icon: GiTinker,
     size: 1,
-    desc: "Tinkering: Some say tinkering is just a hobby. I say it's my way of proving that duct tape really can fix anything.",
+    desc: 'Tinkering: My profound quest to demonstrate that duct tape reigns supreme as the ultimate problem-solving marvel in the cosmos.',
   },
 ];
