@@ -2,10 +2,11 @@ import type { SectionProps } from '@/lib/types';
 import SectionHeader from './ui/section-header';
 import TechCard from './tech-card';
 import { skills } from '@/lib/constants/skills';
+import AboutTabs from './about-tabs';
 
 export default function About({ lang, dictionary }: SectionProps) {
   return (
-    <section id='about' className='min-h-screen py-24 px-16 leading-7'>
+    <section id='about' className='min-h-screen py-20'>
       <SectionHeader id='about' title='My Story' />
       <p>
         Hi! I am Rustam and I enjoy creating attractive, human-friendly apps
@@ -18,17 +19,22 @@ export default function About({ lang, dictionary }: SectionProps) {
         and out of nowhere, I have an encounter with Arduino with its idea of
         C++. My head made a few blips and clicks and the rest is history.
       </p>
-      <p className='mt-4'>
+
+      <p className='my-4'>
         Today, I use the following set of tools to create beautiful, convenient
         and conversion-oriented applications:
       </p>
-      <ul className='mx-auto mt-12 flex flex-wrap justify-center max-w-[48rem]'>
+      <ul className='mx-auto my-8 flex flex-wrap justify-center max-w-[38rem] gap-6'>
         {skills.map((skill) => (
           <li key={skill.label}>
             <TechCard skill={skill} />
           </li>
         ))}
       </ul>
+
+      <div className='my-10'>
+        <AboutTabs />
+      </div>
     </section>
   );
 }

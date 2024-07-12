@@ -104,9 +104,14 @@
 }
 
 section {
-  /* border: 1px solid green; */
-  min-height: 100vh;
-  max-width: 1200px;
+  @apply border border-green-500 mx-auto max-w-[1024px] px-5 sm:px-16 text-center sm:text-left py-4 leading-7;
+
+  scroll-margin-top: 100px; /* Adjust the value as needed */
+}
+@supports not (scroll-margin-top: 0) {
+  section {
+    scroll-snap-margin-top: 100px; /* Compatibility fallback */
+  }
 }
 
 @layer utilities {

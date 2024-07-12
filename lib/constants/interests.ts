@@ -38,13 +38,13 @@ export const interests: Interest[] = [
     id: 'skiing',
     icon: GiSkier,
     size: 2,
-    desc: 'Skiing: The fastest way to turn money into bruises. Love it!',
+    desc: 'Skiing: The fastest way I can turn money into bruises.',
   },
   {
     id: 'science',
     icon: GiDna2,
     size: 1,
-    desc: "Science: Enlightened me on why inserting one's digits into an electrical outlet isn't exactly the pinnacle of intellectual pursuits.",
+    desc: "Science: I now understand why microwaving a grape isn't just a culinary experiment.",
   },
   {
     id: 'tinkering',

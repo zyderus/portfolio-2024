@@ -11,7 +11,7 @@ interface RepoCompactProps {
 
 export default function RepoCompact({ repo, isFeature }: RepoCompactProps) {
   return (
-    <div className='flex items-center gap-x-2 w-full'>
+    <div className='flex items-center gap-x-2 w-full flex-col sm:flex-row'>
       <div className='flex-1'>
         <span className='text-lg font-bold'>{formatRepoTitle(repo.name)}</span>
         {isFeature && (

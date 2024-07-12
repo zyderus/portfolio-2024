@@ -6,12 +6,11 @@ export default function SectionHeader({
   title: string;
 }) {
   return (
-    <div className='flex justify-between items-center mb-12'>
-      {/* <div className='flex-grow h-px bg-gradient-to-r from-transparent to-bg-secondary'></div> */}
-      <h1 id={id} className='pr-4 text-center text-3xl font-bold'>
+    <>
+      <h1 id={id} className='text-center text-3xl font-bold'>
         {title}
       </h1>
-      <div className='flex-grow h-px transform bg-gradient-to-l from-transparent to-bg-secondary'></div>
-    </div>
+      <div className='w-[80%] mx-auto my-4 h-px bg-gradient-to-r from-transparent via-bg-secondary/50 to-transparent'></div>
+    </>
   );
 }

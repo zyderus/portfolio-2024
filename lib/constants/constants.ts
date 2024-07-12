@@ -3,7 +3,13 @@ export const LOCALE_COOKIE = 'NEXT_LOCALE';
 export const LONG_CLICK_DELAY = 700; // milliseconds
 export const RATE_LIMIT_INTERVAL = 120; // seconds
 
-export const navLinks = [
+export interface NavLink {
+  id: string;
+  label: string;
+  url: string;
+}
+
+export const navLinks: NavLink[] = [
   {
     id: 'home',
     label: 'Start',

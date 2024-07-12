@@ -6,19 +6,28 @@ export default function TechCard({ skill }: { skill: Skill }) {
 
   return (
     <a href={url} target='_blank' rel='noopener noreferrer' className='group'>
-      <div className='p-6'>
-        <div className='relative w-24 h-16 flex justify-center items-center bg-bg-secondary rounded-xl translate-y-3'>
-          <Image
-            src={img_src}
-            width={75}
-            height={75}
-            alt='Picture of the author'
-            className={`absolute -top-5 rounded-xl filter grayscale group-hover:grayscale-0 transition duration-200 ease-in-out group-hover:-translate-y-5`}
-          />
-        </div>
-
-        <div className='flex rounded-b-xl justify-center items-center w-full pt-4 pb-1 bg-bg-secondary/70 text-sm transition-colors duration-200 group-hover:bg-accent'>
-          <h1>{label}</h1>
+      <div className='relative flex flex-col justify-end items-center text-center w-24 h-24 rounded-xl bg-bg-secondary overflow-hidden'>
+        <Image
+          src={img_src}
+          width={80}
+          height={80}
+          alt={`Picture of ${label} logo`}
+          className={`
+              absolute h-full w-full
+              filter grayscale opacity-20
+              transition ease-in-out 
+              -translate-x-1 -translate-y-1 
+              -rotate-12
+              scale-110
+              group-hover:grayscale-0 group-hover:opacity-100 
+              group-hover:-translate-x-0 group-hover:-translate-y-0 
+              group-hover:-rotate-0
+              group-hover:scale-100
+            `}
+          style={{ transformOrigin: 'bottom left' }}
+        />
+        <div className='flex justify-center items-center w-full h-1/2 bg-bg-primary/75 z-10 transition group-hover:translate-y-12'>
+          {label}
         </div>
       </div>
     </a>
