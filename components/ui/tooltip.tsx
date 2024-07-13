@@ -62,13 +62,13 @@ export default function Tooltip({ text, children }: TooltipProps) {
         {children}
       </div>
       <div
-        className={` transition-opacity duration-300 ease-in
+        className={` transition-opacity duration-200 ease-in
             ${visible ? 'opacity-100' : 'opacity-0'}`}
       >
         {visible && (
           <>
             <div
-              className={`absolute bottom-full mb-2 p-2 text-center text-white bg-gray-800 rounded-md shadow-lg w-max max-w-[50vw] z-50
+              className={`absolute bottom-full mb-2 p-2 text-center text-white bg-gray-800 rounded-md shadow-lg w-max max-w-[50vw] z-30
         ${position === 'left' ? 'left-0' : ''}
         ${position === 'center' ? 'left-1/2 transform -translate-x-1/2' : ''}
         ${position === 'right' ? 'right-0' : ''}`}

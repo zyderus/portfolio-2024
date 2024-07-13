@@ -17,8 +17,8 @@ export default function RepoFeature({
 }: Repo) {
   return (
     <>
-      <div className='w-[95%] sm:w-1/2 -mt-32 sm:my-auto mx-auto z-10 p-2 sm:p-0 rounded-lg bg-bg-primary/90 sm:bg-[initial] flex flex-col-reverse sm:flex-col border border-bg-secondary sm:border-none py-4 sm:py-0'>
-        <div className='flex flex-wrap justify-center sm:justify-start group-even:sm:justify-end gap-4 text-3xl mt-4 sm:mt-0'>
+      <div className='w-[90%] md:w-1/2 -mt-[17%] md:my-auto mx-auto z-10 p-[4%] md:p-0 rounded-xl bg-bg-secondary md:bg-[initial] flex flex-col-reverse md:flex-col border border-bg-secondary md:border-none py-4 md:py-0'>
+        <div className='flex flex-wrap justify-center md:justify-start group-even:md:justify-end gap-4 text-3xl mt-4 md:mt-0'>
           <a href={html_url} target='_blank' rel='noopener noreferrer'>
             <HoverBox>
               <FaGithub />
@@ -33,17 +33,17 @@ export default function RepoFeature({
           )}
         </div>
         <div>
-          <h1 className='text-xl sm:text-3xl font-bold text-accent sm:mt-10 group-even:sm:text-right'>
+          <h1 className='text-xl md:text-3xl font-bold text-accent md:mt-10 group-even:md:text-right'>
             {formatRepoTitle(name)}
           </h1>
-          <p className='text-xs group-even:sm:text-right'>
+          <p className='text-xs group-even:md:text-right'>
             {created_at.split('-')[0]}
           </p>
-          <div className='mt-4 sm:mt-10 bg-bg-secondary py-4 px-[5%] sm:px-6 rounded-lg shadow-xl'>
+          <div className='mt-4 md:mt-10 bg-bg-primary md:bg-bg-secondary py-4 px-[5%] md:px-6 rounded-xl shadow-xl'>
             {description}
           </div>
 
-          <ul className='mt-3 flex flex-wrap gap-1 justify-center sm:justify-start group-even:sm:justify-end text-sm'>
+          <ul className='mt-3 flex flex-wrap gap-1 justify-center md:justify-start group-even:md:justify-end text-sm'>
             {Array.from({ length: 4 }).map((_, i) => (
               <li key={i} className='text-gray-300 bg-black px-[6px] py-[3px]'>
                 {language}
@@ -53,14 +53,14 @@ export default function RepoFeature({
         </div>
       </div>
 
-      <div className='sm:w-1/2'>
-        <div className='sm:-ml-16 group-even:sm:ml-0 group-even:sm:-mr-16 flex items-center h-80 rounded-xl overflow-hidden'>
+      <div className='md:w-1/2'>
+        <div className='md:-ml-16 group-even:md:ml-0 group-even:md:-mr-16 flex items-start md:items-center h-[initial] sm:h-80 overflow-hidden sm:rounded-xl'>
           <Image
             src={`https://raw.githubusercontent.com/${full_name}/main/public/demo/${name}.webp`}
             width={800}
-            height={800}
+            height={600}
             alt='repository screenshot'
-            className='my-auto w-full rounded-xl'
+            className='my-0 md:my-auto w-full sm:rounded-xl'
             priority
           />
         </div>

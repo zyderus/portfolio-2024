@@ -59,14 +59,12 @@ export const rateLimitMiddleware =
       }
 
       ipData.count += 1;
-
       return;
     }
 
     // Path /roll
     if (pathname.startsWith('/roll')) {
       console.log('middleware @ path /roll');
-
       return NextResponse.redirect(new URL('/', request.url));
     }
 
