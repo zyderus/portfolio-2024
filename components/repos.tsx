@@ -10,7 +10,7 @@ export default async function Repos({ repos }: { repos: Repo[] }) {
     );
 
   return (
-    <ul className='striped mx-auto'>
+    <ul className='striped mx-auto border border-yellow-500'>
       {repos.map((repo) => {
         const isFeature = repo.topics.includes('feature');
 

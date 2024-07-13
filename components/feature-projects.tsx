@@ -11,20 +11,19 @@ export default async function FeatureProjects({
   const featureRepos = await fetchGithubReposByTopic();
 
   return (
-    <section id='experience' className='min-h-screen py-24 px-16'>
-      <div>
-        <SectionHeader id='experience' title='Feature Projects' />
-        <ul className='striped mx-auto'>
-          {featureRepos.map((repo) => (
-            <li
-              key={repo.id}
-              className='px-8 py-4 border border-bg-secondary/10'
-            >
-              <RepoFeature repo={repo} />
-            </li>
-          ))}
-        </ul>
-      </div>
+    <section id='experience' className='min-h-screen py-24'>
+      <SectionHeader id='experience' title='Feature Projects' />
+
+      <ul className='mx-auto flex flex-col gap-24 mt-16'>
+        {featureRepos.map((repo) => (
+          <li
+            key={repo.id}
+            className='group flex flex-col-reverse sm:flex-row even:sm:flex-row-reverse'
+          >
+            <RepoFeature {...repo} />
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

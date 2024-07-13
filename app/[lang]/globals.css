@@ -104,7 +104,7 @@
 }
 
 section {
-  @apply mx-auto max-w-[1024px] px-5 sm:px-16 text-center sm:text-left py-4 leading-7;
+  @apply border border-green-500 mx-auto max-w-[1024px] px-5 sm:px-16 text-center sm:text-left py-4 leading-7;
 
   scroll-margin-top: 100px; /* Adjust the value as needed */
 }
@@ -136,34 +136,6 @@ section {
   .scrollbar-thin::-webkit-scrollbar-track {
     background: rgba(var(--background-secondary));
     border-radius: 10px;
-  }
-
-  /* Alternate styles for projects list */
-  /* TODO: replace with even class inside jsx */
-  .striped {
-    li:first-child {
-      @apply md:rounded-t-xl;
-    }
-
-    li:last-child {
-      @apply md:rounded-b-xl;
-    }
-
-    li:nth-child(even) {
-      @apply bg-bg-secondary/10 border-transparent;
-    }
-
-    li:nth-child(even) .feature {
-      @apply flex-row-reverse;
-    }
-
-    li:nth-child(even) .feature > div:first-child {
-      @apply mr-0 -ml-24 text-right;
-    }
-
-    li:nth-child(even) .feature > div:first-child div {
-      @apply justify-end ml-auto;
-    }
   }
 }
 

@@ -3,11 +3,10 @@ import { SiRedux } from 'react-icons/si';
 import { FaReact, FaAws } from 'react-icons/fa6';
 import { IoBriefcaseOutline } from 'react-icons/io5';
 import { GiGraduateCap } from 'react-icons/gi';
-import { PiUserCheckLight } from 'react-icons/pi';
 import { ImStarEmpty } from 'react-icons/im';
 import { TbSchoolBell } from 'react-icons/tb';
 import { SlPlane } from 'react-icons/sl';
-import { IoSchoolOutline } from 'react-icons/io5';
+import { LuUser } from 'react-icons/lu';
 
 export interface BackgroundItem {
   id: number;
@@ -86,7 +85,7 @@ export const work: BackgroundItem[] = [
     description: 'Recruitment for the construction and security sectors.',
     awards: '',
     url: '',
-    icon: PiUserCheckLight,
+    icon: LuUser,
   },
   {
     id: 6,
@@ -149,7 +148,7 @@ export const education: BackgroundItem[] = [
     description: '',
     awards: '',
     url: '',
-    icon: IoSchoolOutline,
+    icon: TbSchoolBell,
   },
   {
     id: 5,
