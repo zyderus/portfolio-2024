@@ -19,7 +19,7 @@ export default function Timeline({ list }: TimelineProps) {
           date_end,
           location,
           description,
-          achievements,
+          awards,
           url,
           icon: Icon,
         }) => {
@@ -49,7 +49,7 @@ export default function Timeline({ list }: TimelineProps) {
                   group-even:sm:-ml-12
                   '
                 >
-                  <p className='font-bold'>{position || field}</p>
+                  <p className='font-bold mb-2'>{position || field}</p>
                   {(institution && (
                     <p className='font-bold'>{institution}</p>
                   )) ||
@@ -58,6 +58,11 @@ export default function Timeline({ list }: TimelineProps) {
                     ))}
                   <p className='text-sm italic'>{location}</p>
                   <p>{description}</p>
+                  {awards && (
+                    <p className='mt-2 text-sm'>
+                      <span className='font-bold'>Awards:</span> {awards}
+                    </p>
+                  )}
                   <div
                     className='
                     absolute top-7 w-0 h-0

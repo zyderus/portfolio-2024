@@ -7,6 +7,7 @@ import { PiUserCheckLight } from 'react-icons/pi';
 import { ImStarEmpty } from 'react-icons/im';
 import { TbSchoolBell } from 'react-icons/tb';
 import { SlPlane } from 'react-icons/sl';
+import { IoSchoolOutline } from 'react-icons/io5';
 
 export interface BackgroundItem {
   id: number;
@@ -14,7 +15,7 @@ export interface BackgroundItem {
   date_end: string;
   location: string;
   description: string;
-  achievements: string;
+  awards: string;
   url: string;
   employer?: string;
   position?: string;
@@ -33,7 +34,7 @@ export const work: BackgroundItem[] = [
     location: 'Vilnius, Lithuania',
     description:
       'Collaborated with a team of 11 developers to enhance the ERP connection for a European e-commerce platform. Rebuilt the administration panel, optimized React components and API handlers, cutting load times by 5x. Ensured comprehensive test coverage with integration, visual regression, and BDD testing. Regularly coordinated with the product owner and designer for feature reviews. Conducted candidate interviews and onboarding sessions.',
-    achievements: '',
+    awards: '',
     url: '',
     icon: SiRedux,
   },
@@ -46,7 +47,7 @@ export const work: BackgroundItem[] = [
     location: 'Moscow, Russia',
     description:
       'Develop advanced systems and software solutions tailored to customer goals and business environments. Utilize JavaScript, TypeScript, React, Express, Node, Strapi, and more. Engage in analysis, design, and implementation of business-critical applications, including UI development, server services, and database implementation.',
-    achievements: '',
+    awards: '',
     url: '',
     icon: FaReact,
   },
@@ -59,7 +60,7 @@ export const work: BackgroundItem[] = [
     location: 'Bukhara, Uzbekistan',
     description:
       'Designed and implemented automation and centralized control systems, deployed networks for remote systems management, and programmed Siemens Simatic PLC and HMI interfaces on TIA Portal. Coded Arduino microcontrollers with OpenHAB as the HMI. Integrated telephony and a central control network using FreePBX (Asterisk) and PHP scripts, connecting to external services like databases, Google text-to-speech/speech-to-text, Yandex SpeechKit, and Dialogflow.',
-    achievements: '',
+    awards: '',
     url: '',
     icon: IoBriefcaseOutline,
   },
@@ -70,9 +71,8 @@ export const work: BackgroundItem[] = [
     date_start: 'March 2013',
     date_end: 'April 2018',
     location: 'Moscow, Russia',
-    description:
-      "Planned and monitored client's inbound and outbound shipments.",
-    achievements: '',
+    description: 'Coordinated and supervised incoming and outgoing shipments.',
+    awards: '',
     url: '',
     icon: SlPlane,
   },
@@ -83,8 +83,8 @@ export const work: BackgroundItem[] = [
     date_start: 'July 2007',
     date_end: 'September 2010',
     location: 'London, UK',
-    description: 'Recruiting in construction and security sectors.',
-    achievements: '',
+    description: 'Recruitment for the construction and security sectors.',
+    awards: '',
     url: '',
     icon: PiUserCheckLight,
   },
@@ -96,7 +96,7 @@ export const work: BackgroundItem[] = [
     date_end: '2007',
     location: 'London, UK',
     description: 'Managed a rock-band of four artists.',
-    achievements: '',
+    awards: '',
     url: '',
     icon: ImStarEmpty,
   },
@@ -110,9 +110,8 @@ export const education: BackgroundItem[] = [
     date_start: '2024',
     date_end: '',
     location: 'Vilnius, Lithuania',
-    description:
-      'asdf as dfa sdfa sf asdfasdfas dfas dfaas dfasdfasdfasd fas dfa sdf',
-    achievements: '',
+    description: '',
+    awards: '',
     url: '',
     icon: FaAws,
   },
@@ -123,9 +122,8 @@ export const education: BackgroundItem[] = [
     date_start: '1997',
     date_end: '1999',
     location: 'Boulder, CO, USA',
-    description:
-      'asd asdf asdf a sdfa sdfa sdf asfas dfas dfas df asd fas dfasa sdfas dfasdf  asfd',
-    achievements: '',
+    description: '',
+    awards: '',
     url: '',
     icon: GiGraduateCap,
   },
@@ -136,20 +134,32 @@ export const education: BackgroundItem[] = [
     date_start: '1996',
     date_end: '1997',
     location: 'Navoi, Uzbekistan',
-    description: 'asdf asd fa sdfas dfa sfasd fasd f asdfasdfa sdfasdf asdf',
-    achievements: 'Umid Foundation Grant',
+    description: '',
+    awards: 'Umid Foundation Grant',
     url: '',
     icon: GiGraduateCap,
   },
   {
     id: 4,
-    institution: 'Bukhara State Secondary School 13',
-    field: 'General',
-    date_start: '1985',
+    institution: 'Bear Creek High School',
+    field: 'General Education',
+    date_start: '1994',
     date_end: '1995',
+    location: 'Lakewood, CO, USA',
+    description: '',
+    awards: '',
+    url: '',
+    icon: IoSchoolOutline,
+  },
+  {
+    id: 5,
+    institution: 'Bukhara State Secondary School 13',
+    field: 'General Education',
+    date_start: '1985',
+    date_end: '1994',
     location: 'Bukhara, Uzbekistan',
     description: '',
-    achievements: 'ACCELS/AFS Intercultural Exchange',
+    awards: 'ACCELS/AFS Intercultural Exchange Grant',
     url: '',
     icon: TbSchoolBell,
   },
