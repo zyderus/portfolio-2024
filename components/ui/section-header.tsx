@@ -7,7 +7,7 @@ export default function SectionHeader({
 }) {
   return (
     <>
-      <h1 id={id} className='text-center text-3xl font-bold'>
+      <h1 id={id} className='text-center text-2xl sm:text-3xl font-bold'>
         {title}
       </h1>
       <div className='w-[80%] mx-auto my-4 h-px bg-gradient-to-r from-transparent via-bg-secondary/50 to-transparent'></div>

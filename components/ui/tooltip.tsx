@@ -68,16 +68,14 @@ export default function Tooltip({ text, children }: TooltipProps) {
         {visible && (
           <>
             <div
-              className={`absolute bottom-full mb-2 p-2 text-center text-white bg-black rounded shadow-lg w-max max-w-[50vw]
+              className={`absolute bottom-full mb-2 p-2 text-center text-white bg-gray-800 rounded-md shadow-lg w-max max-w-[50vw] z-50
         ${position === 'left' ? 'left-0' : ''}
         ${position === 'center' ? 'left-1/2 transform -translate-x-1/2' : ''}
         ${position === 'right' ? 'right-0' : ''}`}
             >
               {text}
             </div>
-            <div
-              className={`absolute bottom-full mb-[3px] left-1/2 transform -translate-x-1/2 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-black`}
-            ></div>
+            <div className='absolute bottom-full mb-[3px] left-1/2 transform -translate-x-1/2 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-gray-800'></div>
           </>
         )}
       </div>

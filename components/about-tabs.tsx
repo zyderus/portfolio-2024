@@ -1,35 +1,9 @@
 'use client';
+import { skills } from '@/lib/constants/skills';
 import { useState, useEffect, useRef, type CSSProperties } from 'react';
-
-function TabOne() {
-  return (
-    <div>
-      <h2 className='text-xl font-semibold'>Tab One Content</h2>
-      <p>This is the content for Tab One.</p>
-      {/* Add more content and components as needed */}
-    </div>
-  );
-}
-
-function TabTwo() {
-  return (
-    <div>
-      <h2 className='text-xl font-semibold'>Tab Two Content</h2>
-      <p>This is the content for Tab Two.</p>
-      {/* Add more content and components as needed */}
-    </div>
-  );
-}
-
-function TabThree() {
-  return (
-    <div>
-      <h2 className='text-xl font-semibold'>Tab Three Content</h2>
-      <p>This is the content for Tab Three.</p>
-      {/* Add more content and components as needed */}
-    </div>
-  );
-}
+import TechCard from './tech-card';
+import Timeline from './ui/timeline';
+import { work, education } from '@/lib/constants/experience';
 
 interface Tab {
   id: number;
@@ -44,11 +18,33 @@ export default function AboutTabs() {
   const tabsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const [mounted, setMounted] = useState(false);
 
-  const tabs = [
-    { id: 0, label: 'Skills', component: <TabOne /> },
-    { id: 1, label: 'Work', component: <TabTwo /> },
-    { id: 2, label: 'Education', component: <TabThree /> },
+  const tabs: Tab[] = [
+    {
+      id: 0,
+      label: 'Skills',
+      component: (
+        <div className='max-w-[38rem] mx-auto text-center'>
+          <p className='my-4 text-sm sm:text-base'>
+            Today, I use the following set of tools to create beautiful,
+            convenient and conversion-oriented applications:
+          </p>
+          <ul className='mx-auto flex flex-wrap justify-center gap-6 my-12'>
+            {skills.map((skill) => (
+              <li key={skill.label}>
+                <TechCard skill={skill} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ),
+    },
+    { id: 1, label: 'Work', component: <Timeline list={work} /> },
+    { id: 2, label: 'Education', component: <Timeline list={education} /> },
   ];
+
+  const handleClick = (id: number) => {
+    setActiveTab(id);
+  };
 
   useEffect(() => {
     const activeTabElement = tabsRef.current[activeTab];
@@ -68,39 +64,31 @@ export default function AboutTabs() {
 
   return (
     <div>
-      {/* <div className='flex max-w-max my-4 mx-auto p-[2px] rounded-full bg-bg-secondary'>
-        <div className='px-3 py-1 bg-bg-primary rounded-full'>Skills</div>
-        <div className='px-3 py-1 rounded-full'>Work</div>
-        <div className='px-3 py-1 rounded-full'>Education</div>
-      </div> */}
-
-      <div className='relative flex flex-col sm:flex-row max-w-max my-4 mx-auto rounded-xl sm:rounded-full bg-bg-secondary'>
+      <div className='relative flex flex-col sm:flex-row max-w-max mx-auto rounded-xl bg-bg-secondary text-sm sm:text-base my-12'>
         {tabs.map((tab, index) => (
           <button
             key={tab.id}
             ref={(el: any) => (tabsRef.current[index] = el)}
-            onClick={() => setActiveTab(tab.id)}
-            className={`px-3 py-1 z-10`}
+            onClick={() => handleClick(tab.id)}
+            className={`px-4 py-2 z-10`}
           >
             {tab.label}
           </button>
         ))}
         {mounted && (
           <span
-            className='hidden sm:block absolute h-full bg-bg-primary border-2 border-bg-secondary rounded-full transition-all duration-300'
+            className='hidden sm:block absolute h-full bg-accent border-[3px] border-bg-secondary rounded-xl transition-all duration-300'
             style={underlineStyleX}
           />
         )}
         {mounted && (
           <span
-            className='block sm:hidden absolute w-full bg-bg-primary border-2 border-bg-secondary rounded-xl transition-all duration-300'
+            className='block sm:hidden absolute w-full bg-accent border-[3px] border-bg-secondary rounded-xl transition-all duration-300'
             style={underlineStyleY}
           />
         )}
       </div>
-      <div className='mt-4 p-4 border border-gray-200 rounded-lg'>
-        {tabs[activeTab].component}
-      </div>
+      <div className='mx-auto'>{tabs[activeTab].component}</div>
     </div>
   );
 }

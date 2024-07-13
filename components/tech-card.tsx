@@ -6,7 +6,7 @@ export default function TechCard({ skill }: { skill: Skill }) {
 
   return (
     <a href={url} target='_blank' rel='noopener noreferrer' className='group'>
-      <div className='relative flex flex-col justify-end items-center text-center w-24 h-24 rounded-xl bg-bg-secondary overflow-hidden'>
+      <div className='relative flex flex-col justify-end items-center text-center w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-bg-secondary overflow-hidden'>
         <Image
           src={img_src}
           width={80}
@@ -26,7 +26,7 @@ export default function TechCard({ skill }: { skill: Skill }) {
             `}
           style={{ transformOrigin: 'bottom left' }}
         />
-        <div className='flex justify-center items-center w-full h-1/2 bg-bg-primary/75 z-10 transition group-hover:translate-y-12'>
+        <div className='flex justify-center items-center w-full h-1/2 bg-bg-primary/75 text-sm sm:text-base z-10 transition group-hover:translate-y-12'>
           {label}
         </div>
       </div>

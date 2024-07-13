@@ -1,14 +1,12 @@
 import type { SectionProps } from '@/lib/types';
 import SectionHeader from './ui/section-header';
-import TechCard from './tech-card';
-import { skills } from '@/lib/constants/skills';
 import AboutTabs from './about-tabs';
 
 export default function About({ lang, dictionary }: SectionProps) {
   return (
     <section id='about' className='min-h-screen py-20'>
       <SectionHeader id='about' title='My Story' />
-      <p>
+      <p className='text-sm sm:text-base'>
         Hi! I am Rustam and I enjoy creating attractive, human-friendly apps
         that brighten up the day. My interest in application development started
         back in 1998. Then, as a student, I grokked HTML and CGI scripts to
@@ -20,21 +18,7 @@ export default function About({ lang, dictionary }: SectionProps) {
         C++. My head made a few blips and clicks and the rest is history.
       </p>
 
-      <p className='my-4'>
-        Today, I use the following set of tools to create beautiful, convenient
-        and conversion-oriented applications:
-      </p>
-      <ul className='mx-auto my-8 flex flex-wrap justify-center max-w-[38rem] gap-6'>
-        {skills.map((skill) => (
-          <li key={skill.label}>
-            <TechCard skill={skill} />
-          </li>
-        ))}
-      </ul>
-
-      <div className='my-10'>
-        <AboutTabs />
-      </div>
+      <AboutTabs />
     </section>
   );
 }
