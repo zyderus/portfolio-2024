@@ -17,8 +17,8 @@ export default function RepoFeature({
 }: Repo) {
   return (
     <>
-      <div className='w-[90%] md:w-1/2 -mt-[17%] md:my-auto mx-auto z-10 p-[4%] md:p-0 rounded-xl bg-bg-secondary md:bg-[initial] flex flex-col-reverse md:flex-col border border-bg-secondary md:border-none py-4 md:py-0'>
-        <div className='flex flex-wrap justify-center md:justify-start group-even:md:justify-end gap-4 text-3xl mt-4 md:mt-0'>
+      <div className='w-[90%] md:w-1/2 -mt-[17%] md:my-auto mx-auto px-1 xs:px-4 md:p-0 rounded-xl bg-bg-secondary md:bg-[initial] flex flex-col-reverse md:flex-col border border-bg-secondary md:border-none py-4 md:py-0 text-sm sm:text-base'>
+        <div className='flex flex-wrap justify-center md:justify-start group-even:md:justify-end gap-4 text-3xl mt-4 md:mt-0 z-10'>
           <a href={html_url} target='_blank' rel='noopener noreferrer'>
             <HoverBox>
               <FaGithub />
@@ -33,13 +33,13 @@ export default function RepoFeature({
           )}
         </div>
         <div>
-          <h1 className='text-xl md:text-3xl font-bold text-accent md:mt-10 group-even:md:text-right'>
+          <h1 className='text-xl sm:text-2xl md:text-3xl font-bold text-accent md:mt-10 group-even:md:text-right'>
             {formatRepoTitle(name)}
           </h1>
           <p className='text-xs group-even:md:text-right'>
             {created_at.split('-')[0]}
           </p>
-          <div className='mt-4 md:mt-10 bg-bg-primary md:bg-bg-secondary py-4 px-[5%] md:px-6 rounded-xl shadow-xl'>
+          <div className='mt-4 md:mt-10 bg-bg-primary md:bg-bg-secondary py-4 px-2 xs:px-4 md:px-6 rounded-xl shadow-xl'>
             {description}
           </div>
 
@@ -53,7 +53,7 @@ export default function RepoFeature({
         </div>
       </div>
 
-      <div className='md:w-1/2'>
+      <div className='md:w-1/2 -z-10'>
         <div className='md:-ml-16 group-even:md:ml-0 group-even:md:-mr-16 flex items-start md:items-center h-[initial] sm:h-80 overflow-hidden sm:rounded-xl'>
           <Image
             src={`https://raw.githubusercontent.com/${full_name}/main/public/demo/${name}.webp`}

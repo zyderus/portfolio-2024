@@ -32,10 +32,10 @@ export default async function Footer({ lang }: LangProps) {
 
   return (
     <div className='bg-bg-secondary w-full'>
-      <section className='min-h-40 pt-10 pb-20 text-center text-sm text-color-primary/60 space-y-8'>
+      <section className='min-h-40 pt-10 pb-20 text-center text-sm space-y-8 text-color-primary/80'>
         <Interests />
 
-        <ul className='flex flex-wrap justify-center list-none mx-auto gap-x-4 text-color-primary/75'>
+        <ul className='flex flex-wrap justify-center list-none mx-auto gap-x-4'>
           {footerLinks.map(({ id, label, url, external }) => (
             <li
               key={id}
@@ -54,9 +54,7 @@ export default async function Footer({ lang }: LangProps) {
           ))}
         </ul>
 
-        <p className='text-xs'>
-          &copy; 2024 Rustam Ziyodov. All rights reserved.
-        </p>
+        <p>&copy; 2024 Rustam Ziyodov. All rights reserved.</p>
       </section>
     </div>
   );

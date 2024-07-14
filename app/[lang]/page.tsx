@@ -11,9 +11,9 @@ export default async function Home({ params: { lang } }: PageProps) {
 
   return (
     <>
-      {/* <Hero lang={lang} dictionary={page} /> */}
+      <Hero lang={lang} dictionary={page} />
       <About lang={lang} dictionary={page} />
-      {/* <FeatureProjects lang={lang} dictionary={page} /> */}
+      <FeatureProjects lang={lang} dictionary={page} />
     </>
   );
 }

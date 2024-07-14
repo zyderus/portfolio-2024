@@ -68,7 +68,7 @@ export default function Tooltip({ text, children }: TooltipProps) {
         {visible && (
           <>
             <div
-              className={`absolute bottom-full mb-2 p-2 text-center text-white bg-gray-800 rounded-md shadow-lg w-max max-w-[50vw] z-30
+              className={`absolute bottom-full mb-2 p-2 text-left xs:text-center text-white bg-gray-800 rounded-md shadow-lg w-max max-w-[50vw] z-30
         ${position === 'left' ? 'left-0' : ''}
         ${position === 'center' ? 'left-1/2 transform -translate-x-1/2' : ''}
         ${position === 'right' ? 'right-0' : ''}`}

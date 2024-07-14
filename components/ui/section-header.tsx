@@ -1,10 +1,9 @@
-export default function SectionHeader({
-  id,
-  title,
-}: {
+interface SectionHeaderProps {
   id: string;
   title: string;
-}) {
+}
+
+export default function SectionHeader({ id, title }: SectionHeaderProps) {
   return (
     <>
       <h1 id={id} className='text-center text-xl sm:text-3xl font-bold'>

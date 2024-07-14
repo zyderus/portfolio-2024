@@ -1,9 +1,7 @@
 import { Skill } from '@/lib/constants/skills';
 import Image from 'next/image';
 
-export default function TechCard({ skill }: { skill: Skill }) {
-  const { label, img_src, url } = skill;
-
+export default function TechCard({ label, img_src, url }: Skill) {
   return (
     <a href={url} target='_blank' rel='noopener noreferrer' className='group'>
       <div className='relative flex flex-col justify-end items-center text-center w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-bg-secondary overflow-hidden'>

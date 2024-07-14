@@ -21,9 +21,9 @@ export const navLinks: NavLink[] = [
     url: '/#about',
   },
   {
-    id: 'experience',
-    label: 'Experience',
-    url: '/#experience',
+    id: 'features',
+    label: 'Features',
+    url: '/#features',
   },
   {
     id: 'projects',

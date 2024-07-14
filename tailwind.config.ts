@@ -22,6 +22,9 @@ const config: Config = {
         dropdown:
           '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.2)',
       },
+      screens: {
+        xs: '280px',
+      },
     },
   },
   plugins: [],
