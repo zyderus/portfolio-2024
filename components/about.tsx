@@ -38,7 +38,7 @@ const tabs: Tab[] = [
 
 export default function About({ lang, dictionary }: SectionProps) {
   return (
-    <section id='about' className='min-h-screen py-20'>
+    <section id='about' className='min-h-screen'>
       <SectionHeader id='about' title='My Story' />
 
       <p className='text-sm sm:text-base'>

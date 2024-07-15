@@ -11,22 +11,22 @@ interface RepoCompactProps {
 
 export default function RepoCompact({ repo, isFeature }: RepoCompactProps) {
   return (
-    <div className='flex items-center gap-x-2 w-full flex-col sm:flex-row'>
+    <div className='flex flex-col sm:flex-row items-center gap-x-2 w-full'>
       <div className='flex-1'>
-        <span className='text-lg font-bold'>{formatRepoTitle(repo.name)}</span>
+        <span className='font-bold'>{formatRepoTitle(repo.name)}</span>{' '}
         {isFeature && (
-          <span className='bg-bg-secondary text-accent font-bold px-2 py-1 ml-2 mr-1 rounded-lg text-xs uppercase'>
+          <span className='bg-bg-secondary rounded-lg px-2 py-1 text-accent text-xs font-bold uppercase'>
             feature
           </span>
         )}
         <span> | </span>
-        <span>{repo.created_at.split('-')[0]}</span>
-        <span> {repo.language ? '|' : ''} </span>
+        {repo.created_at.split('-')[0]}
+        {repo.language && ' | '}
         <span className='text-accent'>{repo.language}</span>
-        <span> {repo.description ? '|' : ''} </span>
-        <span>{repo.description}</span>
+        {repo.description && ' | '}
+        {repo.description}
       </div>
-      <div className='flex gap-4 text-3xl'>
+      <div className='flex gap-4 text-xl xs:text-3xl'>
         {repo.homepage && (
           <a href={repo.homepage} target='_blank' rel='noopener noreferrer'>
             <HoverBox>

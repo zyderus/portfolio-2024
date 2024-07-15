@@ -11,7 +11,7 @@ export default async function ContactPage({ params: { lang } }: PageProps) {
   } = await getDictionary(lang);
 
   return (
-    <section className='py-24 px-16'>
+    <section>
       <ToastContainer />
       <SectionHeader title={page.contact.title} />
       <ContactForm dictionary={page.contact} />

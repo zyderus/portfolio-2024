@@ -8,6 +8,40 @@ import type { JsonType } from '@/lib/types';
 import { formatDate } from '@/lib/format-date';
 import CountdownButton from '@/components/ui/countdown-button';
 
+// TODO: add error text
+
+interface FormField {
+  id: keyof EmailTemplateProps;
+  type: string;
+  placeholder: string;
+  autocomplete?: 'on' | '';
+  required: boolean;
+}
+
+const contactFormFields: FormField[] = [
+  {
+    id: 'name',
+    type: 'text',
+    placeholder: 'Name',
+    autocomplete: 'on',
+    required: true,
+  },
+  {
+    id: 'email',
+    type: 'text',
+    placeholder: 'example@domain.com',
+    autocomplete: 'on',
+    required: true,
+  },
+  {
+    id: 'message',
+    type: 'textarea',
+    placeholder: 'Type your message',
+    autocomplete: 'on',
+    required: true,
+  },
+];
+
 interface ContactFormProps {
   dictionary: JsonType;
 }
@@ -22,7 +56,7 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
     reset,
   } = useForm<EmailTemplateProps>();
 
-  async function onSubmit(data: EmailTemplateProps) {
+  async function submitForm(data: EmailTemplateProps) {
     try {
       const response = await fetch('/api/email', {
         method: 'POST',
@@ -53,47 +87,41 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
-      className='space-y-8 max-w-[640px] mx-auto'
+      onSubmit={handleSubmit(submitForm)}
+      className='space-y-8 max-w-[640px] mx-auto text-sm xs:text-base'
     >
-      <div className='mb-5'>
-        <input
-          type='text'
-          id='name'
-          autoComplete='on'
-          placeholder={dictionary.name}
-          className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-blue-500 focus:shadow-md'
-          {...register('name', { required: true })}
-        />
+      <div className='flex flex-wrap justify-between gap-8'>
+        {contactFormFields.map(
+          ({ id, type, placeholder, autocomplete, required }: FormField, i) =>
+            type === 'textarea' ? (
+              <textarea
+                key={i}
+                rows={4}
+                id={id}
+                placeholder={placeholder || dictionary[id]}
+                className='w-full resize-none rounded-xl border-2 border-color-primary/20 bg-bg-secondary py-1 xs:py-2 sm:py-3 px-2 xs:px-3 sm:px-6 outline-none focus:border-accent'
+                {...register(id, { required })}
+              ></textarea>
+            ) : (
+              <input
+                key={i}
+                type={type}
+                id={id}
+                autoComplete={autocomplete}
+                placeholder={placeholder || dictionary[id]}
+                className='w-full sm:w-auto sm:flex-grow rounded-xl border-2 border-color-primary/20 bg-bg-secondary py-1 xs:py-2 sm:py-3 px-2 xs:px-3 sm:px-6 outline-none focus:border-accent'
+                {...register(id, { required })}
+              />
+            )
+        )}
       </div>
-      <div className='mb-5'>
-        <input
-          // type='email'
-          type='text'
-          id='email'
-          autoComplete='on'
-          placeholder='example@domain.com'
-          className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-blue-500 focus:shadow-md'
-          {...register('email')}
-          // TODO: Update required when testing complete
-          // {...register('email', { required: true })}
-        />
-      </div>
-      <div className='mb-5'>
-        <textarea
-          rows={4}
-          id='message'
-          placeholder={dictionary.message}
-          className='w-full resize-none rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-blue-500 focus:shadow-md'
-          {...register('message', { required: true })}
-        ></textarea>
-      </div>
+
       <div>
         <CountdownButton
           loading={isSubmitting}
           countdown={countdown}
-          setCountdown={setCountdown}
           dictionary={dictionary}
+          className='w-full sm:w-1/3'
         />
       </div>
     </form>

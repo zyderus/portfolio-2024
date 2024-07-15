@@ -10,12 +10,15 @@ export default async function Repos({ repos }: { repos: Repo[] }) {
     );
 
   return (
-    <ul className='striped mx-auto border border-yellow-500'>
+    <ul className='text-center sm:text-left'>
       {repos.map((repo) => {
         const isFeature = repo.topics.includes('feature');
 
         return (
-          <li key={repo.id} className='px-8 py-4 border border-bg-secondary/10'>
+          <li
+            key={repo.id}
+            className='py-2 sm:py-4 border-b last:border-b-0 border-color-primary/10'
+          >
             <RepoCompact repo={repo} isFeature={isFeature} />
           </li>
         );

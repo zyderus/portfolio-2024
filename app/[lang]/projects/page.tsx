@@ -20,7 +20,7 @@ export default async function ProjectPage({ params, searchParams }: any) {
 
   return (
     // key={random} allows to stop caching to allow for skeletons on api fetch
-    <section className='py-24 mx-auto' key={Math.random()}>
+    <section className='mx-auto text-sm xs:text-base' key={Math.random()}>
       <SectionHeader title='Projects' />
       <p>
         Welcome to my Projects page! Here you&apos;ll find a curated selection
@@ -32,13 +32,15 @@ export default async function ProjectPage({ params, searchParams }: any) {
         projects to see the depth and breadth of my work.
       </p>
 
-      <PaginationSet paginationData={data.pagination} />
+      <div className='px-1 xs:px4 sm:px-8 mx-auto'>
+        <PaginationSet paginationData={data.pagination} />
 
-      <Suspense fallback={<ReposSkeleton amount={Number(per_page)} />}>
-        <Repos repos={data.repos} />
-      </Suspense>
+        <Suspense fallback={<ReposSkeleton amount={Number(per_page)} />}>
+          <Repos repos={data.repos} />
+        </Suspense>
 
-      <PaginationSet paginationData={data.pagination} />
+        <PaginationSet paginationData={data.pagination} />
+      </div>
     </section>
   );
 }

@@ -104,15 +104,16 @@
 }
 
 section {
-  @apply border border-green-500 mx-auto max-w-[1024px] px-[5%] xs:p-8 sm:px-16 text-center md:text-left py-4 leading-7;
+  /* TODO: fix py */
+  @apply border border-green-500 mx-auto max-w-[1024px] px-[5%] xs:px-8 sm:px-16 py-14  text-center md:text-left leading-7;
 
-  scroll-margin-top: 100px; /* Adjust the value as needed */
+  /* scroll-margin-top: 100px; */
 }
-@supports not (scroll-margin-top: 0) {
+/* @supports not (scroll-margin-top: 0) {
   section {
-    scroll-snap-margin-top: 100px; /* Compatibility fallback */
+    scroll-snap-margin-top: 100px; Compatibility fallback
   }
-}
+} */
 
 @layer utilities {
   /* For Firefox */

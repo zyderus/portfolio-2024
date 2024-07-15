@@ -8,6 +8,8 @@ import useActiveSection from '@/hooks/useActiveSection';
 import useLineStyle from '@/hooks/useLineStyle';
 import { navLinks } from '@/lib/constants/constants';
 
+// TODO: active link state bugs from features to projects
+
 interface NavbarMenuProps {
   lang: Locale;
   dictionary: JsonType;

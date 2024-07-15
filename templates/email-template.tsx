@@ -13,7 +13,7 @@ import {
   Text,
   Tailwind,
 } from '@react-email/components';
-import { myData } from '@/lib/constants';
+import { myData } from '@/lib/constants/constants';
 
 // template does NOT understand Flexbox nor Grid
 // set once you know your url
