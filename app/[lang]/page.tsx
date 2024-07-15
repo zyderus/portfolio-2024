@@ -3,6 +3,7 @@ import { PageProps } from './layout';
 import Hero from '@/components/hero';
 import About from '@/components/about';
 import FeatureProjects from '@/components/feature-projects';
+import Dropdown from '@/components/ui/dropdown';
 
 export default async function Home({ params: { lang } }: PageProps) {
   const {
@@ -11,9 +12,11 @@ export default async function Home({ params: { lang } }: PageProps) {
 
   return (
     <>
-      <Hero lang={lang} dictionary={page} />
-      <About lang={lang} dictionary={page} />
-      <FeatureProjects lang={lang} dictionary={page} />
+      <Dropdown className='mx-auto bg-green-500' />
+
+      {/* <Hero lang={lang} dictionary={page} /> */}
+      {/* <About lang={lang} dictionary={page} /> */}
+      {/* <FeatureProjects lang={lang} dictionary={page} /> */}
     </>
   );
 }

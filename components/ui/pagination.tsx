@@ -17,7 +17,7 @@ export default function Pagination({ links }: PaginationProps) {
   return (
     <div className='flex items-center justify-center xs:gap-4'>
       <button
-        className={`flex items-center gap-1 px-2 xs:px-4 text-xs border-b border-transparent transition-colors ${
+        className={`flex items-center gap-1 px-2 xs:px-4 text-xs border-b border-transparent transition-colors leading-6 ${
           !links.prev
             ? 'text-color-primary/30'
             : 'hover:border-accent active:border-accent/50'
@@ -40,7 +40,7 @@ export default function Pagination({ links }: PaginationProps) {
         {page_num} {links?.lastPage ? `/ ${links.lastPage}` : ''}
       </div>
       <button
-        className={`flex items-center gap-x-1 px-2 xs:px-4 text-xs border-b border-transparent transition-colors duration-100 ${
+        className={`flex items-center gap-x-1 px-2 xs:px-4 text-xs border-b border-transparent transition-colors leading-6 ${
           !links.next
             ? 'text-color-primary/30'
             : 'hover:border-accent active:border-accent/50'

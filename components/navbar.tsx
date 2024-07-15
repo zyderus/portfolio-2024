@@ -5,6 +5,7 @@ import ThemeSwitcher from '@/components/ui/theme-switcher';
 import LanguageSwitcher from '@/components/ui/language-switcher';
 import MobileMenu from '@/components/ui/mobile-menu';
 import NavbarMenu from './navbar-menu';
+import Dropdown from './ui/dropdown';
 
 interface NavbarProps {
   lang: Locale;
