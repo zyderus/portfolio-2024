@@ -2,10 +2,8 @@ import type { Locale } from '@/i18n.config';
 import type { JsonType } from '@/lib/types';
 import LinkIntl from '@/components/ui/link-intl';
 import ThemeSwitcher from '@/components/ui/theme-switcher';
-import LanguageSwitcher from '@/components/ui/language-switcher';
 import MobileMenu from '@/components/ui/mobile-menu';
 import NavbarMenu from './navbar-menu';
-import Dropdown from './ui/dropdown';
 import LangSwitcher from './lang-switcher';
 
 interface NavbarProps {
@@ -24,9 +22,8 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
         </div>
         <NavbarMenu lang={lang} dictionary={dictionary} />
         <div className='hidden md:flex md:items-center space-x-1'>
-          <LanguageSwitcher lang={lang} />
-          <ThemeSwitcher />
           <LangSwitcher lang={lang} />
+          <ThemeSwitcher />
         </div>
         {/* <MobileMenu lang={lang} dictionary={dictionary} /> */}
       </div>

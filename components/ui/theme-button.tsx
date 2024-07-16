@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { FaXmark } from 'react-icons/fa6';
-import { ImSpinner9 } from 'react-icons/im';
+import { ImSpinner8 } from 'react-icons/im';
 
 interface ThemeButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isDropdownOpen: boolean;
@@ -14,7 +14,6 @@ export default function ThemeButton({
   icon,
   vibration,
   mounted,
-  // className = '',
   ...rest
 }: ThemeButtonProps) {
   return (
@@ -33,7 +32,7 @@ export default function ThemeButton({
       >
         {!mounted ? (
           // TODO: Replace spinner
-          <ImSpinner9 className='spinner' />
+          <ImSpinner8 className='animate-spin' />
         ) : isDropdownOpen ? (
           <FaXmark />
         ) : (
