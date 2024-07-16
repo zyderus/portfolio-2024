@@ -9,7 +9,7 @@ export default async function Header({ lang }: LangProps) {
 
   return (
     <header className='z-40'>
-      {/* <Navbar lang={lang} dictionary={navigation} /> */}
+      <Navbar lang={lang} dictionary={navigation} />
     </header>
   );
 }

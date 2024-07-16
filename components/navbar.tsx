@@ -6,6 +6,7 @@ import LanguageSwitcher from '@/components/ui/language-switcher';
 import MobileMenu from '@/components/ui/mobile-menu';
 import NavbarMenu from './navbar-menu';
 import Dropdown from './ui/dropdown';
+import LangSwitcher from './lang-switcher';
 
 interface NavbarProps {
   lang: Locale;
@@ -25,6 +26,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
         <div className='hidden md:flex md:items-center space-x-1'>
           <LanguageSwitcher lang={lang} />
           <ThemeSwitcher />
+          <LangSwitcher lang={lang} />
         </div>
         {/* <MobileMenu lang={lang} dictionary={dictionary} /> */}
       </div>
