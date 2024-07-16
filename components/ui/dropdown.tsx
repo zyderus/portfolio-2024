@@ -17,15 +17,17 @@ interface DropdownProps {
   className?: string;
   loading?: boolean;
   chevron?: boolean;
+  compact?: boolean;
   selectAction?: (id: any) => void | Promise<void>;
 }
 
 export default function Dropdown({
   items,
-  activeId = items && items[0]?.id,
+  activeId = items[0]?.id,
   className,
   loading,
   chevron,
+  compact,
   selectAction,
 }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,26 +64,34 @@ export default function Dropdown({
       ) : ActiveIcon ? (
         <ActiveIcon />
       ) : (
-        <span className='font-bold tracking-wider text-sm'>
+        <span
+          className={`tracking-wider text-sm ${compact ? '' : 'font-bold'}`}
+        >
           {itemsMap[activeId]?.id.toUpperCase()}
         </span>
       )}
       {chevron && (
         <div
           className={`ml-2 transition duration-300 text-xs ${
-            isOpen ? 'rotate-0' : 'rotate-180'
+            isOpen ? 'rotate-180' : 'rotate-0'
           }`}
         >
-          <FaChevronDown />
+          <FaChevronDown className={`${compact ? 'text-xs' : ''}`} />
         </div>
       )}
       {isOpen && (
-        <ul className='absolute w-max right-0 top-12 text-base bg-bg-secondary rounded-lg overflow-hidden py-2 z-10'>
+        <ul
+          className={`absolute w-max right-0 text-base bg-bg-secondary overflow-hidden z-10 ${
+            compact ? 'top-8 rounded-md py-1' : 'top-12 rounded-lg py-2'
+          }`}
+        >
           <span className='sr-only'>Open dropdown</span>
           {items.map((item) => (
             <li
               key={item.id}
-              className='flex items-center pl-4 pr-6 py-2 hover:bg-bg-primary'
+              className={`flex items-center hover:bg-bg-primary ${
+                compact ? 'px-4 py-2' : 'pl-4 pr-6 py-2'
+              }`}
               onClick={() => selectAction?.(item.id)}
             >
               {hasIcon && (
