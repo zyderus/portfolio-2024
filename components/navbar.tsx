@@ -5,6 +5,7 @@ import ThemeSwitcher from '@/components/ui/theme-switcher';
 import MobileMenu from '@/components/ui/mobile-menu';
 import NavbarMenu from './navbar-menu';
 import LangSwitcher from './lang-switcher';
+import SectionActive from './ui/section-active';
 
 interface NavbarProps {
   lang: Locale;
@@ -13,20 +14,23 @@ interface NavbarProps {
 
 export default function Navbar({ lang, dictionary }: NavbarProps) {
   return (
-    <nav className='fixed w-full py-4 shadow-md bg-bg-primary/90'>
-      <div className='px-16 flex justify-between items-center'>
-        <div className='text-3xl text-color-primary'>
-          <LinkIntl href='/' lang={lang}>
-            RZ
-          </LinkIntl>
-        </div>
-        <NavbarMenu lang={lang} dictionary={dictionary} />
-        <div className='hidden md:flex md:items-center space-x-1'>
-          <LangSwitcher lang={lang} />
-          <ThemeSwitcher />
-        </div>
-        {/* <MobileMenu lang={lang} dictionary={dictionary} /> */}
-      </div>
+    // <nav className='fixed w-full h-32 shadow-md bg-bg-primary/90'>
+    <nav className='fixed w-full'>
+      <SectionActive>
+        <section className='h-full flex justify-between items-center py-0 my-auto'>
+          <div className='text-3xl text-color-primary'>
+            <LinkIntl href='/' lang={lang}>
+              RZ
+            </LinkIntl>
+          </div>
+          <NavbarMenu lang={lang} dictionary={dictionary} />
+          <div className='hidden md:flex md:items-center space-x-1'>
+            <LangSwitcher lang={lang} />
+            <ThemeSwitcher />
+          </div>
+          {/* <MobileMenu lang={lang} dictionary={dictionary} /> */}
+        </section>
+      </SectionActive>
     </nav>
   );
 }

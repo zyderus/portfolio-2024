@@ -105,7 +105,7 @@
 
 section {
   /* TODO: fix py */
-  @apply border border-green-500 mx-auto max-w-[1024px] px-[5%] xs:px-8 sm:px-16 py-16  text-center md:text-left leading-7;
+  @apply mx-auto max-w-[1024px] px-[5%] xs:px-8 sm:px-16 py-16  text-center md:text-left leading-7;
 
   /* scroll-margin-top: 100px; */
 }

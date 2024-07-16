@@ -6,7 +6,7 @@ import HoverBox from './ui/hover-box';
 export default function Hero({ lang, dictionary }: SectionProps) {
   return (
     <section id='home' className='min-h-screen xs:text-left'>
-      <div className='flex flex-col space-y-8 max-w-[800px] mx-auto mt-[10vh]'>
+      <div className='flex flex-col space-y-8 max-w-[800px] mx-auto mt-[15vh]'>
         <p className='text-lg sm:text-2xl'>
           <span className='text-2xl sm:text-5xl'>👋</span> Hello, I&apos;m
         </p>

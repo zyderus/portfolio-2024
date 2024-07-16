@@ -1,12 +1,12 @@
 'use client';
 import { useCallback, useEffect, useState } from 'react';
-import { navLinks } from '@/lib/constants';
+import { navLinks } from '@/lib/constants/constants';
 import type { Locale } from '@/i18n.config';
 import type { JsonType } from '@/lib/types';
 import LinkIntl from '@/components/ui/link-intl';
 import HamburgerMenu from '@/components/ui/hamburger-menu';
 import ThemeSwitcher from '@/components/ui/theme-switcher';
-import LanguageSwitcher from '@/components/ui/language-switcher';
+import LangSwitcher from '@/components/lang-switcher';
 import { debounce } from '@/lib/debounce';
 
 interface MobileMenuProps {
@@ -71,7 +71,7 @@ export default function MobileMenu({ lang, dictionary }: MobileMenuProps) {
           ))}
         </ul>
         <div className='flex space-x-4 justify-center'>
-          <LanguageSwitcher lang={lang} />
+          <LangSwitcher lang={lang} />
           <ThemeSwitcher />
         </div>
       </div>
