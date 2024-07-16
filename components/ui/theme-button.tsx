@@ -31,7 +31,6 @@ export default function ThemeButton({
         }`}
       >
         {!mounted ? (
-          // TODO: Replace spinner
           <ImSpinner8 className='animate-spin' />
         ) : isDropdownOpen ? (
           <FaXmark />

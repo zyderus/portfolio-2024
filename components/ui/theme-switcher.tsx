@@ -8,6 +8,7 @@ import useOutsideClick from '@/hooks/useOutsideClick';
 import ProgressbarWrapper from '@/components/ui/progressbar-wrapper';
 import ThemeDropdown from '@/components/ui/theme-dropdown';
 import ThemeButton from '@/components/ui/theme-button';
+import Tooltip from './tooltip';
 
 export default function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
@@ -46,15 +47,17 @@ export default function ThemeSwitcher() {
 
   return (
     <div className='relative'>
-      <ProgressbarWrapper duration={LONG_CLICK_DELAY}>
-        <ThemeButton
-          isDropdownOpen={isDropdownOpen}
-          icon={icon}
-          vibration={vibration}
-          mounted={mounted}
-          {...handlers}
-        />
-      </ProgressbarWrapper>
+      <Tooltip text={'click and hold for more themes'} delay={700}>
+        <ProgressbarWrapper duration={LONG_CLICK_DELAY}>
+          <ThemeButton
+            isDropdownOpen={isDropdownOpen}
+            icon={icon}
+            vibration={vibration}
+            mounted={mounted}
+            {...handlers}
+          />
+        </ProgressbarWrapper>
+      </Tooltip>
 
       <ThemeDropdown
         isDropdownOpen={isDropdownOpen}

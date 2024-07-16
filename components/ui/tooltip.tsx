@@ -3,15 +3,17 @@ import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 type TooltipProps = {
-  text: string;
+  text?: string;
+  delay?: number;
   children: ReactNode;
 };
 
-export default function Tooltip({ text, children }: TooltipProps) {
+export default function Tooltip({ text, delay = 200, children }: TooltipProps) {
   const [visible, setVisible] = useState(false);
-  const [position, setPosition] = useState<'left' | 'center' | 'right'>(
+  const [positionX, setPositionX] = useState<'left' | 'center' | 'right'>(
     'center'
   );
+  const [positionY, setPositionY] = useState<'top' | 'bottom'>('bottom');
   const tooltipRef = useRef<HTMLDivElement | null>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -19,15 +21,23 @@ export default function Tooltip({ text, children }: TooltipProps) {
     if (tooltipRef.current) {
       const rect = tooltipRef.current.getBoundingClientRect();
       const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
 
       if (rect.left < screenWidth / 4) {
-        setPosition('left');
+        setPositionX('left');
       } else if (rect.right > screenWidth - screenWidth / 4) {
-        setPosition('right');
+        setPositionX('right');
       } else {
-        setPosition('center');
+        setPositionX('center');
+      }
+
+      if (rect.top < screenHeight / 2) {
+        setPositionY('top');
+      } else {
+        setPositionY('bottom');
       }
     }
+
     setVisible(true);
   };
 
@@ -45,40 +55,46 @@ export default function Tooltip({ text, children }: TooltipProps) {
 
   useEffect(() => {
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      if (timeoutRef.current || visible) hideTooltip;
     };
-  }, []);
+  }, [visible]);
 
   return (
-    <div className='relative flex items-center'>
+    <div className='relative flex items-center text-base'>
       <div
-        onMouseEnter={() => showTooltipWithDelay(200)}
+        onMouseEnter={() => text && showTooltipWithDelay(delay)}
         onMouseLeave={hideTooltip}
+        onMouseDown={hideTooltip}
+        onClick={hideTooltip}
         ref={tooltipRef}
         className='flex items-center'
       >
         {children}
       </div>
-      <div
-        className={` transition-opacity duration-200 ease-in
-            ${visible ? 'opacity-100' : 'opacity-0'}`}
-      >
-        {visible && (
-          <>
-            <div
-              className={`absolute bottom-full mb-2 p-2 text-left xs:text-center text-white bg-gray-800 rounded-md shadow-lg w-max max-w-[50vw] z-30
-        ${position === 'left' ? 'left-0' : ''}
-        ${position === 'center' ? 'left-1/2 transform -translate-x-1/2' : ''}
-        ${position === 'right' ? 'right-0' : ''}`}
-            >
-              {text}
-            </div>
-            <div className='absolute bottom-full mb-[3px] left-1/2 transform -translate-x-1/2 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-gray-800'></div>
-          </>
-        )}
-      </div>
+      {text && visible && (
+        <>
+          <div
+            className={`absolute py-1 sm:py-2 px-2 xs:px-3 sm:px-5 text-left xs:text-center text-white bg-gray-800 rounded-md shadow-lg w-max max-w-[50vw] z-30
+        ${positionX === 'left' ? 'left-0' : ''}
+        ${positionX === 'center' ? 'left-1/2 transform -translate-x-1/2' : ''}
+        ${positionX === 'right' ? 'right-0' : ''}
+        ${positionY === 'bottom' ? 'bottom-full mb-2' : 'top-full mt-2'}`}
+          >
+            {text}
+          </div>
+          <div
+            className={`absolute ${
+              positionY === 'bottom'
+                ? 'bottom-full mb-[3px]'
+                : 'top-full mt-[3px]'
+            } left-1/2 transform -translate-x-1/2 
+                border-l-[6px] border-l-transparent 
+                border-r-[6px] border-r-transparent 
+                ${positionY === 'bottom' ? 'border-t-[6px]' : 'border-b-[6px]'}
+                border-gray-800`}
+          ></div>
+        </>
+      )}
     </div>
   );
 }

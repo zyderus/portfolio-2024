@@ -6,6 +6,7 @@ import MobileMenu from '@/components/ui/mobile-menu';
 import NavbarMenu from './navbar-menu';
 import LangSwitcher from './lang-switcher';
 import SectionActive from './ui/section-active';
+import Tooltip from './ui/tooltip';
 
 interface NavbarProps {
   lang: Locale;
@@ -14,7 +15,6 @@ interface NavbarProps {
 
 export default function Navbar({ lang, dictionary }: NavbarProps) {
   return (
-    // <nav className='fixed w-full h-32 shadow-md bg-bg-primary/90'>
     <nav className='fixed w-full'>
       <SectionActive>
         <section className='h-full flex justify-between items-center py-0 my-auto'>

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* TODO: add secondary text color */
+
 :root {
   color-scheme: dark light;
   --color-primary: 10, 10, 10;

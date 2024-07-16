@@ -9,6 +9,7 @@ import useLineStyle from '@/hooks/useLineStyle';
 import { navLinks } from '@/lib/constants/constants';
 
 // TODO: active link state bugs from features to projects
+// TODO: set inactive links to secondary color
 
 interface NavbarMenuProps {
   lang: Locale;

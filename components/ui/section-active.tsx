@@ -1,37 +1,51 @@
 'use client';
-import type { ReactNode } from 'react';
-import { useEffect, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react';
 import { usePathname } from 'next/navigation';
+import { i18n } from '@/i18n.config';
+import { debounce } from '@/lib/debounce';
 
-export default function SectionActive({ children }: { children: ReactNode }) {
+interface SectionActiveProps {
+  children: ReactNode;
+}
+
+export default function SectionActive({ children }: SectionActiveProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
+
+  const homePaths = useMemo(
+    () => ['/', ...i18n.locales.map((locale) => `/${locale}`)],
+    []
+  );
+  const isHomePage = homePaths.includes(pathname);
+
+  const handleScroll = debounce(
+    useCallback(() => {
+      setIsScrolled(window.scrollY > 100);
+    }, []),
+    150
+  );
 
   useEffect(() => {
     if (!isHomePage) return;
 
-    const handleScroll = () => {
-      if (window.scrollY > 150) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [isHomePage]);
+  }, [handleScroll, isHomePage]);
 
   return (
     <div
       className={`w-full transition-all duration-200 ease-in-out ${
-        isHomePage
-          ? isScrolled
-            ? 'bg-bg-primary/85 h-14 sm:h-16 backdrop-blur-[5px]'
-            : 'h-24 sm:h-36'
+        isHomePage && !isScrolled
+          ? 'h-24 sm:h-36'
           : 'bg-bg-primary/85 h-14 sm:h-16 backdrop-blur-[5px]'
       }`}
     >

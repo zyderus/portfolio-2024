@@ -4,6 +4,7 @@ import useOutsideClick from '@/hooks/useOutsideClick';
 import { IconType } from 'react-icons';
 import { FaChevronDown } from 'react-icons/fa6';
 import { ImSpinner8 } from 'react-icons/im';
+import Tooltip from './tooltip';
 
 export interface Item {
   id: string;
@@ -18,6 +19,7 @@ interface DropdownProps {
   loading?: boolean;
   chevron?: boolean;
   compact?: boolean;
+  tooltip?: string;
   selectAction?: (id: any) => void | Promise<void>;
 }
 
@@ -28,10 +30,15 @@ export default function Dropdown({
   loading,
   chevron,
   compact,
+  tooltip = '',
   selectAction,
 }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useOutsideClick<HTMLButtonElement>(() => {
+  const [positionX, setPositionX] = useState<'left' | 'center' | 'right'>(
+    'center'
+  );
+  const [positionY, setPositionY] = useState<'top' | 'bottom'>('bottom');
+  const dropdownRef = useOutsideClick<HTMLDivElement>(() => {
     setIsOpen(false);
   });
   const itemsMap = useMemo(
@@ -50,49 +57,82 @@ export default function Dropdown({
     [items]
   );
 
+  const showDropdown = () => {
+    if (!isOpen && dropdownRef.current) {
+      const rect = dropdownRef.current.getBoundingClientRect();
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+
+      if (rect.left < screenWidth / 4) {
+        setPositionX('left');
+      } else if (rect.right > screenWidth - screenWidth / 4) {
+        setPositionX('right');
+      } else {
+        setPositionX('center');
+      }
+
+      if (rect.top < screenHeight / 2) {
+        setPositionY('top');
+      } else {
+        setPositionY('bottom');
+      }
+    }
+
+    setIsOpen((prev) => !prev);
+  };
+
   return (
-    <button
-      ref={dropdownRef}
-      className={`relative flex justify-center items-center focus:outline-none transition-colors duration-300 ${
-        isOpen || loading ? 'bg-bg-secondary' : 'hover:bg-bg-secondary'
-      } ${className}`}
-      onClick={() => setIsOpen((prev) => !prev)}
-      disabled={loading}
-    >
-      {loading ? (
-        <ImSpinner8 className='animate-spin' />
-      ) : ActiveIcon ? (
-        <ActiveIcon />
-      ) : (
-        <span
-          className={`tracking-wider text-sm ${compact ? '' : 'font-bold'}`}
+    <div ref={dropdownRef} className='relative'>
+      <Tooltip text={tooltip}>
+        <button
+          className={`flex justify-center items-center focus:outline-none transition-colors duration-300 ${
+            isOpen || loading ? 'bg-bg-secondary' : 'hover:bg-bg-secondary'
+          } ${className}`}
+          onClick={showDropdown}
+          disabled={loading}
         >
-          {itemsMap[activeId]?.id.toUpperCase()}
-        </span>
-      )}
-      {chevron && (
-        <div
-          className={`ml-2 transition duration-300 text-xs ${
-            isOpen ? 'rotate-180' : 'rotate-0'
-          }`}
-        >
-          <FaChevronDown className={`${compact ? 'text-xs' : ''}`} />
-        </div>
-      )}
+          {loading ? (
+            <ImSpinner8 className='animate-spin' />
+          ) : ActiveIcon ? (
+            <ActiveIcon />
+          ) : (
+            <span
+              className={`tracking-wider text-sm ${compact ? '' : 'font-bold'}`}
+            >
+              {itemsMap[activeId]?.id.toUpperCase()}
+            </span>
+          )}
+          {chevron && (
+            <div
+              className={`ml-2 transition duration-300 text-xs ${
+                isOpen ? 'rotate-180' : 'rotate-0'
+              }`}
+            >
+              <FaChevronDown className={`${compact ? 'text-xs' : ''}`} />
+            </div>
+          )}
+        </button>
+      </Tooltip>
       {isOpen && (
         <ul
-          className={`absolute w-max right-0 text-base bg-bg-secondary overflow-hidden z-10 ${
-            compact ? 'top-8 rounded-md py-1' : 'top-12 rounded-lg py-2'
-          }`}
+          className={`absolute w-max text-base bg-bg-secondary overflow-hidden z-10 ${
+            compact ? 'rounded-md py-1' : 'rounded-lg py-2'
+          } ${positionX === 'left' ? 'left-0' : ''}
+          ${positionX === 'center' ? 'left-1/2 transform -translate-x-1/2' : ''}
+          ${positionX === 'right' ? 'right-0' : ''}
+          ${positionY === 'bottom' ? 'bottom-full mb-2' : 'top-full mt-2'}`}
         >
           <span className='sr-only'>Open dropdown</span>
           {items.map((item) => (
             <li
               key={item.id}
-              className={`flex items-center hover:bg-bg-primary ${
+              className={`flex items-center hover:bg-bg-primary cursor-pointer ${
                 compact ? 'px-4 py-2' : 'pl-4 pr-6 py-2'
               }`}
-              onClick={() => selectAction?.(item.id)}
+              onClick={() => {
+                selectAction?.(item.id);
+                setIsOpen(false);
+              }}
             >
               {hasIcon && (
                 <div
@@ -115,6 +155,6 @@ export default function Dropdown({
           ))}
         </ul>
       )}
-    </button>
+    </div>
   );
 }
