@@ -24,12 +24,9 @@ export default function SectionActive({ children }: SectionActiveProps) {
   );
   const isHomePage = homePaths.includes(pathname);
 
-  const handleScroll = debounce(
-    useCallback(() => {
-      setIsScrolled(window.scrollY > 100);
-    }, []),
-    150
-  );
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 100);
+  }, []);
 
   useEffect(() => {
     if (!isHomePage) return;
