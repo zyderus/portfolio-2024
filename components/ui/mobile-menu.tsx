@@ -21,42 +21,43 @@ export default function MobileMenu({ lang, dictionary }: MobileMenuProps) {
     setIsOpen((prev) => !prev);
   };
 
-  const handleMediaQueryChange = debounce(
-    useCallback(
-      (mediaQueryEvent: MediaQueryListEvent) => {
-        if (isOpen && !mediaQueryEvent.matches) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = 'unset';
-        }
-      },
-      [isOpen]
-    ),
-    500
-  );
+  // const handleMediaQueryChange = debounce(
+  //   useCallback(
+  //     (mediaQueryEvent: MediaQueryListEvent) => {
+  //       if (isOpen && !mediaQueryEvent.matches) {
+  //         document.body.style.overflow = 'hidden';
+  //       } else {
+  //         document.body.style.overflow = 'unset';
+  //       }
+  //     },
+  //     [isOpen]
+  //   ),
+  //   500
+  // );
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 768px)');
-    mediaQuery.addEventListener('change', handleMediaQueryChange);
-    handleMediaQueryChange(mediaQuery as unknown as MediaQueryListEvent);
+  // useEffect(() => {
+  //   const mediaQuery = window.matchMedia('(min-width: 768px)');
+  //   mediaQuery.addEventListener('change', handleMediaQueryChange);
+  //   handleMediaQueryChange(mediaQuery as unknown as MediaQueryListEvent);
 
-    return () => {
-      mediaQuery.removeEventListener('change', handleMediaQueryChange);
-      handleMediaQueryChange.cancel();
-    };
-  }, [handleMediaQueryChange, isOpen]);
+  //   return () => {
+  //     mediaQuery.removeEventListener('change', handleMediaQueryChange);
+  //     handleMediaQueryChange.cancel();
+  //   };
+  // }, [handleMediaQueryChange, isOpen]);
 
   return (
     <>
       <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
+
       <div
-        className={`md:hidden fixed top-0 right-0 h-full w-[75%] min-w-[210px] max-w-[480px] py-6 bg-bg-primary rounded-l-2xl flex flex-col-reverse justify-end transition-transform duration-100 ease-in-out transform ${
+        className={`md:hidden fixed h-[100vh] inset-y-0 right-0 w-[75%] max-w-[480px] bg-bg-primary flex flex-col-reverse justify-end rounded-l-2xl py-6 transition-transform duration-100 ease-in-out transform ${
           isOpen
             ? 'translate-x-0 outline outline-8 outline-accent'
             : 'translate-x-full'
         }`}
       >
-        <ul className='flex flex-col items-center space-y-8 mt-16'>
+        <ul className='h-full flex flex-col items-center space-y-8 mt-16'>
           {navLinks.map(({ id, url }) => (
             <li
               key={id}
@@ -72,13 +73,14 @@ export default function MobileMenu({ lang, dictionary }: MobileMenuProps) {
         </ul>
         <div className='flex space-x-4 justify-center'>
           <LangSwitcher lang={lang} />
-          <ThemeSwitcher />
+          {/* <ThemeSwitcher /> */}
         </div>
       </div>
+
       <div
-        className={`fixed top-0 left-0 h-full w-full pointer-events-none -z-10 transition ease-in-out duration-300 ${
+        className={`fixed inset-0 h-[100vh] pointer-events-none transition ease-in-out duration-200 -z-10 ${
           isOpen
-            ? 'backdrop-blur-sm bg-black/20 pointer-events-auto md:backdrop-blur-none md:bg-black/0 md:pointer-events-none'
+            ? 'backdrop-blur-sm bg-black/30 pointer-events-auto md:backdrop-blur-none md:bg-black/0 md:pointer-events-none'
             : ''
         }`}
         aria-label='Blur overlay'

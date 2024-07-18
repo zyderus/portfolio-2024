@@ -2,8 +2,6 @@ import type { Repo } from '@/lib/types';
 import RepoCompact from './repo-compact';
 
 export default async function Repos({ repos }: { repos: Repo[] }) {
-  // await new Promise((res) => setTimeout(res, 5000));
-
   if (!repos?.length)
     return (
       <h1 className='text-xl text-center'>Error fetching Github repository</h1>
