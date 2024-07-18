@@ -47,8 +47,6 @@ interface ContactFormProps {
 }
 
 export default function ContactForm({ dictionary }: ContactFormProps) {
-  console.log(dictionary);
-
   const [countdown, setCountdown] = useState(0);
 
   const {
@@ -117,15 +115,12 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
             )
         )}
       </div>
-
-      <div>
-        <CountdownButton
-          loading={isSubmitting}
-          countdown={countdown}
-          dictionary={dictionary?.button}
-          className='w-full sm:w-1/3'
-        />
-      </div>
+      <CountdownButton
+        loading={isSubmitting}
+        countdown={countdown}
+        dictionary={dictionary?.button}
+        className='w-full sm:w-1/3'
+      />
     </form>
   );
 }

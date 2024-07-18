@@ -48,11 +48,18 @@ export default function About({ dictionary }: SectionProps) {
     },
   ];
 
+  const paragraphs: string[] = dictionary?.about?.description.split('|');
+
   return (
     <section id='about' className='min-h-screen'>
       <SectionHeader id='about' title={dictionary?.about?.title} />
-
-      <p className='text-sm sm:text-base'>{dictionary?.about?.description}</p>
+      <div className='space-y-4'>
+        {paragraphs.map((p, i) => (
+          <p key={i} className='text-sm sm:text-base'>
+            {p}
+          </p>
+        ))}
+      </div>
 
       <AboutTabs tabs={tabs} />
     </section>

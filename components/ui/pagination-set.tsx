@@ -2,12 +2,15 @@ import type { JsonType } from '@/lib/types';
 import Pagination from './pagination';
 import PerPageSelector from './per-page-selector';
 
-interface PaginationSet {
+interface PaginationSetProps {
   paginationData: any;
   dictionary: JsonType;
 }
 
-export default function PaginationSet({ paginationData, dictionary }: any) {
+export default function PaginationSet({
+  paginationData,
+  dictionary,
+}: PaginationSetProps) {
   return (
     <div
       key={Math.random()}

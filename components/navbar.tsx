@@ -14,13 +14,15 @@ interface NavbarProps {
 }
 
 export default function Navbar({ lang, dictionary }: NavbarProps) {
+  const initials = dictionary.name.split('|')[0];
+
   return (
     <nav className='fixed w-full'>
       <SectionActive>
         <section className='h-full flex justify-between items-center py-0 my-auto'>
           <div className='text-3xl text-color-primary'>
             <LinkIntl href='/' lang={lang}>
-              {dictionary?.initials}
+              {initials}
             </LinkIntl>
           </div>
           <NavbarMenu lang={lang} dictionary={dictionary} />

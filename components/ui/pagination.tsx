@@ -11,6 +11,7 @@ interface PaginationProps {
 export default function Pagination({ links, dictionary }: PaginationProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [prev, next] = dictionary.split('|');
 
   const page_num = searchParams.get('page') ?? '1';
   const per_page = searchParams.get('per_page') ?? '10';
@@ -31,7 +32,7 @@ export default function Pagination({ links, dictionary }: PaginationProps) {
         disabled={!links.prev}
       >
         <FaAngleLeft />
-        {dictionary?.prev}
+        {prev}
       </button>
       <div
         className={`text-center text-accent ${
@@ -53,7 +54,7 @@ export default function Pagination({ links, dictionary }: PaginationProps) {
         }}
         disabled={!links.next}
       >
-        {dictionary?.next}
+        {next}
         <FaAngleRight />
       </button>
     </div>

@@ -10,6 +10,7 @@ interface PerPageSelectorProps {
 export default function PerPageSelector({ dictionary }: PerPageSelectorProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [, , perPage] = dictionary.split('|');
 
   const per_page = searchParams.get('per_page') ?? '10';
   const items_per_page: Item[] = [
@@ -26,7 +27,7 @@ export default function PerPageSelector({ dictionary }: PerPageSelectorProps) {
 
   return (
     <div className='flex items-center gap-1'>
-      <span className='text-xs'>{dictionary?.perPage}: </span>
+      <span className='text-xs'>{perPage}: </span>
       <Dropdown
         className='px-2 py-1 rounded-md'
         items={items_per_page}

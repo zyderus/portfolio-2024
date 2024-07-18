@@ -15,7 +15,7 @@ export default function Hero({ lang, dictionary }: SectionProps) {
           id='home'
           className='text-3xl xs:text-5xl sm:text-7xl font-normal xs:font-bold'
         >
-          {dictionary?.name}
+          {dictionary.name.split('|')[1]}
         </h1>
         <h2 className='text-2xl sm:text-4xl font-semibold'>
           {dictionary?.hero?.slogan}

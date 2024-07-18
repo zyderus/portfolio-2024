@@ -8,14 +8,14 @@ export default async function Home({ params: { lang } }: PageProps) {
   const {
     intl: {
       page: { main },
-      data,
+      data: { name },
       featureProjects,
     },
   } = await getDictionary(lang);
 
   return (
     <>
-      <Hero lang={lang} dictionary={{ ...main, ...data }} />
+      <Hero lang={lang} dictionary={{ ...main, name }} />
       <About lang={lang} dictionary={main} />
       <FeatureProjects lang={lang} dictionary={{ ...main, featureProjects }} />
     </>

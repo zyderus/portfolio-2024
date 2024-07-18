@@ -27,7 +27,11 @@ const footerLinks: FooterLink[] = [
 
 export default async function Footer({ lang }: LangProps) {
   const {
-    intl: { navigation, footer, data },
+    intl: {
+      navigation,
+      footer,
+      data: { name },
+    },
   } = await getDictionary(lang);
 
   return (
@@ -55,7 +59,7 @@ export default async function Footer({ lang }: LangProps) {
         </ul>
 
         <p>
-          &copy; 2024 {data?.name}. {footer?.rightsReserved}
+          &copy; 2024 {name.split('|')[1]}. {footer?.rightsReserved}
         </p>
       </section>
     </div>

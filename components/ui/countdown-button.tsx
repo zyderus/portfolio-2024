@@ -5,18 +5,19 @@ import type { JsonType } from '@/lib/types';
 interface CountdownButtonProps {
   loading: boolean;
   countdown: number;
-  dictionary: JsonType;
   className: string;
   handleClick?: () => void;
+  dictionary: JsonType;
 }
 
 export default function CountdownButton({
   loading,
   countdown,
-  dictionary,
   className,
   handleClick,
+  dictionary,
 }: CountdownButtonProps) {
+  const [send, sending, resend] = dictionary.split('|');
   const [count, setCount] = useState(countdown);
 
   useEffect(() => {
@@ -28,10 +29,10 @@ export default function CountdownButton({
 
   const buttonDisabled = loading || count > 0;
   const buttonLabel = loading
-    ? `${dictionary.sending}...`
+    ? `${sending}...`
     : count > 0
-    ? `${dictionary.resend} ${count}`
-    : dictionary.send;
+    ? `${resend} ${count}`
+    : send;
 
   return (
     <button
