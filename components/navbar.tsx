@@ -1,12 +1,15 @@
-import type { Locale } from '@/i18n.config';
+'use client';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { i18n, type Locale } from '@/i18n.config';
 import type { JsonType } from '@/lib/types';
 import LinkIntl from '@/components/ui/link-intl';
 import ThemeSwitcher from '@/components/ui/theme-switcher';
 import MobileMenu from '@/components/ui/mobile-menu';
 import NavbarMenu from './navbar-menu';
 import LangSwitcher from './lang-switcher';
-import SectionActive from './ui/section-active';
-import Tooltip from './ui/tooltip';
+import HamburgerMenu from './ui/hamburger-menu';
+import Overlay from './ui/overlay';
 
 interface NavbarProps {
   lang: Locale;
@@ -14,12 +17,52 @@ interface NavbarProps {
 }
 
 export default function Navbar({ lang, dictionary }: NavbarProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
   const initials = dictionary.name.split('|')[0];
 
+  const homePaths = useMemo(
+    () => ['/', ...i18n.locales.map((locale) => `/${locale}`)],
+    []
+  );
+  const isHomePage = useMemo(
+    () => homePaths.includes(pathname),
+    [homePaths, pathname]
+  );
+
+  const toggleMenuOpen = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 100);
+  }, []);
+
+  useEffect(() => {
+    if (!isHomePage) return;
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll, isHomePage]);
+
+  const navbarInitial =
+    isHomePage && !isScrolled
+      ? 'h-24 sm:h-36'
+      : 'h-14 sm:h-16 bg-bg-primary/85';
+
   return (
-    <nav className='fixed w-full'>
-      {/* <SectionActive> */}
-      <section className='h-full flex justify-between items-center py-0 my-auto'>
+    <nav
+      className={`fixed w-full transition-all duration-200 ease-in-out ${navbarInitial}`}
+    >
+      <section
+        className={`h-full flex justify-between items-center py-0 my-auto ${
+          isScrolled ? 'backdrop-blur-sm' : ''
+        }`}
+      >
         <div className='text-3xl text-color-primary'>
           <LinkIntl href='/' lang={lang}>
             {initials}
@@ -30,9 +73,23 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
           <LangSwitcher lang={lang} />
           <ThemeSwitcher dictionary={dictionary} />
         </div>
-        <MobileMenu lang={lang} dictionary={dictionary} />
+        <HamburgerMenu isOpen={isOpen} toggleMenuOpen={toggleMenuOpen} />
+        <MobileMenu
+          isOpen={isOpen}
+          toggleMenuOpen={toggleMenuOpen}
+          lang={lang}
+          dictionary={dictionary}
+        >
+          <LangSwitcher lang={lang} />
+          <ThemeSwitcher dictionary={dictionary} />
+        </MobileMenu>
       </section>
-      {/* </SectionActive> */}
+      <Overlay isOpen={isOpen} />
+      {isHomePage && !isScrolled && (
+        <div
+          className={`absolute inset-x-0 inset-y-5 sm:inset-y-8 bg-[url('/paisley/paisley-4.webp')] bg-center grayscale -z-10 opacity-[4%]`}
+        ></div>
+      )}
     </nav>
   );
 }

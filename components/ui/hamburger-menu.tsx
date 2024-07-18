@@ -1,15 +1,15 @@
 interface HamburgerMenuProps {
   isOpen: boolean;
-  toggleMenu: () => void;
+  toggleMenuOpen: () => void;
 }
 
 export default function HamburgerMenu({
   isOpen,
-  toggleMenu,
+  toggleMenuOpen,
 }: HamburgerMenuProps) {
   return (
     <div
-      onClick={toggleMenu}
+      onClick={toggleMenuOpen}
       className='block md:hidden p-1 cursor-pointer z-50 group'
     >
       <button className='relative w-9 h-9 flex items-center justify-center focus:outline-none'>
