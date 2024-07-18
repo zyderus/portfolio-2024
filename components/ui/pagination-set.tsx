@@ -1,7 +1,13 @@
+import type { JsonType } from '@/lib/types';
 import Pagination from './pagination';
 import PerPageSelector from './per-page-selector';
 
-export default function PaginationSet({ paginationData }: any) {
+interface PaginationSet {
+  paginationData: any;
+  dictionary: JsonType;
+}
+
+export default function PaginationSet({ paginationData, dictionary }: any) {
   return (
     <div
       key={Math.random()}
@@ -9,10 +15,10 @@ export default function PaginationSet({ paginationData }: any) {
     >
       <div className='hidden sm:block'></div>
       <div className='flex justify-center'>
-        <Pagination links={paginationData} />
+        <Pagination links={paginationData} dictionary={dictionary} />
       </div>
       <div className='flex justify-center sm:justify-end'>
-        <PerPageSelector />
+        <PerPageSelector dictionary={dictionary} />
       </div>
     </div>
   );

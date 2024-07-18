@@ -1,1 +1,108 @@
-{"intl":{"navigation":{"about":"About","contact":"Contact","features":"Features","home":"Home","projects":"Projects","resume":"Resume"},"page":{"about":{"description":"This is the about page","title":"About Us"},"contact":{"message":"Type your message","name":"Name","resend":"Resend in","send":"Send","sending":"Sending","successfullySent":"your message has been successfully sent","title":"Connect"},"home":{"description":"Internationalization in NextJs App router","title":"Welcome to NextJs i18n"}}}}
+{
+  "intl": {
+    "data": { "name": "Rustam Ziyodov" },
+    "featureProjects": {
+      "description": {
+        "293103208": "A movie information portal with intuitive UI and easily accesible relevant information",
+        "384571830": "My web portfolio built with Next js",
+        "397773172": "A messaging app with Google authentication which you can use to send messages and see who is online.",
+        "402301890": "A simple online store template. Stripe API added as a working example. You will not be charged if you attempt a purchase."
+      }
+    },
+    "footer": {
+      "rightsReserved": "All rights reserved.",
+      "tooltip": {
+        "interests": {
+          "camping": "Camping: I'm a pro at building fires — and burning dinner.",
+          "reading": "Reading: Some say reading is like procrastinating. I'd argue, but I'll do it later.",
+          "science": "Science: I now understand why microwaving a grape isn't just a culinary experiment.",
+          "skiing": "Skiing: The fastest way I can turn money into bruises.",
+          "tinkering": "Tinkering: My profound quest to demonstrate that duct tape reigns supreme as the ultimate problem-solving marvel in the cosmos.",
+          "traveling": "Traveling: Some say I measure distances in frequent flyer miles."
+        }
+      }
+    },
+    "navigation": {
+      "about": "About",
+      "contact": "Contact",
+      "features": "Features",
+      "home": "Home",
+      "initials": "RZ",
+      "projects": "Projects",
+      "resume": "Resume",
+      "tooltip": { "themeButton": "click and hold for more themes" }
+    },
+    "page": {
+      "contact": {
+        "button": {
+          "resend": "Resend in",
+          "send": "Send",
+          "sending": "Sending",
+          "successfullySent": "Your message has been successfully sent"
+        },
+        "message": "Type your message",
+        "name": "Name",
+        "title": "Drop me a line"
+      },
+      "main": {
+        "about": {
+          "description": "I'm Rustam, and I have a passion for crafting user-friendly applications. My journey into application development began in 1998 when, as a student, I delved into HTML and CGI scripting to create my first personal web page complete with a guestbook. While it was somewhat functional, its design left much to be desired. Despite this early foray into coding, over the next few years my career steered me away to business consulting, artist management, construction recruiting, and logistics.\n\nIn 2018, everything changed when I encountered Arduino and its implementation of C++. This sparked something within, reigniting my fascination with programming. Since then, I've been dedicated to creating intuitive and engaging apps that enrich the user experience.",
+          "experience": {
+            "101": {
+              "description": "Collaborated with 11 developers to enhance ERP integration for a European e-commerce platform. Rebuilt the admin panel, optimized React components and API handlers, reducing load times by 5x. Ensured thorough test coverage with integration, visual regression, and BDD testing. Coordinated with the product owner and designer for feature reviews. Conducted candidate interviews and onboarding."
+            },
+            "102": {
+              "description": "Develop advanced software solutions tailored to customer goals using JavaScript, TypeScript, React, Express, Node, Strapi, and more. Engage in analysis, design, and implementation of business-critical applications, including UI, server services, and database implementation."
+            },
+            "103": {
+              "description": "Designed automation systems, programmed Siemens Simatic PLC and HMI on TIA Portal, integrated Arduino with OpenHAB, managed remote networks, integrated telephony with FreePBX (Asterisk) and PHP, and connected to external services including databases, Google TTS/STT, Yandex SpeechKit, and Dialogflow."
+            },
+            "104": {
+              "description": "Coordinated and supervised incoming and outgoing shipments."
+            },
+            "105": {
+              "description": "Recruitment for the construction and security sectors."
+            },
+            "106": { "description": "Managed a rock-band of four artists." },
+            "201": {
+              "institution": "AWS Certified Solutions Architect Bootcamp"
+            },
+            "202": { "institution": "University of Colorado" },
+            "203": { "institution": "State Mining Institute" },
+            "204": { "institution": "Bear Creek High School" },
+            "205": { "institution": "Bukhara State Secondary School 13" },
+            "awards": "Awards",
+            "location": {
+              "boulder": "Boulder, CO, USA",
+              "bukhara": "Bukhara, Uzbekistan",
+              "lakewood": "Lakewood, CO, USA",
+              "london": "London, UK",
+              "moscow": "Moscow, Russia",
+              "navoi": "Navoi, Uzbekistan",
+              "vilnius": "Vilnius, Lithuania"
+            }
+          },
+          "skills": "Today, I use a diverse array of tools to develop attractive, user-friendly, and conversion-focused applications:",
+          "title": "My story"
+        },
+        "button": { "messageMe": "Message me" },
+        "features": { "title": "Feature projects" },
+        "hero": {
+          "description": "I'm a software engineer specializing in creating functional and user-friendly applications.",
+          "slogan": "and I build things with code.",
+          "title": "Hello, I'm"
+        },
+        "navigation": {
+          "education": "Education",
+          "skills": "Skills",
+          "work": "Work"
+        }
+      },
+      "projects": {
+        "description": "Welcome to my projects page! Here, you'll find a diverse collection of web applications and systems that I've designed and developed. Feel free to explore these projects and see the range of my work.",
+        "pagination": { "next": "NEXT", "perPage": "PER PAGE", "prev": "PREV" },
+        "title": "Projects"
+      }
+    }
+  }
+}

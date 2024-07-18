@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { LONG_CLICK_DELAY } from '@/lib/constants/constants';
-import type { CustomTheme } from '@/lib/types';
+import type { CustomTheme, JsonType } from '@/lib/types';
 import useLongClick from '@/hooks/useLongClick';
 import useTheme from '@/hooks/useTheme';
 import useOutsideClick from '@/hooks/useOutsideClick';
@@ -10,7 +10,11 @@ import ThemeDropdown from '@/components/ui/theme-dropdown';
 import ThemeButton from '@/components/ui/theme-button';
 import Tooltip from './tooltip';
 
-export default function ThemeSwitcher() {
+interface ThemeSwitcherProps {
+  dictionary: JsonType;
+}
+
+export default function ThemeSwitcher({ dictionary }: ThemeSwitcherProps) {
   const [mounted, setMounted] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { icon, cycleTheme, setNewCustomTheme } = useTheme();
@@ -47,7 +51,7 @@ export default function ThemeSwitcher() {
 
   return (
     <div className='relative'>
-      <Tooltip text={'click and hold for more themes'} delay={700}>
+      <Tooltip text={dictionary?.tooltip?.themeButton} delay={700}>
         <ProgressbarWrapper duration={LONG_CLICK_DELAY}>
           <ThemeButton
             isDropdownOpen={isDropdownOpen}

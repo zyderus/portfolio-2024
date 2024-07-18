@@ -9,7 +9,9 @@ import SectionHeader from '@/components/ui/section-header';
 
 export default async function ProjectPage({ params, searchParams }: any) {
   const {
-    intl: { page },
+    intl: {
+      page: { projects },
+    },
   } = await getDictionary(params.lang);
 
   const page_num = searchParams['page'] ?? '1';
@@ -21,25 +23,23 @@ export default async function ProjectPage({ params, searchParams }: any) {
   return (
     // key={random} allows to stop caching to allow for skeletons on api fetch
     <section className='mx-auto text-sm xs:text-base' key={Math.random()}>
-      <SectionHeader title='Projects' />
-      <p>
-        Welcome to my Projects page! Here you&apos;ll find a curated selection
-        of the web applications and systems I&apos;ve designed and developed.
-        These projects showcase my expertise in using modern web technologies
-        like Next.js, React, AWS, NestJS, and more. Each project highlights my
-        approach to solving complex problems, optimizing performance, and
-        creating user-friendly interfaces. I invite you to explore these
-        projects to see the depth and breadth of my work.
-      </p>
+      <SectionHeader title={projects?.title} />
+      <p>{projects?.description}</p>
 
       <div className='px-1 xs:px4 sm:px-8 mx-auto'>
-        <PaginationSet paginationData={data.pagination} />
+        <PaginationSet
+          paginationData={data.pagination}
+          dictionary={projects?.pagination}
+        />
 
         <Suspense fallback={<ReposSkeleton amount={Number(per_page)} />}>
           <Repos repos={data.repos} />
         </Suspense>
 
-        <PaginationSet paginationData={data.pagination} />
+        <PaginationSet
+          paginationData={data.pagination}
+          dictionary={projects?.pagination}
+        />
       </div>
     </section>
   );

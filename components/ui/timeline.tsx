@@ -1,11 +1,15 @@
-import type { BackgroundItem } from '@/lib/constants/experience';
+import { positionsIntl, type BackgroundItem } from '@/lib/constants/experience';
+import type { JsonType } from '@/lib/types';
 import { IoBriefcaseOutline } from 'react-icons/io5';
 
 type TimelineProps = {
   list: BackgroundItem[];
+  dictionary: JsonType;
 };
 
-export default function Timeline({ list }: TimelineProps) {
+export default function Timeline({ list, dictionary }: TimelineProps) {
+  console.log(dictionary);
+
   return (
     <ul className='flex flex-col gap-14 sm:gap-[2px]'>
       {list.map(
@@ -23,6 +27,9 @@ export default function Timeline({ list }: TimelineProps) {
           url,
           icon: Icon,
         }) => {
+          const institutionIntl = dictionary?.[id]?.institution;
+          const descriptionIntl = dictionary?.[id]?.description;
+
           return (
             <li
               key={id}
@@ -51,18 +58,24 @@ export default function Timeline({ list }: TimelineProps) {
                   group-even:sm:-ml-12
                   '
                 >
-                  <p className='font-bold mb-2'>{position || field}</p>
+                  <p className='font-bold mb-2'>
+                    {position || field}
+                    {/* TODO: {positionsIntl[position]?.ru || field} */}
+                  </p>
                   {(institution && (
-                    <p className='font-bold'>{institution}</p>
+                    <p className='font-bold'>
+                      {institutionIntl || institution}
+                    </p>
                   )) ||
                     (employer !== 'Contract' && (
                       <p className='font-bold'>{employer}</p>
                     ))}
                   <p className='text-sm italic'>{location}</p>
-                  <p>{description}</p>
+                  <p>{descriptionIntl || description}</p>
                   {awards && (
                     <p className='mt-2 text-sm'>
-                      <span className='font-bold'>Awards:</span> {awards}
+                      <span className='font-bold'>{dictionary?.awards}:</span>{' '}
+                      {awards}
                     </p>
                   )}
 

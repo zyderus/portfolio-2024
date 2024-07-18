@@ -5,8 +5,10 @@ import { FaGithub } from 'react-icons/fa6';
 import { IoRocketSharp } from 'react-icons/io5';
 import HoverBox from './ui/hover-box';
 import { formatRepoTitle } from '@/lib/format-string';
+import { techList } from '@/lib/constants/features-tech-list';
 
 export default function RepoFeature({
+  id,
   name,
   full_name,
   html_url,
@@ -14,6 +16,7 @@ export default function RepoFeature({
   created_at,
   description,
   language,
+  dictionary,
 }: Repo) {
   return (
     <>
@@ -40,15 +43,24 @@ export default function RepoFeature({
             {created_at.split('-')[0]}
           </p>
           <div className='mt-4 md:mt-10 bg-bg-primary md:bg-bg-secondary py-4 px-2 xs:px-4 md:px-6 rounded-xl shadow-xl'>
-            {description}
+            {dictionary?.[id] ? dictionary[id] : description}
           </div>
 
           <ul className='mt-3 flex flex-wrap gap-1 justify-center md:justify-start group-even:md:justify-end text-sm'>
-            {Array.from({ length: 4 }).map((_, i) => (
-              <li key={i} className='text-gray-300 bg-black px-[6px] py-[3px]'>
+            {techList?.[id]?.tech.length > 0 ? (
+              techList?.[id]?.tech.map((tech, i) => (
+                <li
+                  key={i}
+                  className='text-gray-300 bg-black px-[6px] py-[3px]'
+                >
+                  {tech}
+                </li>
+              ))
+            ) : (
+              <li className='text-gray-300 bg-black px-[6px] py-[3px]'>
                 {language}
               </li>
-            ))}
+            )}
           </ul>
         </div>
       </div>

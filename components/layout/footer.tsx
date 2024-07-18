@@ -27,13 +27,13 @@ const footerLinks: FooterLink[] = [
 
 export default async function Footer({ lang }: LangProps) {
   const {
-    intl: { navigation },
+    intl: { navigation, footer, data },
   } = await getDictionary(lang);
 
   return (
     <div className='bg-bg-secondary w-full'>
       <section className='min-h-40 pt-10 pb-20 text-center text-sm space-y-8 text-color-primary/80'>
-        <Interests />
+        <Interests dictionary={footer?.tooltip?.interests} />
 
         <ul className='flex flex-wrap justify-center list-none mx-auto gap-x-4'>
           {footerLinks.map(({ id, label, url, external }) => (
@@ -54,7 +54,9 @@ export default async function Footer({ lang }: LangProps) {
           ))}
         </ul>
 
-        <p>&copy; 2024 Rustam Ziyodov. All rights reserved.</p>
+        <p>
+          &copy; 2024 {data?.name}. {footer?.rightsReserved}
+        </p>
       </section>
     </div>
   );

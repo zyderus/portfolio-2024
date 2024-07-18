@@ -20,13 +20,13 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
         <section className='h-full flex justify-between items-center py-0 my-auto'>
           <div className='text-3xl text-color-primary'>
             <LinkIntl href='/' lang={lang}>
-              RZ
+              {dictionary?.initials}
             </LinkIntl>
           </div>
           <NavbarMenu lang={lang} dictionary={dictionary} />
           <div className='hidden md:flex md:items-center space-x-1'>
             <LangSwitcher lang={lang} />
-            <ThemeSwitcher />
+            <ThemeSwitcher dictionary={dictionary} />
           </div>
           {/* <MobileMenu lang={lang} dictionary={dictionary} /> */}
         </section>

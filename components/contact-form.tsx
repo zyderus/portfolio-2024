@@ -13,7 +13,7 @@ import CountdownButton from '@/components/ui/countdown-button';
 interface FormField {
   id: keyof EmailTemplateProps;
   type: string;
-  placeholder: string;
+  placeholder?: string;
   autocomplete?: 'on' | '';
   required: boolean;
 }
@@ -47,6 +47,8 @@ interface ContactFormProps {
 }
 
 export default function ContactForm({ dictionary }: ContactFormProps) {
+  console.log(dictionary);
+
   const [countdown, setCountdown] = useState(0);
 
   const {
@@ -98,7 +100,7 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
                 key={i}
                 rows={4}
                 id={id}
-                placeholder={placeholder || dictionary[id]}
+                placeholder={dictionary[id] || placeholder}
                 className='w-full resize-none rounded-xl border-2 border-color-primary/20 bg-bg-secondary py-1 xs:py-2 sm:py-3 px-2 xs:px-3 sm:px-6 outline-none focus:border-accent'
                 {...register(id, { required })}
               ></textarea>
@@ -108,7 +110,7 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
                 type={type}
                 id={id}
                 autoComplete={autocomplete}
-                placeholder={placeholder || dictionary[id]}
+                placeholder={dictionary[id] || placeholder}
                 className='w-full sm:w-auto sm:flex-grow rounded-xl border-2 border-color-primary/20 bg-bg-secondary py-1 xs:py-2 sm:py-3 px-2 xs:px-3 sm:px-6 outline-none focus:border-accent'
                 {...register(id, { required })}
               />
@@ -120,7 +122,7 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
         <CountdownButton
           loading={isSubmitting}
           countdown={countdown}
-          dictionary={dictionary}
+          dictionary={dictionary?.button}
           className='w-full sm:w-1/3'
         />
       </div>

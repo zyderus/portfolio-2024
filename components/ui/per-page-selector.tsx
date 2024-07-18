@@ -1,8 +1,13 @@
 'use client';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Dropdown, { Item } from './dropdown';
+import type { JsonType } from '@/lib/types';
 
-export default function PerPageSelector() {
+interface PerPageSelectorProps {
+  dictionary: JsonType;
+}
+
+export default function PerPageSelector({ dictionary }: PerPageSelectorProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -21,7 +26,7 @@ export default function PerPageSelector() {
 
   return (
     <div className='flex items-center gap-1'>
-      <span className='text-sm'>PER PAGE: </span>
+      <span className='text-xs'>{dictionary?.perPage}: </span>
       <Dropdown
         className='px-2 py-1 rounded-md'
         items={items_per_page}

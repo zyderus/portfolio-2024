@@ -12,46 +12,47 @@ export interface Tab {
   component: JSX.Element;
 }
 
-const tabs: Tab[] = [
-  {
-    id: 0,
-    label: 'Skills',
-    component: (
-      <div className='max-w-[38rem] mx-auto text-center'>
-        <p className='my-4 text-sm sm:text-base'>
-          Today, I use the following set of tools to create beautiful,
-          convenient and conversion-oriented applications:
-        </p>
-        <ul className='mx-auto flex flex-wrap justify-center gap-6 my-12'>
-          {skills.map((skill) => (
-            <li key={skill.label}>
-              <TechCard {...skill} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    ),
-  },
-  { id: 1, label: 'Work', component: <Timeline list={work} /> },
-  { id: 2, label: 'Education', component: <Timeline list={education} /> },
-];
+export default function About({ dictionary }: SectionProps) {
+  const tabs: Tab[] = [
+    {
+      id: 0,
+      label: dictionary?.navigation?.skills,
+      component: (
+        <div className='max-w-[38rem] mx-auto text-center'>
+          <p className='my-4 text-sm sm:text-base'>
+            {dictionary?.about?.skills}
+          </p>
+          <ul className='mx-auto flex flex-wrap justify-center gap-6 my-12'>
+            {skills.map((skill) => (
+              <li key={skill.label}>
+                <TechCard {...skill} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ),
+    },
+    {
+      id: 1,
+      label: dictionary?.navigation?.work,
+      component: (
+        <Timeline list={work} dictionary={dictionary?.about?.experience} />
+      ),
+    },
+    {
+      id: 2,
+      label: dictionary?.navigation?.education,
+      component: (
+        <Timeline list={education} dictionary={dictionary?.about?.experience} />
+      ),
+    },
+  ];
 
-export default function About({ lang, dictionary }: SectionProps) {
   return (
     <section id='about' className='min-h-screen'>
-      <SectionHeader id='about' title='My Story' />
+      <SectionHeader id='about' title={dictionary?.about?.title} />
 
-      <p className='text-sm sm:text-base'>
-        Hi! I am Rustam and I enjoy creating attractive, human-friendly apps
-        that brighten up the day. My interest in application development started
-        back in 1998. Then, as a student, I grokked HTML and CGI scripts to
-        built a personal web page with a guestbook. It was hideous, but somehow
-        functional. However, in the following few years, my career path had not
-        steered towards the code. I went from business consulting to artist
-        management, construction recruiting, logistics. Fast-forward to 2018,
-        and out of nowhere, I have an encounter with Arduino with its idea of
-        C++. My head made a few blips and clicks and the rest is history.
-      </p>
+      <p className='text-sm sm:text-base'>{dictionary?.about?.description}</p>
 
       <AboutTabs tabs={tabs} />
     </section>

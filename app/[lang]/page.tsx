@@ -6,14 +6,18 @@ import FeatureProjects from '@/components/feature-projects';
 
 export default async function Home({ params: { lang } }: PageProps) {
   const {
-    intl: { page },
+    intl: {
+      page: { main },
+      data,
+      featureProjects,
+    },
   } = await getDictionary(lang);
 
   return (
     <>
-      <Hero lang={lang} dictionary={page} />
-      <About lang={lang} dictionary={page} />
-      <FeatureProjects lang={lang} dictionary={page} />
+      <Hero lang={lang} dictionary={{ ...main, ...data }} />
+      <About lang={lang} dictionary={main} />
+      <FeatureProjects lang={lang} dictionary={{ ...main, featureProjects }} />
     </>
   );
 }

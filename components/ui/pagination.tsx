@@ -1,13 +1,14 @@
 'use client';
-import { PaginationLinks } from '@/lib/types';
+import type { JsonType, PaginationLinks } from '@/lib/types';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6';
 
 interface PaginationProps {
   links: PaginationLinks;
+  dictionary: JsonType;
 }
 
-export default function Pagination({ links }: PaginationProps) {
+export default function Pagination({ links, dictionary }: PaginationProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -30,7 +31,7 @@ export default function Pagination({ links }: PaginationProps) {
         disabled={!links.prev}
       >
         <FaAngleLeft />
-        PREV
+        {dictionary?.prev}
       </button>
       <div
         className={`text-center text-accent ${
@@ -52,7 +53,7 @@ export default function Pagination({ links }: PaginationProps) {
         }}
         disabled={!links.next}
       >
-        NEXT
+        {dictionary?.next}
         <FaAngleRight />
       </button>
     </div>
