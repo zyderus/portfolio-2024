@@ -65,7 +65,7 @@ export default function NavbarMenu({
               className={`px-3 transition-colors duration-300 ease-in-out hover:text-color-primary ${
                 activeLinkIndex === index
                   ? 'text-color-primary'
-                  : 'text-gray-500'
+                  : 'text-color-primary/60'
               }`}
               onClick={() => handleClick(index)}
               replace={url.startsWith('/#') || url.startsWith(`/${lang}#`)}

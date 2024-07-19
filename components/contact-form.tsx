@@ -28,7 +28,7 @@ const contactFormFields: FormField[] = [
   },
   {
     id: 'email',
-    type: 'text',
+    type: 'email',
     placeholder: 'example@domain.com',
     autocomplete: 'on',
     required: true,
@@ -47,7 +47,7 @@ interface ContactFormProps {
 }
 
 export default function ContactForm({ dictionary }: ContactFormProps) {
-  const [countdown, setCountdown] = useState(0);
+  const [remainingTime, setRemainingTime] = useState(0);
 
   const {
     register,
@@ -70,13 +70,14 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
         console.log('Email sent successfully!');
         toast.success(`${data.name}, ${dictionary.successfullySent} 🚀`);
         reset();
-        setCountdown(RATE_LIMIT_INTERVAL);
+        setRemainingTime(RATE_LIMIT_INTERVAL);
       } else {
-        toast(response.statusText);
+        const data = await response.json();
+        toast(data.error);
         const remaining = response.headers.get('X-RateLimit-Remaining');
-        console.log('Response error');
+        console.log('Response error:', data.error);
         if (remaining) {
-          setCountdown(Math.ceil(+remaining / 1000));
+          setRemainingTime(Math.ceil(+remaining / 1000));
         }
       }
     } catch (error) {
@@ -117,7 +118,7 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
       </div>
       <CountdownButton
         loading={isSubmitting}
-        countdown={countdown}
+        remainingTime={remainingTime}
         dictionary={dictionary?.button}
         className='w-full sm:w-1/3'
       />

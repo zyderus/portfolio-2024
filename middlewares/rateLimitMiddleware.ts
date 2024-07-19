@@ -62,6 +62,7 @@ export const rateLimitMiddleware =
       return;
     }
 
+    // TODO: remove test path when done ts
     // Path /roll
     if (pathname.startsWith('/roll')) {
       console.log('middleware @ path /roll');

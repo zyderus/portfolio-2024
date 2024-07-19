@@ -63,7 +63,7 @@ export default async function Footer({ lang }: LangProps) {
         <p>
           &copy; 2024 {name}. {footer?.rightsReserved}
         </p>
-        <p>ver: {version}</p>
+        <p className='text-left'>ver: {version}</p>
       </section>
     </div>
   );

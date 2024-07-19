@@ -16,12 +16,10 @@ export default function Button({
   size = 'medium',
 }: ButtonProps) {
   const baseStyles =
-    'focus:outline-none transition duration-100 break-all xs:break-normal';
+    'focus:outline-none transition duration-100 break-all xs:break-normal text-color-primary';
   const variantStyles = {
-    primary:
-      'bg-accent border-2 border-accent hover:border-bg-secondary hover:bg-bg-secondary text-color-primary',
-    secondary:
-      'border-2 border-accent hover:bg-bg-secondary hover:border-bg-secondary text-color-primary',
+    primary: 'bg-accent border-2 border-accent ',
+    secondary: 'border-2 border-accent',
   };
   const sizeStyles = {
     small: 'text-base',
@@ -34,7 +32,13 @@ export default function Button({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} disabled:opacity-50 ${className}`}
+      className={`${baseStyles} ${sizeStyles[size]} ${
+        variantStyles[variant]
+      } disabled:opacity-50 disabled:bg-bg-secondary disabled:border-bg-secondary ${
+        !disabled
+          ? 'text-sm hover:bg-bg-secondary hover:border-bg-secondary'
+          : ''
+      } ${className}`}
     >
       {children}
     </button>
