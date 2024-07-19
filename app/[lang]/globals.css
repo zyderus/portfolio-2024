@@ -124,21 +124,45 @@ section {
     scrollbar-color: #4a5568 #e2e8f0;
   } */
 
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(var(--accent));
+    cursor: pointer;
+  }
+
+  /* Scrollbar thin */
   .scrollbar-thin::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
   }
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: rgba(var(--color-primary), 0.3);
+    background-color: rgba(var(--color-primary), 0.5);
     border-radius: 10px;
     border: 1px solid rgba(var(--background-secondary));
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(var(--accent), 0.7);
-    cursor: pointer;
   }
   .scrollbar-thin::-webkit-scrollbar-track {
     background: rgba(var(--background-secondary));
     border-radius: 10px;
+  }
+
+  /* Scrollbar regular */
+  .scrollbar-regular::-webkit-scrollbar {
+    width: 10px;
+  }
+  .scrollbar-regular::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--color-primary), 0.5);
+    border-radius: 10px;
+    border: 2px solid rgba(var(--background-secondary));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(var(--accent));
+    cursor: pointer;
+  }
+  .scrollbar-regular::-webkit-scrollbar-track {
+    background: rgba(var(--background-secondary));
+  }
+
+  ::selection {
+    color: #fff;
+    background: rgba(var(--accent));
   }
 }
 

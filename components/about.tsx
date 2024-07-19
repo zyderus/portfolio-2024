@@ -19,7 +19,7 @@ export default function About({ dictionary }: SectionProps) {
       label: dictionary?.navigation?.skills,
       component: (
         <div className='max-w-[38rem] mx-auto text-center'>
-          <p className='my-4 text-sm sm:text-base'>
+          <p className='my-4 text-sm sm:text-base break-all xs:break-normal'>
             {dictionary?.about?.skills}
           </p>
           <ul className='mx-auto flex flex-wrap justify-center gap-6 my-12'>
@@ -53,7 +53,7 @@ export default function About({ dictionary }: SectionProps) {
   return (
     <section id='about' className='min-h-screen'>
       <SectionHeader id='about' title={dictionary?.about?.title} />
-      <div className='space-y-4'>
+      <div className='space-y-4 break-all xs:break-normal'>
         {paragraphs.map((p, i) => (
           <p key={i} className='text-sm sm:text-base'>
             {p}

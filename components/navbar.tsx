@@ -10,13 +10,16 @@ import NavbarMenu from './navbar-menu';
 import LangSwitcher from './lang-switcher';
 import HamburgerMenu from './ui/hamburger-menu';
 import Overlay from './ui/overlay';
+import Link from 'next/link';
+import Button from './ui/button';
 
 interface NavbarProps {
   lang: Locale;
   dictionary: JsonType;
+  version: string;
 }
 
-export default function Navbar({ lang, dictionary }: NavbarProps) {
+export default function Navbar({ lang, dictionary, version }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLinkIndex, setActiveLinkIndex] = useState(0);
@@ -86,9 +89,18 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
           dictionary={dictionary}
           activeLinkIndex={activeLinkIndex}
           setActiveLinkIndex={setActiveLinkIndex}
+          version={version}
         >
-          <LangSwitcher lang={lang} />
-          <ThemeSwitcher dictionary={dictionary} />
+          <Link
+            href={`/resume/resume_${lang}.pdf`}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='w-full'
+          >
+            <Button variant='secondary' size='large' className='w-full'>
+              {dictionary.resume}
+            </Button>
+          </Link>
         </MobileMenu>
       </section>
       <Overlay isOpen={isOpen} />

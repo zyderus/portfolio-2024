@@ -35,7 +35,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeFlashFix }}></script>
       </head>
       <body
-        className={`min-h-screen grid grid-rows-[auto_1fr_auto] ${inter.className}`}
+        className={`scrollbar-regular min-h-screen grid grid-rows-[auto_1fr_auto] ${inter.className}`}
       >
         <ApplyCssClasses />
         <Header lang={params.lang} />

@@ -42,7 +42,7 @@ export default function RepoFeature({
           <p className='text-xs group-even:md:text-right'>
             {created_at.split('-')[0]}
           </p>
-          <div className='mt-4 md:mt-10 bg-bg-primary md:bg-bg-secondary py-4 px-2 xs:px-4 md:px-6 rounded-xl shadow-xl'>
+          <div className='mt-4 md:mt-10 bg-bg-primary md:bg-bg-secondary py-4 px-2 xs:px-4 md:px-6 rounded-xl shadow-xl break-all xs:break-normal'>
             {dictionary?.[id] ? dictionary[id] : description}
           </div>
 

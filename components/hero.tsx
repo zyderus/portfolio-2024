@@ -23,7 +23,9 @@ export default function Hero({ lang, dictionary }: SectionProps) {
         <h2 className='text-2xl sm:text-4xl font-semibold text-center sm:text-left'>
           {dictionary?.hero?.slogan}
         </h2>
-        <p className='text-lg sm:text-xl'>{dictionary?.hero?.description}</p>
+        <p className='text-lg sm:text-xl break-all xs:break-normal'>
+          {dictionary?.hero?.description}
+        </p>
         <div className='w-full sm:w-2/3 flex flex-wrap flex-col sm:flex-row gap-4'>
           <LinkIntl href='/contact' lang={lang} className='flex-1 sm:w-1/2'>
             <Button
@@ -49,31 +51,6 @@ export default function Hero({ lang, dictionary }: SectionProps) {
             </Button>
           </Link>
         </div>
-        {/* <div className='border border-green-600 w-full flex flex-wrap justify-between gap-8'> */}
-        {/* <LinkIntl href='/contact' lang={lang} className=''> */}
-        {/* <Button
-            variant='primary'
-            size='large'
-            className='w-full sm:w-auto sm:flex-grow'
-          >
-            {dictionary?.button?.messageMe}
-          </Button> */}
-        {/* </LinkIntl> */}
-        {/* <a
-            href={`/resume/resume_${lang}.pdf`}
-            target='_blank'
-            rel='noopener noreferrer'
-            className=''
-          > */}
-        {/* <Button
-            variant='secondary'
-            size='large'
-            className='w-full sm:w-auto sm:flex-grow '
-          >
-            Resume
-          </Button> */}
-        {/* </a> */}
-        {/* </div> */}
         <div className='flex space-x-4 justify-center sm:justify-start'>
           <a
             href='https://linkedin.com/in/yourprofile'

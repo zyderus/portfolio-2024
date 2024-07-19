@@ -15,7 +15,8 @@ export default function Button({
   variant = 'primary',
   size = 'medium',
 }: ButtonProps) {
-  const baseStyles = 'focus:outline-none transition duration-100';
+  const baseStyles =
+    'focus:outline-none transition duration-100 break-all xs:break-normal';
   const variantStyles = {
     primary:
       'bg-accent border-2 border-accent hover:border-bg-secondary hover:bg-bg-secondary text-color-primary',
