@@ -59,7 +59,7 @@ export default async function Footer({ lang }: LangProps) {
         </ul>
 
         <p>
-          &copy; 2024 {name.split('|')[1]}. {footer?.rightsReserved}
+          &copy; 2024 {name}. {footer?.rightsReserved}
         </p>
       </section>
     </div>

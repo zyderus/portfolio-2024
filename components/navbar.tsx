@@ -19,8 +19,8 @@ interface NavbarProps {
 export default function Navbar({ lang, dictionary }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeLinkIndex, setActiveLinkIndex] = useState(0);
   const pathname = usePathname();
-  const initials = dictionary.name.split('|')[0];
 
   const homePaths = useMemo(
     () => ['/', ...i18n.locales.map((locale) => `/${locale}`)],
@@ -65,10 +65,15 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
       >
         <div className='text-3xl text-color-primary'>
           <LinkIntl href='/' lang={lang}>
-            {initials}
+            RZ
           </LinkIntl>
         </div>
-        <NavbarMenu lang={lang} dictionary={dictionary} />
+        <NavbarMenu
+          lang={lang}
+          dictionary={dictionary}
+          activeLinkIndex={activeLinkIndex}
+          setActiveLinkIndex={setActiveLinkIndex}
+        />
         <div className='hidden md:flex md:items-center space-x-1'>
           <LangSwitcher lang={lang} />
           <ThemeSwitcher dictionary={dictionary} />
@@ -79,6 +84,8 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
           toggleMenuOpen={toggleMenuOpen}
           lang={lang}
           dictionary={dictionary}
+          activeLinkIndex={activeLinkIndex}
+          setActiveLinkIndex={setActiveLinkIndex}
         >
           <LangSwitcher lang={lang} />
           <ThemeSwitcher dictionary={dictionary} />
@@ -87,7 +94,7 @@ export default function Navbar({ lang, dictionary }: NavbarProps) {
       <Overlay isOpen={isOpen} />
       {isHomePage && !isScrolled && (
         <div
-          className={`absolute inset-x-0 inset-y-5 sm:inset-y-8 bg-[url('/paisley/paisley-4.webp')] bg-center grayscale -z-10 opacity-[4%]`}
+          className={`absolute inset-x-0 inset-y-5 sm:inset-y-8 bg-[url('/images/backgrounds/paisley-4.webp')] bg-center grayscale -z-10 opacity-[4%]`}
         ></div>
       )}
     </nav>

@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useLayoutEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import LinkIntl from './ui/link-intl';
 import type { Locale } from '@/i18n.config';
@@ -14,22 +14,32 @@ import { navLinks } from '@/lib/constants/constants';
 interface NavbarMenuProps {
   lang: Locale;
   dictionary: JsonType;
+  activeLinkIndex: number;
+  setActiveLinkIndex: (index: number) => void;
 }
 
-export default function NavbarMenu({ lang, dictionary }: NavbarMenuProps) {
+export default function NavbarMenu({
+  activeLinkIndex,
+  setActiveLinkIndex,
+  lang,
+  dictionary,
+}: NavbarMenuProps) {
   const linkRefs = useRef<(HTMLLIElement | null)[]>([]);
-  const [activeLinkIndex, setActiveLinkIndex] = useState(0);
+  // const [activeLinkIndex, setActiveLinkIndex] = useState(0);
   const pathname = usePathname();
   const activeHashIndex = useActiveSection({
     rootMargin: '0px 0px -20% 0px',
     threshold: 1,
   });
 
-  const handleClick = useCallback((index: number) => {
-    setActiveLinkIndex(index);
-  }, []);
+  const handleClick = useCallback(
+    (index: number) => {
+      setActiveLinkIndex(index);
+    },
+    [setActiveLinkIndex]
+  );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const isHomePath = pathname === '/' || pathname === `/${lang}`;
 
     if (isHomePath) {
@@ -40,7 +50,7 @@ export default function NavbarMenu({ lang, dictionary }: NavbarMenuProps) {
       );
       setActiveLinkIndex(initialIndex !== -1 ? initialIndex : 0);
     }
-  }, [activeHashIndex, lang, pathname]);
+  }, [activeHashIndex, lang, pathname, setActiveLinkIndex]);
 
   const lineStyle = useLineStyle(activeLinkIndex, linkRefs.current);
 

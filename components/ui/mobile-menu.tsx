@@ -12,6 +12,8 @@ interface MobileMenuProps {
   toggleMenuOpen: () => void;
   lang: Locale;
   dictionary: JsonType;
+  activeLinkIndex: number;
+  setActiveLinkIndex: (index: number) => void;
   children?: ReactNode;
 }
 
@@ -20,6 +22,8 @@ export default function MobileMenu({
   toggleMenuOpen,
   lang,
   dictionary,
+  activeLinkIndex,
+  setActiveLinkIndex,
   children,
 }: MobileMenuProps) {
   // const handleMediaQueryChange = debounce(
@@ -47,6 +51,11 @@ export default function MobileMenu({
   //   };
   // }, [handleMediaQueryChange, isOpen]);
 
+  const handleLinkClick = (index: number) => {
+    setActiveLinkIndex(index);
+    toggleMenuOpen();
+  };
+
   return (
     <div
       className={`md:hidden fixed h-[100vh] inset-y-0 right-0 w-[75%] max-w-[480px] bg-bg-primary flex flex-col-reverse justify-end rounded-l-2xl pb-6 pt-16 xs:pt-8 sm:pt-14 transition-all duration-100 ease-in-out transform ${
@@ -55,14 +64,26 @@ export default function MobileMenu({
           : 'translate-x-full'
       }`}
     >
-      <ul className='h-full flex flex-col items-center space-y-8 mt-16'>
-        {navLinks.map(({ id, url }) => (
+      <ul className='h-full flex flex-col items-center mt-16'>
+        {navLinks.map(({ id, url }, index) => (
           <li
             key={id}
-            className='flex justify-center w-full uppercase text-xl pointer-events-none hover:bg-accent'
+            className={`flex justify-center w-full py-2 xs:py-4 uppercase text-md xs:text-xl pointer-events-none ${
+              activeLinkIndex === index ? 'bg-accent' : 'hover:bg-bg-secondary'
+            }`}
           >
-            <LinkIntl href={url} lang={lang} onClick={toggleMenuOpen}>
-              <div className='w-48 py-4 px-2 text-nowrap pointer-events-auto'>
+            <LinkIntl
+              href={url}
+              lang={lang}
+              onClick={() => handleLinkClick(index)}
+            >
+              <div
+                className={`w-48 py-2 xs:py-4 px-2 text-nowrap ${
+                  activeLinkIndex === index
+                    ? 'pointer-events-none'
+                    : 'pointer-events-auto'
+                }`}
+              >
                 {dictionary[id]}
               </div>
             </LinkIntl>

@@ -1,7 +1,9 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
+import { MdNotes } from 'react-icons/md';
 import LinkIntl from './ui/link-intl';
 import type { SectionProps } from '@/lib/types';
 import HoverBox from './ui/hover-box';
+import Button from './ui/button';
 
 export default function Hero({ lang, dictionary }: SectionProps) {
   return (
@@ -15,17 +17,28 @@ export default function Hero({ lang, dictionary }: SectionProps) {
           id='home'
           className='text-3xl xs:text-5xl sm:text-7xl font-normal xs:font-bold'
         >
-          {dictionary.name.split('|')[1]}
+          {dictionary.name}
         </h1>
         <h2 className='text-2xl sm:text-4xl font-semibold'>
           {dictionary?.hero?.slogan}
         </h2>
         <p className='text-lg sm:text-xl'>{dictionary?.hero?.description}</p>
-        <LinkIntl href='/contact' lang={lang}>
-          <button className='w-full xs:w-auto bg-accent hover:bg-bg-secondary sm:text-xl px-2 xs:px-6 sm:px-12 py-2 xs:py-3 sm:py-5 rounded-xl sm:rounded-xl transition duration-100'>
-            {dictionary?.button?.messageMe}
-          </button>
-        </LinkIntl>
+        <div className='flex justify-start items-center gap-4'>
+          <LinkIntl href='/contact' lang={lang}>
+            <Button variant='primary' size='large'>
+              {dictionary?.button?.messageMe}
+            </Button>
+          </LinkIntl>
+          <a
+            href={`/resume/resume_${lang}.pdf`}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <Button variant='secondary' size='large'>
+              Resume
+            </Button>
+          </a>
+        </div>
         <div className='flex space-x-4'>
           <a
             href='https://linkedin.com/in/yourprofile'
