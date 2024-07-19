@@ -26,7 +26,7 @@ export default function Button({
     small: 'text-base',
     medium: 'text-md',
     large:
-      'xs:text-lg sm:text-xl px-2 xs:px-6 sm:px-12 py-2 xs:py-3 sm:py-4 rounded-lg sm:rounded-xl',
+      'xs:text-lg sm:text-xl px-2 sm:px-4 md:px-6 py-2 xs:py-3 sm:py-4 rounded-lg sm:rounded-xl',
   };
 
   return (

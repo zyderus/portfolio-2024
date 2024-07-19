@@ -58,7 +58,7 @@ export default function MobileMenu({
 
   return (
     <div
-      className={`md:hidden fixed h-[100vh] inset-y-0 right-0 w-[75%] max-w-[480px] bg-bg-primary flex flex-col-reverse justify-end rounded-l-2xl pb-6 pt-16 xs:pt-8 sm:pt-14 transition-all duration-100 ease-in-out transform ${
+      className={`md:hidden fixed h-[100vh] inset-y-0 right-0 w-[75%] max-w-[480px] bg-bg-primary flex flex-col-reverse justify-end rounded-l-2xl pb-6 pt-16 xs:pt-8 sm:pt-14 transition-transform duration-100 ease-in-out transform ${
         isOpen
           ? 'translate-x-0 outline outline-8 outline-accent'
           : 'translate-x-full'
