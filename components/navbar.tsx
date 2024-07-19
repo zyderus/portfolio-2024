@@ -91,7 +91,7 @@ export default function Navbar({ lang, dictionary, version }: NavbarProps) {
           setActiveLinkIndex={setActiveLinkIndex}
           version={version}
         >
-          <Link
+          <a
             href={`/resume/resume_${lang}.pdf`}
             target='_blank'
             rel='noopener noreferrer'
@@ -100,7 +100,7 @@ export default function Navbar({ lang, dictionary, version }: NavbarProps) {
             <Button variant='secondary' size='large' className='w-full'>
               {dictionary.resume}
             </Button>
-          </Link>
+          </a>
         </MobileMenu>
       </section>
       <Overlay isOpen={isOpen} />

@@ -1,10 +1,8 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
-import { MdNotes } from 'react-icons/md';
 import LinkIntl from './ui/link-intl';
 import type { SectionProps } from '@/lib/types';
 import HoverBox from './ui/hover-box';
 import Button from './ui/button';
-import Link from 'next/link';
 
 export default function Hero({ lang, dictionary }: SectionProps) {
   return (
@@ -36,7 +34,7 @@ export default function Hero({ lang, dictionary }: SectionProps) {
               {dictionary?.button?.messageMe}
             </Button>
           </LinkIntl>
-          <Link
+          <a
             href={`/resume/resume_${lang}.pdf`}
             target='_blank'
             rel='noopener noreferrer'
@@ -49,7 +47,7 @@ export default function Hero({ lang, dictionary }: SectionProps) {
             >
               {dictionary.button.resume}
             </Button>
-          </Link>
+          </a>
         </div>
         <div className='flex space-x-4 justify-center sm:justify-start'>
           <a

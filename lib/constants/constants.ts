@@ -35,11 +35,6 @@ export const navLinks: NavLink[] = [
     label: 'Contact',
     url: '/contact',
   },
-  // {
-  //   id: 'resume',
-  //   label: 'Resume',
-  //   url: '/#',
-  // },
 ];
 
 export const customThemes = [
@@ -58,7 +53,8 @@ export const myData = {
   githubUrl: 'https://github.com/zyderus',
   linkedInUrl: 'https://www.linkedin.com/in/rustamziyadov',
   portfolioUrl: 'http://www.rystam.com',
-  resumeUrl: 'https://www.rystam.com/assets/resume/resume_en.pdf',
+  // TODO: localize resume
+  resumeUrl: 'https://www.rystam.com/resume/resume_en.pdf',
   telegramNick: '@rystamz',
   skills: [
     'Javascript',

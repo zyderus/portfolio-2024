@@ -17,8 +17,10 @@ export default async function ProjectPage({ params, searchParams }: any) {
   const page_num = searchParams['page'] ?? '1';
   const per_page = searchParams['per_page'] ?? '10';
 
-  const data: { repos: Repo[]; pagination: PaginationLinks } =
-    await fetchGithubRepos(page_num, per_page);
+  // TODO: apply correct types to data properties
+  // const data: { repos: Repo[]; pagination: PaginationLinks } =
+  //   await fetchGithubRepos(page_num, per_page);
+  const data: any = await fetchGithubRepos(page_num, per_page);
 
   return (
     // key={random} allows to stop caching to allow for skeletons on api fetch

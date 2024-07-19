@@ -8,6 +8,10 @@ interface TechList {
 }
 
 export const techList: TechList = {
+  '811107600': {
+    name: 'portfolio-2024',
+    tech: ['TypeScript', 'Next', 'TailwindCSS', 'i18n'],
+  },
   '402301890': {
     name: 'parts-store',
     tech: ['TypeScript', 'Express', 'Mongoose', 'MongoDB', 'Stripe'],
