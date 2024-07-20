@@ -45,6 +45,19 @@ TypeScript, Next, TailwindCSS, i18n
    npm run build
    ```
 
+### 🌐 i18nexus
+
+Internationalization implemented with i18nexus
+[app.i18nexus.com](https://i18nexus.com/)
+
+Update translations with
+
+```sh
+   npm run intl
+```
+
+### Demo images
+
 - Repo's demo images should be named <repo.name>.webp and stored in /public/demo folder
 
 ## License & copyright

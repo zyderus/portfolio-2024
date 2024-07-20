@@ -15,7 +15,7 @@ interface FormField {
   type: string;
   placeholder?: string;
   autocomplete?: 'on' | '';
-  required: boolean;
+  required?: boolean;
 }
 
 const contactFormFields: FormField[] = [
@@ -24,21 +24,22 @@ const contactFormFields: FormField[] = [
     type: 'text',
     placeholder: 'Name',
     autocomplete: 'on',
-    required: true,
+    // required: true,
   },
   {
     id: 'email',
-    type: 'email',
+    // type: 'email',
+    type: 'text',
     placeholder: 'example@domain.com',
     autocomplete: 'on',
-    required: true,
+    // required: true,
   },
   {
     id: 'message',
     type: 'textarea',
     placeholder: 'Type your message',
     autocomplete: 'on',
-    required: true,
+    // required: true,
   },
 ];
 
@@ -63,7 +64,11 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...data, date: formatDate(new Date()) }),
+        body: JSON.stringify({
+          ...data,
+          date: formatDate(new Date()),
+          dictionary: dictionary.email,
+        }),
       });
 
       if (response.ok) {

@@ -51,7 +51,7 @@ export default function ThemeSwitcher({ dictionary }: ThemeSwitcherProps) {
 
   return (
     <div className='relative'>
-      <Tooltip text={dictionary?.tooltip?.themeButton} delay={700}>
+      <Tooltip text={dictionary?.tooltip?.themeButton} delay={500}>
         <ProgressbarWrapper duration={LONG_CLICK_DELAY}>
           <ThemeButton
             isDropdownOpen={isDropdownOpen}

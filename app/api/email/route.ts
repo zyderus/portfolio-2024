@@ -5,7 +5,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   const { FROM_EMAIL, BCC_EMAIL, REPLY_TO } = process.env;
-  const { name, email, message, date } = await req.json();
+  const { name, email, message, date, dictionary } = await req.json();
+  const [confirmation, phrase] = dictionary.subject.split('|');
 
   if (!name || typeof name !== 'string') {
     console.log('Invalid name');
@@ -31,8 +32,10 @@ export async function POST(req: Request) {
       to: [email], // visible to everyone
       bcc: [BCC_EMAIL] as string[], // nobody sees addresses here
       reply_to: REPLY_TO, // recipient will send reply to
-      subject: `Confirmation: ${name}, your message has been received 🚀`,
-      react: EmailTemplate({ name, email, message, date }),
+      subject: `${confirmation && 'Confirmation'}: ${name}, ${
+        phrase && 'your message has been received'
+      } 🚀`,
+      react: EmailTemplate({ name, email, message, date, dictionary }),
     });
 
     if (error) {

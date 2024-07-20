@@ -16,7 +16,9 @@ export default async function ContactPage({ params: { lang } }: PageProps) {
     <section>
       <ToastContainer />
       <SectionHeader title={contact?.title} />
-      <ContactForm dictionary={contact} />
+      <ContactForm
+        dictionary={{ ...contact, email: { ...contact.email, lang } }}
+      />
     </section>
   );
 }
