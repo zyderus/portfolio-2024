@@ -15,6 +15,7 @@ import {
 } from '@react-email/components';
 import { myData } from '@/lib/constants/constants';
 import type { JsonType } from '@/lib/types';
+import { skills } from '@/lib/constants/skills';
 
 // template does NOT understand Flexbox nor Grid
 // set once you know your url
@@ -36,7 +37,7 @@ export const EmailTemplate = ({
   email,
   message,
   date,
-  dictionary,
+  dictionary = {},
 }: EmailTemplateProps) => {
   const [
     preview,
@@ -48,7 +49,7 @@ export const EmailTemplate = ({
     portfolio,
     resume,
     goodDay,
-  ] = dictionary?.message.split('|');
+  ] = dictionary.message?.split('|') || [];
 
   return (
     <Html>
@@ -65,52 +66,37 @@ export const EmailTemplate = ({
                   <span className='text-2xl text-[#e8e5e3]'>RZ</span>
                 </Column>
                 <Column align='right'>
-                  <Link
-                    href={myData.linkedInUrl}
-                    className='ml-1 border-solid border border-[#e8e5e3] rounded-full text-center inline-block p-2.5 text-[#a09b96]'
-                  >
-                    {/* 
-                      Keep in mind: the template will insert absolute links to images
-                      which have to be stored on a server
-                    */}
-                    <div className='text-center'>
+                  {[
+                    {
+                      href: myData.linkedInUrl,
+                      src: '/images/linkedin.png',
+                      alt: 'LinkedIn',
+                    },
+                    {
+                      href: myData.githubUrl,
+                      src: '/images/github.png',
+                      alt: 'GitHub',
+                    },
+                    {
+                      href: myData.portfolioUrl,
+                      src: '/images/portfolio.png',
+                      alt: 'Portfolio',
+                    },
+                  ].map(({ href, src, alt }) => (
+                    <Link
+                      key={alt}
+                      href={href}
+                      className='ml-1 border-solid border border-[#e8e5e3] rounded-full text-center inline-block p-2.5 text-[#a09b96]'
+                    >
                       <Img
-                        src='https://react-email-resend-rust.vercel.app/linkedin.png'
+                        src={`${baseUrl}${src}`}
                         width='18'
                         height='18'
-                        alt='LinkedIn'
+                        alt={alt}
                         className='mx-auto'
                       />
-                    </div>
-                  </Link>
-                  <Link
-                    href={myData.githubUrl}
-                    className='ml-1 border-solid border border-[#e8e5e3] rounded-full text-center inline-block leading-9 p-2.5 text-[#a09b96]'
-                  >
-                    <div className='text-center'>
-                      <Img
-                        src={`${baseUrl}/github.png`}
-                        width='18'
-                        height='18'
-                        alt='Github'
-                        className='mx-auto'
-                      />
-                    </div>
-                  </Link>
-                  <Link
-                    href={myData.portfolioUrl}
-                    className='ml-1 border-solid border border-[#e8e5e3] rounded-full text-center inline-block p-2.5 leading-9 text-[#a09b96]'
-                  >
-                    <div className='text-center'>
-                      <Img
-                        src={`${baseUrl}/portfolio.png`}
-                        width='18'
-                        height='18'
-                        alt='Portfolio'
-                        className='mx-auto'
-                      />
-                    </div>
-                  </Link>
+                    </Link>
+                  ))}
                 </Column>
               </Row>
             </Section>
@@ -146,49 +132,48 @@ export const EmailTemplate = ({
                 ✨
               </Text>
               <ul className='text-blue-500 columns-2 max-w-xs mx-auto font-mono'>
-                {myData.skills.map((skill, idx) => (
-                  <li key={idx}>{skill}</li>
+                {skills.map((skill, idx) => (
+                  <li key={idx}>{skill.label}</li>
                 ))}
               </ul>
               <Text>
                 🔍{' '}
                 {quickLinks ||
                   'quick links for additional information, should you need it'}
-                .
               </Text>
               <Row>
                 <Column align='center'>
                   <Link href={myData.portfolioUrl}>
-                    {portfolio || 'portfolio'}
+                    {portfolio || 'Portfolio'}
                   </Link>
                   <br />
                   <Link href={myData.portfolioUrl}>
                     <Img
-                      src={`${baseUrl}/thumbnail-portfolio.webp`}
+                      src={`${baseUrl}/images/thumbnail-portfolio.webp`}
                       width='100'
                       height='135'
-                      alt='Resume'
+                      alt={portfolio || 'Portfolio'}
                       className='border border-solid border-[#e8e5e3] rounded-xl p-2 mt-2'
                     />
                   </Link>
                 </Column>
                 <Column align='center'>
                   <Link href={myData.resumeUrl(dictionary?.lang || 'en')}>
-                    {resume || 'resume'}
+                    {resume || 'Resume'}
                   </Link>
                   <Link href={myData.resumeUrl(dictionary?.lang || 'en')}>
                     <Img
-                      src={`${baseUrl}/thumbnail-resume.webp`}
+                      src={`${baseUrl}/images/thumbnail-resume.webp`}
                       width='100'
                       height='135'
-                      alt='Resume'
+                      alt={resume || 'Resume'}
                       className='border border-solid border-[#e8e5e3] rounded-xl p-2 mt-2'
                     />
                   </Link>
                 </Column>
               </Row>
               <Text>{goodDay || 'Have a good day'} ☀️,</Text>
-              <Text>{myData.name}</Text>
+              <Text>{dictionary?.name?.split(' ')[0] || 'Rustam'}</Text>
             </Section>
           </Container>
           <Text className='text-center text-[#a09b96] leading-8'>
@@ -201,14 +186,14 @@ export const EmailTemplate = ({
             </Link>{' '}
             <span className='text-[14px] font-mono'>|</span>{' '}
             <Link href={myData.portfolioUrl} className='text-[#a09b96]'>
-              Portfolio
+              {portfolio || 'Portfolio'}
             </Link>{' '}
             <span className='text-[14px] font-mono'>|</span>{' '}
             <Link
               href={myData.resumeUrl(dictionary?.lang || 'en')}
               className='text-[#a09b96]'
             >
-              Resume
+              {resume || 'Resume'}
             </Link>
             <br />
             &copy; {new Date().getFullYear()} {myData.portfolioUrl.slice(7)}

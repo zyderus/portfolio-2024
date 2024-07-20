@@ -24,22 +24,21 @@ const contactFormFields: FormField[] = [
     type: 'text',
     placeholder: 'Name',
     autocomplete: 'on',
-    // required: true,
+    required: true,
   },
   {
     id: 'email',
-    // type: 'email',
-    type: 'text',
+    type: 'email',
     placeholder: 'example@domain.com',
     autocomplete: 'on',
-    // required: true,
+    required: true,
   },
   {
     id: 'message',
     type: 'textarea',
     placeholder: 'Type your message',
     autocomplete: 'on',
-    // required: true,
+    required: true,
   },
 ];
 
@@ -67,7 +66,7 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
         body: JSON.stringify({
           ...data,
           date: formatDate(new Date()),
-          dictionary: dictionary.email,
+          dictionary: dictionary?.reply,
         }),
       });
 

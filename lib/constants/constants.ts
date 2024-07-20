@@ -3,8 +3,7 @@ export const LOCALE_COOKIE = 'NEXT_LOCALE';
 export const LONG_CLICK_DELAY = 700; // milliseconds
 
 // TODO: set proper limit once done testing
-// export const RATE_LIMIT_INTERVAL = 60; // seconds
-export const RATE_LIMIT_INTERVAL = 1; // seconds
+export const RATE_LIMIT_INTERVAL = 60; // seconds
 
 export interface NavLink {
   id: string;
@@ -60,16 +59,4 @@ export const myData = {
   resumeUrl: (lang: string) =>
     `https://www.rystam.com/resume/resume_${lang}.pdf`,
   telegramNick: '@rystamz',
-  skills: [
-    'Javascript',
-    'Typescript',
-    'Node',
-    'React',
-    'Next',
-    'PostgreSQL',
-    'MongoDB',
-    'GraphQL',
-    'Storybook',
-    'Cucumber',
-  ],
 };

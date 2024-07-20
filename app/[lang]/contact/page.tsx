@@ -9,15 +9,17 @@ export default async function ContactPage({ params: { lang } }: PageProps) {
   const {
     intl: {
       page: { contact },
+      data: { name },
     },
   } = await getDictionary(lang);
 
   return (
     <section>
+      {/* TODO: style toast */}
       <ToastContainer />
       <SectionHeader title={contact?.title} />
       <ContactForm
-        dictionary={{ ...contact, email: { ...contact.email, lang } }}
+        dictionary={{ ...contact, reply: { ...contact.reply, lang, name } }}
       />
     </section>
   );
