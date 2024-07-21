@@ -7,7 +7,7 @@ import Button from './ui/button';
 export default function Hero({ lang, dictionary }: SectionProps) {
   return (
     <section id='home' className='min-h-screen xs:text-left'>
-      <div className='flex flex-col space-y-8 max-w-[800px] mx-auto mt-[15vh]'>
+      <div className='flex flex-col space-y-8 max-w-[800px] mx-auto mt-[12vh]'>
         <p className='text-lg sm:text-2xl text-center sm:text-left'>
           <span className='text-2xl sm:text-5xl'>👋</span>{' '}
           {dictionary?.hero?.title}

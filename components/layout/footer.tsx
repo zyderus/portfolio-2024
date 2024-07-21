@@ -9,7 +9,7 @@ interface FooterLink extends NavLink {
   external?: boolean;
 }
 
-const footerLinks: FooterLink[] = [
+const staticLinks: FooterLink[] = [
   ...navLinks.slice(0, -1),
   {
     id: 'linkedin',
@@ -23,7 +23,6 @@ const footerLinks: FooterLink[] = [
     url: myData.githubUrl,
     external: true,
   },
-  navLinks[navLinks.length - 1],
 ];
 
 export default async function Footer({ lang }: LangProps) {
@@ -36,12 +35,23 @@ export default async function Footer({ lang }: LangProps) {
   } = await getDictionary(lang);
   const version = await getAppVersion();
 
+  const footerLinks: FooterLink[] = [
+    ...staticLinks,
+    {
+      id: 'resume',
+      label: 'Resume',
+      url: `/resume/resume_${lang}.pdf`,
+      external: true,
+    },
+    navLinks[navLinks.length - 1],
+  ];
+
   return (
     <div className='bg-bg-secondary w-full'>
       <section className='min-h-40 pt-10 pb-14 text-center text-sm space-y-8 text-color-primary/80'>
         <Interests dictionary={footer?.tooltip?.interests} />
 
-        <ul className='flex flex-wrap justify-center list-none mx-auto gap-x-4'>
+        <ul className='flex flex-wrap justify-center list-none mx-auto gap-x-2 md:gap-x-4'>
           {footerLinks.map(({ id, label, url, external }) => (
             <li
               key={id}
@@ -49,7 +59,7 @@ export default async function Footer({ lang }: LangProps) {
             >
               {external ? (
                 <a href={url} target='_blank' rel='noopener noreferrer'>
-                  {label}
+                  {navigation[id] || label}
                 </a>
               ) : (
                 <LinkIntl href={url} lang={lang}>
