@@ -17,9 +17,6 @@ import { myData } from '@/lib/constants/constants';
 import type { JsonType } from '@/lib/types';
 import { skills } from '@/lib/constants/skills';
 
-// template does NOT understand Flexbox nor Grid
-// set once you know your url
-// port 3000. provided your next js app run on that port
 const baseUrl = process.env.VERCEL_URL
   ? 'portfolio-2024-five-chi.vercel.app'
   : 'http://localhost:3000';

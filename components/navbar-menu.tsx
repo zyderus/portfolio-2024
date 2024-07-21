@@ -9,7 +9,6 @@ import useLineStyle from '@/hooks/useLineStyle';
 import { navLinks } from '@/lib/constants/constants';
 
 // TODO: active link state bugs from features to projects
-// TODO: set inactive links to secondary color
 
 interface NavbarMenuProps {
   lang: Locale;
@@ -25,7 +24,6 @@ export default function NavbarMenu({
   dictionary,
 }: NavbarMenuProps) {
   const linkRefs = useRef<(HTMLLIElement | null)[]>([]);
-  // const [activeLinkIndex, setActiveLinkIndex] = useState(0);
   const pathname = usePathname();
   const activeHashIndex = useActiveSection({
     rootMargin: '0px 0px -20% 0px',

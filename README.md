@@ -60,6 +60,10 @@ Update translations with
 
 - Repo's demo images should be named <repo.name>.webp and stored in /public/demo folder
 
+### Resume
+
+- Make sure Resume PDF file exists for every locale
+
 ## License & copyright
 
 &copy; Rustam Ziyadov

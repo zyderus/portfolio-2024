@@ -72,7 +72,7 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
 
       if (response.ok) {
         console.log('Email sent successfully!');
-        toast.success(`${data.name}, ${dictionary.successfullySent} 🚀`);
+        toast.success(`${data.name}, ${dictionary.successfullySent}`);
         reset();
         setRemainingTime(RATE_LIMIT_INTERVAL);
       } else {

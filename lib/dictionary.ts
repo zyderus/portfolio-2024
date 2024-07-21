@@ -17,7 +17,6 @@ for (const locale of i18n.locales) {
 //   de: () => import('@/messages/de.json').then((module) => module.default),
 // };
 
-// TODO: /api/contact throws error
 export const getDictionary = async (locale: Locale) => {
   if (!dictionaries[locale]) {
     throw new Error(`Unsupported locale: ${locale}`);

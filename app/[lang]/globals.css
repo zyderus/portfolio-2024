@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* TODO: add secondary text color */
-
 :root {
   color-scheme: dark light;
   --color-primary: 10, 10, 10;
@@ -106,8 +104,7 @@
 }
 
 section {
-  /* TODO: fix py */
-  @apply mx-auto max-w-[1024px] px-[5%] xs:px-8 sm:px-16 py-16  text-center md:text-left leading-7;
+  @apply mx-auto max-w-[1024px] px-[5%] xs:px-8 sm:px-16 py-16 text-center md:text-left leading-7;
 
   /* scroll-margin-top: 100px; */
 }
@@ -164,6 +161,17 @@ section {
     color: #fff;
     background: rgba(var(--accent));
   }
+}
+
+/* React-toastify styles */
+.Toastify__toast {
+  color: rgba(var(--color-primary)) !important;
+  background: rgba(var(--background-secondary)) !important;
+}
+.Toastify__toast-icon {
+  background: #ccc;
+  outline: 2px solid #ccc;
+  border-radius: 100%;
 }
 
 /* 

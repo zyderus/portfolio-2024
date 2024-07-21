@@ -5,8 +5,6 @@ export interface Skill {
   size: number;
 }
 
-// TODO: replace locale params in urls which support i18n
-
 export const skills: Skill[] = [
   {
     label: 'Javascript',

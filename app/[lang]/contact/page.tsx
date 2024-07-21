@@ -15,7 +15,6 @@ export default async function ContactPage({ params: { lang } }: PageProps) {
 
   return (
     <section>
-      {/* TODO: style toast */}
       <ToastContainer />
       <SectionHeader title={contact?.title} />
       <ContactForm
