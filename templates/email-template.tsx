@@ -147,7 +147,7 @@ export const EmailTemplate = ({
                   <Link href={myData.portfolioUrl}>
                     <Img
                       src={`${baseUrl}/images/thumbnail-portfolio.webp`}
-                      width='100'
+                      width='135'
                       height='135'
                       alt={portfolio || 'Portfolio'}
                       className='border border-solid border-[#e8e5e3] rounded-xl p-2 mt-2'
@@ -161,7 +161,7 @@ export const EmailTemplate = ({
                   <Link href={myData.resumeUrl(dictionary?.lang || 'en')}>
                     <Img
                       src={`${baseUrl}/images/thumbnail-resume.webp`}
-                      width='100'
+                      width='135'
                       height='135'
                       alt={resume || 'Resume'}
                       className='border border-solid border-[#e8e5e3] rounded-xl p-2 mt-2'
