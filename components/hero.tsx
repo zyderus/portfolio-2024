@@ -3,6 +3,7 @@ import LinkIntl from './ui/link-intl';
 import type { SectionProps } from '@/lib/types';
 import HoverBox from './ui/hover-box';
 import Button from './ui/button';
+import { myData } from '@/lib/constants/constants';
 
 export default function Hero({ lang, dictionary }: SectionProps) {
   return (
@@ -51,7 +52,7 @@ export default function Hero({ lang, dictionary }: SectionProps) {
         </div>
         <div className='flex space-x-4 justify-center sm:justify-start'>
           <a
-            href='https://linkedin.com/in/yourprofile'
+            href={myData.linkedInUrl}
             target='_blank'
             rel='noopener noreferrer'
           >
@@ -59,11 +60,7 @@ export default function Hero({ lang, dictionary }: SectionProps) {
               <FaLinkedin className='text-3xl' />
             </HoverBox>
           </a>
-          <a
-            href='https://github.com/zyderus'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+          <a href={myData.githubUrl} target='_blank' rel='noopener noreferrer'>
             <HoverBox>
               <FaGithub className='text-3xl' />
             </HoverBox>

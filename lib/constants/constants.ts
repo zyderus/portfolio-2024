@@ -51,7 +51,7 @@ export const customThemes = [
 export const myData = {
   name: 'Rustam',
   githubUrl: 'https://github.com/zyderus',
-  linkedInUrl: 'https://www.linkedin.com/in/rustamziyadov',
+  linkedInUrl: 'https://www.linkedin.com/in/rustamziyodov',
   portfolioUrl: 'http://www.rystam.com',
   resumeUrl: (lang: string) =>
     `https://www.rystam.com/resume/resume_${lang}.pdf`,

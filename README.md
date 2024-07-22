@@ -66,4 +66,4 @@ Update translations with
 
 ## License & copyright
 
-&copy; Rustam Ziyadov
+&copy; Rustam Ziyodov
