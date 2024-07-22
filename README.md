@@ -17,7 +17,7 @@
 
 ## Description
 
-Second edition of my portfolio developed with Next.js, TypeScript, and Tailwind CSS. Features full server-side internationalization and multiple themes.
+My portfolio developed with Next.js, TypeScript, and Tailwind CSS. Features full server-side internationalization and multiple themes.
 
 ## Tech
 
@@ -47,8 +47,7 @@ TypeScript, Next, TailwindCSS, i18n
 
 ### 🌐 i18nexus
 
-Internationalization implemented with i18nexus
-[app.i18nexus.com](https://i18nexus.com/)
+Internationalization implemented with [i18nexus](https://i18nexus.com/)
 
 Update translations with
 
