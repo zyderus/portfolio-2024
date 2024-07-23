@@ -71,7 +71,6 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
       });
 
       if (response.ok) {
-        console.log('Email sent successfully!');
         toast.success(`${data.name}, ${dictionary.successfullySent}`);
         reset();
         setRemainingTime(RATE_LIMIT_INTERVAL);
@@ -79,13 +78,11 @@ export default function ContactForm({ dictionary }: ContactFormProps) {
         const data = await response.json();
         toast(data.error);
         const remaining = response.headers.get('X-RateLimit-Remaining');
-        console.log('Response error:', data.error);
         if (remaining) {
           setRemainingTime(Math.ceil(+remaining / 1000));
         }
       }
     } catch (error) {
-      console.error('Error sending email:', error);
       toast.error(`Error sending email: ${error}`);
     }
   }

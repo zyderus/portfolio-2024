@@ -42,6 +42,5 @@ export default function useActiveSection(options: IntersectionObserverInit) {
     };
   }, [handleObserver, options]);
 
-  // console.log(activeIndex);
   return activeIndex;
 }

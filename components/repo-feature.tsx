@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import type { Repo } from '@/lib/types';
-// import { movieAppMock as repo } from '@/lib/mocks';
 import { FaGithub } from 'react-icons/fa6';
 import { IoRocketSharp } from 'react-icons/io5';
 import HoverBox from './ui/hover-box';

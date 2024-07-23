@@ -11,10 +11,7 @@ export async function fetchFeatureProjects(): Promise<FeatureProject[] | []> {
       return [];
     }
 
-    // TODO: Enable caching after development
-    const response = await fetch(`${apiDomain}/api/projects/feature`, {
-      cache: 'no-store',
-    });
+    const response = await fetch(`${apiDomain}/api/projects/feature`);
 
     if (!response.ok) {
       throw new Error('Failed to fetch data');
@@ -22,7 +19,7 @@ export async function fetchFeatureProjects(): Promise<FeatureProject[] | []> {
 
     return response.json();
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return [];
   }
 }
@@ -38,8 +35,7 @@ export const fetchGithubReposByTopic = async (
       headers.Authorization = `token ${GITHUB_TOKEN}`;
     }
 
-    // TODO: Enable caching after development
-    const response = await fetch(url, { headers, cache: 'no-store' });
+    const response = await fetch(url, { headers });
 
     if (!response.ok) {
       throw new Error(
@@ -75,8 +71,7 @@ export const fetchGithubRepos = async (
       headers.Authorization = `token ${GITHUB_TOKEN}`;
     }
 
-    // TODO: Enable caching after development
-    const response = await fetch(url, { headers, cache: 'no-store' });
+    const response = await fetch(url, { headers });
 
     if (!response.ok) {
       throw new Error(

@@ -62,12 +62,5 @@ export const rateLimitMiddleware =
       return;
     }
 
-    // TODO: remove test path when done ts
-    // Path /roll
-    if (pathname.startsWith('/roll')) {
-      console.log('middleware @ path /roll');
-      return NextResponse.redirect(new URL('/', request.url));
-    }
-
     return middleware(request);
   };

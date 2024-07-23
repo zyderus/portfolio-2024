@@ -3,7 +3,7 @@ import { useLayoutEffect } from 'react';
 import { LOCAL_STORAGE_THEME_KEY } from '@/lib/constants/constants';
 
 /*  TODO: find solution and write a bug report to vercel */
-// Fix theme class breaking on i18n middleware redirect && app behind [lang] route
+// Resolve theme class issue behind [lang] routes caused by i18n middleware redirects
 
 export default function ApplyCssClasses() {
   useLayoutEffect(() => {

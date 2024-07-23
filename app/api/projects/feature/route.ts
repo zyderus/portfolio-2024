@@ -12,10 +12,9 @@ export async function GET() {
 
     return Response.json(JSON.parse(fileContents));
   } catch (error) {
-    console.error('Error parsing JSON file:', error);
     return Response.json(
       {
-        error: `Internal Server Error: ${error}`,
+        error: `Error parsing JSON file: ${error}`,
       },
       { status: 500 }
     );

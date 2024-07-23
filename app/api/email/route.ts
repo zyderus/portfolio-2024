@@ -9,20 +9,14 @@ export async function POST(req: Request) {
   const [confirmation, phrase] = dictionary?.subject?.split('|');
 
   if (!name || typeof name !== 'string') {
-    console.log('Invalid name');
-
     return Response.json({ error: 'Invalid name' }, { status: 400 });
   }
 
   if (!email || typeof email !== 'string' || !/\S+@\S+\.\S+/.test(email)) {
-    console.log('Invalid email');
-
     return Response.json({ error: 'Invalid email' }, { status: 400 });
   }
 
   if (!message || typeof message !== 'string') {
-    console.log('Invalid message');
-
     return Response.json({ error: 'Invalid message' }, { status: 400 });
   }
 

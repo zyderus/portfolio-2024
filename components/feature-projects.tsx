@@ -1,17 +1,16 @@
-import { fetchFeatureProjects, fetchGithubReposByTopic } from '@/lib/requests';
+import { fetchGithubReposByTopic } from '@/lib/requests';
 import type { SectionProps } from '@/lib/types';
 import RepoFeature from './repo-feature';
 import SectionHeader from './ui/section-header';
 
 export default async function FeatureProjects({ dictionary }: SectionProps) {
-  // const projects = await fetchFeatureProjects();
   const featureRepos = await fetchGithubReposByTopic();
 
   return (
     <section id='features' className='min-h-screen px-0 sm:px-16'>
       <SectionHeader id='features' title={dictionary?.features?.title} />
 
-      <ul className='mx-auto flex flex-col gap-24 mt-4'>
+      <ul className='mx-auto flex flex-col gap-32 mt-4'>
         {featureRepos.map((repo) => (
           <li
             key={repo.id}

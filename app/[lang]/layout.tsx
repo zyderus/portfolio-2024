@@ -9,6 +9,9 @@ import Footer from '@/components/layout/footer';
 import { getDictionary } from '@/lib/dictionary';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
+const defaultTitle = 'Rustam Ziyodov | Software Engineer Portfolio';
+const defaultDescription =
+  "Discover Rustam Ziyodov's portfolio, showcasing his extensive experience as a Software Engineer. Rustam specializes in developing innovative web applications with Next.js, TypeScript, JavaScript, Nest.js, Express.js, AWS, SQL, MongoDB, and Tailwind CSS. Explore his projects, skills, and professional journey.";
 
 export interface PageProps {
   params: {
@@ -22,10 +25,6 @@ export async function generateMetadata({
   const {
     intl: { seo },
   } = await getDictionary(params.lang);
-
-  const defaultTitle = 'Rustam Ziyodov | Software Engineer Portfolio';
-  const defaultDescription =
-    "Discover Rustam Ziyodov's portfolio, showcasing his extensive experience as a Software Engineer. Rustam specializes in developing innovative web applications with Next.js, TypeScript, JavaScript, Nest.js, Express.js, AWS, SQL, MongoDB, and Tailwind CSS. Explore his projects, skills, and professional journey.";
 
   return {
     title: seo?.title || defaultTitle,
@@ -53,11 +52,6 @@ export async function generateMetadata({
       description: seo?.description || defaultDescription,
       images: ['https://rystam.com/demo/portfolio-2024.webp'],
     },
-    // icons: {
-    //   icon: '/favicon.ico',
-    //   apple: '/apple-touch-icon.png',
-    //   shortcut: '/shortcut-icon.png',
-    // },
   };
 }
 
