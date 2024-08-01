@@ -1,14 +1,12 @@
 'use client';
-import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import Link from 'next/link';
 import { trips } from '@/lib/constants/trips';
 import SectionHeader from '@/components/ui/section-header';
 import TestTimeline from '@/components/ui/test-timeline';
 
 const PropertyPage = () => {
   const { id } = useParams();
-  const [trip, setTrip] = useState(trips.find((trip) => trip.id === +id));
+  const trip = trips.find((trip) => trip.id === +id);
 
   if (!trip)
     return (
@@ -18,7 +16,7 @@ const PropertyPage = () => {
   return (
     <section>
       <SectionHeader title={trip.title} />
-      <TestTimeline list={trip.points_of_interest} />
+      <TestTimeline />
     </section>
   );
 };

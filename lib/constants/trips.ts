@@ -25,7 +25,7 @@ type Trip = {
 export const trips: Trip[] = [
   {
     id: 1088,
-    title: 'Trip to the US',
+    title: 'US trip',
     type: ['business', 'pleasure'],
     description:
       'A trip from Tashkent to San Francisco includes the meeting and contract signing, followed by a visit to friends in Denver. The journey concludes with a road trip across California, featuring various leisure activities, before returning to Tashkent.',

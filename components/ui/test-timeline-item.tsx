@@ -1,11 +1,11 @@
 import { IconType } from 'react-icons';
-import { IoBriefcaseOutline } from 'react-icons/io5';
-import { TestExperienceItem } from './test-timeline';
+import { FaCar } from 'react-icons/fa6';
 import TestTripMap from './test-trip-map';
+import type { Place } from '@/lib/constants/places';
 
 type TestTimelineProps = {
-  item: TestExperienceItem;
-  prevItem: TestExperienceItem;
+  item: Place;
+  prevItem: Place;
 };
 
 export default function TestTimelineItem({
@@ -21,7 +21,7 @@ export default function TestTimelineItem({
       </div>
       <div className='relative py-2 sm:py-6 text-3xl flex justify-center items-center sm:items-start'>
         <div className='w-16 h-16 flex justify-center items-center bg-bg-primary border-2 border-bg-secondary rounded-full'>
-          {item.icon ? <item.icon /> : <IoBriefcaseOutline />}
+          <FaCar />
         </div>
         <div className='absolute inset-y-0 left-1/2 w-px border-dashed border-t-0 border-b-0 border-l border-r border-bg-secondary transform -translate-x-1/2 -z-10'></div>
       </div>

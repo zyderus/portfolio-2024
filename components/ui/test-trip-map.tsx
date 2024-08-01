@@ -6,6 +6,7 @@ import {
   useMap,
   useMapsLibrary,
 } from '@vis.gl/react-google-maps';
+import { formatDistance } from '@/lib/format-distance';
 
 type DirectionsProps = {
   origin: any;
@@ -82,21 +83,33 @@ function Directions({ origin, destination }: DirectionsProps) {
     <div className='w-1/2 rounded-l-xl bg-bg-secondary p-4'>
       <h2 className='font-bold text-lg'>{selected.summary}</h2>
       <p>
-        {leg.start_address.split(',')[0]} to {leg.end_address.split(',')[0]}
+        <span className='font-bold'>{leg.start_address.split(',')[0]}</span> to{' '}
+        <span className='font-bold'>{leg.end_address.split(',')[0]}</span>
       </p>
-      <p>Distance: {leg.distance?.text}</p>
-      <p>Duration: {leg.duration?.text}</p>
+      <p className='text-sm'>
+        {formatDistance(leg.distance?.text)} | {leg.duration?.text}
+      </p>
 
-      <h2>Other routes</h2>
-      <ul>
-        {routes.map((route, index) => (
-          <li key={route.summary}>
-            <button onClick={() => setRouteIndex(index)}>
-              {route.summary}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div className='my-4'>
+        <h2 className='text-sm font-bold'>ROUTES:</h2>
+        <ul className='pl-3 text-sm'>
+          {routes.map((route, index) => (
+            <li key={route.summary}>
+              <button
+                onClick={() => setRouteIndex(index)}
+                className={`relative ${
+                  index === routeIndex ? 'text-accent' : 'text-color-primary'
+                }`}
+              >
+                {route.summary}
+                {index === routeIndex && (
+                  <div className='absolute -top-[1px] -left-3'>• </div>
+                )}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

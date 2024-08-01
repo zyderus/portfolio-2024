@@ -23,7 +23,8 @@ export default function Button({
   };
   const sizeStyles = {
     small: 'text-base',
-    medium: 'text-md',
+    medium:
+      'xs:text-md sm:text-lg px-2 sm:px-3 py-1 xs:py-1 sm:py-1 rounded-md sm:rounded-lg',
     large:
       'xs:text-lg sm:text-xl px-2 sm:px-4 md:px-6 py-2 xs:py-3 sm:py-4 rounded-lg sm:rounded-xl',
   };

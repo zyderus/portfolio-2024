@@ -25,6 +25,22 @@ const config: Config = {
       screens: {
         xs: '280px',
       },
+      keyframes: {
+        'spin-tilt': {
+          '0%': {
+            transform:
+              'translateY(-30%) translateX(-50%) rotateX(55deg) rotateZ(0deg)',
+          },
+          '100%': {
+            transform:
+              'translateY(-30%) translateX(-50%) rotateX(55deg) rotateZ(360deg)',
+          },
+        },
+      },
+      animation: {
+        'spin-tilt': 'spin-tilt 7s linear infinite',
+        'spin-slow': 'spin 5s linear infinite',
+      },
     },
   },
   plugins: [],
