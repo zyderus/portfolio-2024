@@ -13,7 +13,7 @@ type DirectionsProps = {
   destination: any;
 };
 
-export default function TestTripMap({ origin, destination }: DirectionsProps) {
+export default function TripMap({ origin, destination }: DirectionsProps) {
   const position = { lat: 43.6532, lng: -79.3832 };
 
   return (

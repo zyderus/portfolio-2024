@@ -6,11 +6,11 @@ import PlacesSideMenu from './places-side-menu';
 import { PiBracketsSquare } from 'react-icons/pi';
 import FitBoundsButton from './fit-bounds-button';
 
-type TestPoiMapProps = {
+type PoiMapProps = {
   places: any;
 };
 
-export default function TestPoiMap({ places }: TestPoiMapProps) {
+export default function PoiMap({ places }: PoiMapProps) {
   const [selectedPlaceId, setSelectedPlaceId] = useState<number | null>(null);
 
   return (

@@ -29,6 +29,7 @@ export default function NavbarMenu({
     rootMargin: '0px 0px -20% 0px',
     threshold: 1,
   });
+  const isPathKnownRef = useRef(true);
 
   const handleClick = useCallback(
     (index: number) => {
@@ -42,11 +43,13 @@ export default function NavbarMenu({
 
     if (isHomePath) {
       setActiveLinkIndex(activeHashIndex || 0);
+      isPathKnownRef.current = true;
     } else {
       const initialIndex = navLinks.findIndex(
         (link) => link.url === pathname || `/${lang}${link.url}` === pathname
       );
       setActiveLinkIndex(initialIndex !== -1 ? initialIndex : 0);
+      isPathKnownRef.current = initialIndex !== -1;
     }
   }, [activeHashIndex, lang, pathname, setActiveLinkIndex]);
 
@@ -61,7 +64,7 @@ export default function NavbarMenu({
               href={url}
               lang={lang}
               className={`px-3 transition-colors duration-300 ease-in-out hover:text-color-primary ${
-                activeLinkIndex === index
+                isPathKnownRef.current && activeLinkIndex === index
                   ? 'text-color-primary'
                   : 'text-color-primary/60'
               }`}
@@ -73,10 +76,12 @@ export default function NavbarMenu({
           </li>
         );
       })}
-      <div
-        className='absolute left-1 -bottom-1 border-b border-accent transition-all duration-300 ease-in-out'
-        style={lineStyle}
-      ></div>
+      {isPathKnownRef.current && (
+        <div
+          className='absolute left-1 -bottom-1 border-b border-accent transition-all duration-300 ease-in-out'
+          style={lineStyle}
+        ></div>
+      )}
     </ul>
   );
 }

@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 interface TruncatedTextProps {
   description: string;
   isExpanded: boolean;
@@ -19,14 +17,12 @@ export default function TruncatedText({
     <div className='pl-3 text-sm'>
       <p>
         {isExpanded ? description : truncateText(description)}
-        {description.length > length && (
-          <span
-            className='text-color-primary/60 cursor-pointer'
-            onClick={onToggle}
-          >
-            {isExpanded ? ' less' : '...more'}
-          </span>
-        )}
+        <span
+          className='text-color-primary/60 cursor-pointer'
+          onClick={onToggle}
+        >
+          {isExpanded ? ' less' : '...more'}
+        </span>
       </p>
     </div>
   );

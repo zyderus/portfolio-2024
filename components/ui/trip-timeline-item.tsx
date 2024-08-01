@@ -1,17 +1,17 @@
 import { IconType } from 'react-icons';
 import { FaCar } from 'react-icons/fa6';
-import TestTripMap from './test-trip-map';
+import TripMap from './trip-map';
 import type { Place } from '@/lib/constants/places';
 
-type TestTimelineProps = {
+type TripTimelineProps = {
   item: Place;
   prevItem: Place;
 };
 
-export default function TestTimelineItem({
+export default function TripTimelineItem({
   item,
   prevItem,
-}: TestTimelineProps) {
+}: TripTimelineProps) {
   return (
     <li className='group list-none flex justify-center items-top flex-col sm:flex-row even:sm:flex-row-reverse text-sm sm:text-base text-center sm:text-left flex-wrap'>
       <div className='flex-1 sm:py-6'>
@@ -35,9 +35,7 @@ export default function TestTimelineItem({
           '
         >
           <p className='font-bold mb-2'>{item.title}</p>
-          {/* <p className='text-sm italic'>{item.location}</p> */}
           <p>{item.description}</p>
-
           <div
             className='
               hidden sm:block
@@ -54,7 +52,7 @@ export default function TestTimelineItem({
         </div>
       </div>
 
-      <TestTripMap
+      <TripMap
         origin={
           prevItem ? prevItem.title : `${item.title} international airport`
         }
