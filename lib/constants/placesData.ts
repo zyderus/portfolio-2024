@@ -278,17 +278,6 @@ export const places = [
   {
     priority: 1,
     area: 'RoadTrip',
-    title: 'Sacramento',
-    position: {
-      lat: 38.57925151281258,
-      lng: -121.48474714591086,
-    },
-    description:
-      'Sacramento, capital of the U.S. state of California, lies at the confluence of the Sacramento River and American River. The district of Old Sacramento harkens back to the city’s Gold Rush era, with wooden sidewalks and wagon rides. One of several museums in Old Sacramento, the California State Railroad Museum depicts the construction of the Transcontinental Railroad, one of the country’s earliest technological feats.',
-  },
-  {
-    priority: 1,
-    area: 'RoadTrip',
     title: 'Monterey',
     position: {
       lat: 36.600258096795095,
@@ -322,17 +311,6 @@ export const places = [
   {
     priority: 1,
     area: 'RoadTrip',
-    title: 'Griffith Observatory',
-    position: {
-      lat: 34.11860278644951,
-      lng: -118.29951372443398,
-    },
-    description:
-      'This art deco landmark from 1935 features a high-tech planetarium, public telescopes & city views.',
-  },
-  {
-    priority: 1,
-    area: 'RoadTrip',
     title: 'Hollywood Sign',
     position: {
       lat: 34.13422553280788,
@@ -344,13 +322,13 @@ export const places = [
   {
     priority: 1,
     area: 'RoadTrip',
-    title: 'Hollywood Boulevard',
+    title: 'Griffith Observatory',
     position: {
-      lat: 34.10172311401499,
-      lng: -118.33975233637564,
+      lat: 34.11860278644951,
+      lng: -118.29951372443398,
     },
     description:
-      'Hollywood Boulevard is a vibrant street with museums, theatres, cinemas and other landmarks that celebrate Los Angeles’ colourful film history. Stroll down the broad, tree-lined path and you might spot celebrities signing autographs, or watch stars being added to the Hollywood Walk of Fame.',
+      'This art deco landmark from 1935 features a high-tech planetarium, public telescopes & city views.',
   },
   {
     priority: 1,
@@ -362,6 +340,17 @@ export const places = [
     },
     description:
       'Legendary memorial walk adorned with stars bearing the biggest names in the entertainment industry.',
+  },
+  {
+    priority: 1,
+    area: 'RoadTrip',
+    title: 'Hollywood Boulevard',
+    position: {
+      lat: 34.10172311401499,
+      lng: -118.33975233637564,
+    },
+    description:
+      'Hollywood Boulevard is a vibrant street with museums, theatres, cinemas and other landmarks that celebrate Los Angeles’ colourful film history. Stroll down the broad, tree-lined path and you might spot celebrities signing autographs, or watch stars being added to the Hollywood Walk of Fame.',
   },
   {
     priority: 1,
@@ -410,6 +399,17 @@ export const places = [
   {
     priority: 1,
     area: 'RoadTrip',
+    title: 'Yosemite National Park',
+    position: {
+      lat: 37.88229469065574,
+      lng: -119.49284137580148,
+    },
+    description:
+      'Iconic national park offers an array of options such as hiking among redwoods & river rafting.',
+  },
+  {
+    priority: 1,
+    area: 'RoadTrip',
     title: 'Lake Tahoe',
     position: {
       lat: 38.948986873597455,
@@ -421,12 +421,23 @@ export const places = [
   {
     priority: 1,
     area: 'RoadTrip',
-    title: 'Yosemite National Park',
+    title: 'Sacramento',
     position: {
-      lat: 37.88229469065574,
-      lng: -119.49284137580148,
+      lat: 38.57925151281258,
+      lng: -121.48474714591086,
     },
     description:
-      'Iconic national park offers an array of options such as hiking among redwoods & river rafting.',
+      'Sacramento, capital of the U.S. state of California, lies at the confluence of the Sacramento River and American River. The district of Old Sacramento harkens back to the city’s Gold Rush era, with wooden sidewalks and wagon rides. One of several museums in Old Sacramento, the California State Railroad Museum depicts the construction of the Transcontinental Railroad, one of the country’s earliest technological feats.',
+  },
+  {
+    priority: 1,
+    area: 'RoadTrip',
+    title: 'San Francisco',
+    position: {
+      lat: 37.77446445608573,
+      lng: -122.4272780949016,
+    },
+    description:
+      'San Francisco, officially the City and County of San Francisco, is a commercial, financial, and cultural center in Northern California. With a population of 808,437 residents as of 2022, San Francisco is the fourth most populous city in the U.S. state of California behind Los Angeles, San Diego, and San Jose.',
   },
 ];
