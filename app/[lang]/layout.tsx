@@ -8,6 +8,7 @@ import ApplyCssClasses from '@/components/layout/apply-css-classes';
 import Footer from '@/components/layout/footer';
 import { getDictionary } from '@/lib/dictionary';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 const defaultTitle = 'Rustam Ziyodov | Portfolio';
@@ -32,11 +33,14 @@ export async function generateMetadata({
     description: seo?.description || defaultDescription,
     authors: { name: 'Rustam Ziyodov' },
     robots: 'index, follow',
+    metadataBase: new URL('https://rystam.com/'),
     openGraph: {
       title: seo?.title || defaultTitle,
       description: seo?.description || defaultDescription,
       url: `https://rystam.com/${params.lang}`,
-      siteName: 'Rustam Ziyodov',
+      siteName: 'Rustam Ziyodov Portfolio',
+      type: 'website',
+      locale: 'en_US',
       images: [
         {
           url: 'https://rystam.com/demo/portfolio-2024.webp',
@@ -77,6 +81,7 @@ export default function RootLayout({
         <main>
           {children}
           <SpeedInsights />
+          <Analytics />
         </main>
         <Footer lang={params.lang} />
       </body>
