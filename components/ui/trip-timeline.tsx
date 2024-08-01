@@ -32,13 +32,11 @@ export default function TripTimeline() {
       <h1 className='text-center text-3xl my-8'>
         California road trip timeline
       </h1>
-      <ul className='flex flex-col gap-14 sm:gap-[2px]'>
+      <ul className='flex flex-col gap-[2px]'>
         {placesByArea.RoadTrip.map((item, index, arr) => (
-          <TripTimelineItem
-            key={item.id}
-            item={item}
-            prevItem={arr[index - 1]}
-          />
+          <li key={item.id} className='group list-none'>
+            <TripTimelineItem item={item} prevItem={arr[index - 1]} />
+          </li>
         ))}
       </ul>
     </>

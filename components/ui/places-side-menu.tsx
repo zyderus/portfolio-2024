@@ -45,7 +45,7 @@ export default function PlacesSideMenu({
   }, [selectedPlaceId, places]);
 
   return (
-    <div className='w-full h-full bg-bg-secondary rounded-r-xl overflow-hidden hover:overflow-y-auto hover:overscroll-contain hover:scrollbar-regular'>
+    <div className='w-full h-full bg-bg-secondary rounded-r-xl overflow-y-auto overscroll-contain scrollbar-regular'>
       <ul>
         {places.map(({ id, title, description }, index) => (
           <li

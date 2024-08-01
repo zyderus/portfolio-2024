@@ -20,7 +20,7 @@ export default function TripMap({ origin, destination }: DirectionsProps) {
     <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string}>
       <div className='flex w-full'>
         <Directions origin={origin} destination={destination} />
-        <div className='w-1/2 h-[300px] rounded-r-xl overflow-hidden'>
+        <div className='w-1/2 h-[300px] rounded-br-xl sm:rounded-r-xl overflow-hidden'>
           <Map
             defaultZoom={9}
             defaultCenter={position}
@@ -80,7 +80,7 @@ function Directions({ origin, destination }: DirectionsProps) {
   if (!leg) return null;
 
   return (
-    <div className='w-1/2 rounded-l-xl bg-bg-secondary p-4'>
+    <div className='w-1/2 rounded-bl-xl sm:rounded-l-xl bg-bg-secondary p-4'>
       <h2 className='font-bold text-lg'>{selected.summary}</h2>
       <p>
         <span className='font-bold'>{leg.start_address.split(',')[0]}</span> to{' '}

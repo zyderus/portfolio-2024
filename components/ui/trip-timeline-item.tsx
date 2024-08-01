@@ -1,4 +1,3 @@
-import { IconType } from 'react-icons';
 import { FaCar } from 'react-icons/fa6';
 import TripMap from './trip-map';
 import type { Place } from '@/lib/constants/places';
@@ -13,26 +12,24 @@ export default function TripTimelineItem({
   prevItem,
 }: TripTimelineProps) {
   return (
-    <li className='group list-none flex justify-center items-top flex-col sm:flex-row even:sm:flex-row-reverse text-sm sm:text-base text-center sm:text-left flex-wrap'>
-      <div className='flex-1 sm:py-6'>
-        <div className='flex justify-center sm:justify-end group-even:sm:justify-start items-center sm:px-4 sm:h-16'>
+    <div className='relative flex flex-col sm:flex-row group-even:sm:flex-row-reverse flex-wrap justify-center items-top text-sm sm:text-base text-center sm:text-left py-14'>
+      <div className='absolute inset-y-0 left-1/2 w-px border-dashed border-t-0 border-b-0 border-l border-r border-bg-secondary transform -translate-x-1/2 -z-10'></div>
+
+      <div className='sm:flex-1 sm:py-6'>
+        <div className='mx-auto flex justify-center sm:justify-end group-even:sm:justify-start items-center w-max sm:w-full px-4 py-1 sm:px-4 sm:h-16 rounded-md bg-bg-secondary sm:bg-bg-primary'>
           date - date
         </div>
       </div>
-      <div className='relative py-2 sm:py-6 text-3xl flex justify-center items-center sm:items-start'>
+      <div className='py-2 sm:py-6 text-3xl flex justify-center items-center sm:items-start'>
         <div className='w-16 h-16 flex justify-center items-center bg-bg-primary border-2 border-bg-secondary rounded-full'>
           <FaCar />
         </div>
-        <div className='absolute inset-y-0 left-1/2 w-px border-dashed border-t-0 border-b-0 border-l border-r border-bg-secondary transform -translate-x-1/2 -z-10'></div>
       </div>
       <div className='flex-1 sm:py-6'>
         <div
           className='relative min-h-16 p-[5%] sm:px-6 py-4
-            sm:ml-6 group-even:sm:mr-6 
-            bg-bg-secondary rounded-xl 
-            mr-0 sm:-mr-12 group-even:sm:mr0
-            group-even:sm:-ml-12
-          '
+            sm:ml-6 group-even:sm:ml-0 group-even:sm:mr-6 
+            bg-bg-secondary rounded-t-xl sm:rounded-xl'
         >
           <p className='font-bold mb-2'>{item.title}</p>
           <p>{item.description}</p>
@@ -58,6 +55,6 @@ export default function TripTimelineItem({
         }
         destination={item.title}
       />
-    </li>
+    </div>
   );
 }

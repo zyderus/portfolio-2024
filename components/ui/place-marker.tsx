@@ -38,7 +38,7 @@ export const PlaceMarker = ({
         />
         {isActive && (
           <PiCrosshairThin
-            className='absolute text-6xl text-blue-600/40 -translate-y-1/2 animate-spin-tilt -z-10'
+            className='absolute text-6xl text-blue-600/80 -translate-y-1/2 animate-spin-tilt -z-10'
             style={{ transformOrigin: 'center' }}
           />
         )}

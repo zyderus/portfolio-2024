@@ -23,7 +23,7 @@ export default function TimelineItem({ item, dictionary }: TimelineProps) {
     : '';
 
   return (
-    <li className='group list-none flex justify-center items-top flex-col sm:flex-row even:sm:flex-row-reverse text-sm sm:text-base text-center sm:text-left'>
+    <div className='flex justify-center items-top flex-col sm:flex-row group-even:sm:flex-row-reverse text-sm sm:text-base text-center sm:text-left'>
       <div className='flex-1 sm:py-6'>
         <div className='flex justify-center sm:justify-end group-even:sm:justify-start items-center sm:px-4 sm:h-16'>
           {startYear}
@@ -75,6 +75,6 @@ export default function TimelineItem({ item, dictionary }: TimelineProps) {
           ></div>
         </div>
       </div>
-    </li>
+    </div>
   );
 }
