@@ -8,16 +8,19 @@ type TimelineProps = {
 };
 
 export default function TimelineItem({ item, dictionary }: TimelineProps) {
-  const intl = dictionary.dict.split('|');
+  const intl =
+    typeof dictionary.dict === 'string' ? dictionary.dict.split('|') : [];
+
   const intlItem = {
     organization: intl[0] || item.organization,
     discipline: intl[1] || item.discipline,
     location: intl[2] || item.location,
     description: intl[3] || item.description,
     awardsDescription: intl[4] || item.awards,
+    url: item.url,
   };
 
-  const startYear = new Date(item.date_start).getFullYear();
+  const startYear = item.date_start && new Date(item.date_start).getFullYear();
   const endYear = item.date_end
     ? ` - ${new Date(item.date_end).getFullYear()}`
     : '';
@@ -25,10 +28,12 @@ export default function TimelineItem({ item, dictionary }: TimelineProps) {
   return (
     <div className='flex justify-center items-top flex-col sm:flex-row group-even:sm:flex-row-reverse text-sm sm:text-base text-center sm:text-left'>
       <div className='flex-1 sm:py-6'>
-        <div className='flex justify-center sm:justify-end group-even:sm:justify-start items-center sm:px-4 sm:h-16'>
-          {startYear}
-          {endYear}
-        </div>
+        {startYear && (
+          <div className='flex justify-center sm:justify-end group-even:sm:justify-start items-center sm:px-4 sm:h-16'>
+            {startYear}
+            {endYear}
+          </div>
+        )}
       </div>
 
       <div className='relative py-2 sm:py-6 text-3xl flex justify-center items-center sm:items-start'>
@@ -48,15 +53,24 @@ export default function TimelineItem({ item, dictionary }: TimelineProps) {
           '
         >
           <p className='font-bold mb-2'>{intlItem.discipline}</p>
-          {intlItem.organization !== 'Contract' && (
-            <p className='font-bold'>{intlItem.organization}</p>
-          )}
+          <p className='font-bold'>{intlItem.organization}</p>
           <p className='text-sm italic'>{intlItem.location}</p>
-          <p>{intlItem.description}</p>
+          <p className='pt-3'>{intlItem.description}</p>
           {intlItem.awardsDescription && (
             <p className='mt-2 text-sm'>
               <span className='font-bold'>{dictionary?.awards}:</span>{' '}
-              {intlItem.awardsDescription}
+              {intlItem.url ? (
+                <a
+                  href={intlItem.url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='text-accent hover:underline'
+                >
+                  {intlItem.awardsDescription}
+                </a>
+              ) : (
+                intlItem.awardsDescription
+              )}
             </p>
           )}
 
