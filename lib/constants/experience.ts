@@ -45,7 +45,7 @@ export const work: ExperienceItem[] = [
     id: 102,
     organization: 'GK Algo',
     discipline: 'Software Engineer',
-    date_start: 'April 2018',
+    date_start: 'April 2020',
     date_end: 'September 2021',
     location: 'Moscow, Russia',
     description:
