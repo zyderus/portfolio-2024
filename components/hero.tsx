@@ -36,7 +36,7 @@ export default function Hero({ lang, dictionary }: SectionProps) {
             </Button>
           </LinkIntl>
           <a
-            href={`/resume/resume_${lang}.pdf`}
+            href={`/resume/Rustam_Ziyodov_Frontend_2025_${lang}.pdf`}
             target='_blank'
             rel='noopener noreferrer'
             className='flex-1 sm:w-1/2'
